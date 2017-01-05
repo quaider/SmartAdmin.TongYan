@@ -28,6 +28,14 @@
                     api.Async(x =>
                     {
                         x.AutoParam = "fuck";
+                    }).Callback(x =>
+                    {
+                        x.BeforeAsync = "bfAsync";
+                    }).Edit(x =>
+                    {
+                        x.Drag.BorderMax = 100;
+                        x.Drag.BorderMin = 10;
+                        x.RemoveTitle = "rmTitle";
                     })
                 )
             </div>

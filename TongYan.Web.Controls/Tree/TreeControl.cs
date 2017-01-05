@@ -30,39 +30,67 @@ namespace TongYan.Web.Controls.Tree
 
         ITreeApi ITreeApi.Async(Action<TreeAsyncOptions> options)
         {
-            var asyncOpt = new TreeAsyncOptions();
+            var opts = new TreeAsyncOptions();
 
             if (options != null)
-                options(asyncOpt);
+                options(opts);
 
-            TreeOptions.SetItemOptions(asyncOpt);
+            TreeOptions.SetItemOptions(opts);
 
             return this;
         }
 
         ITreeApi ITreeApi.Callback(Action<TreeCallbackOptions> options)
         {
-            throw new NotImplementedException();
+            var opts = new TreeCallbackOptions();
+
+            if (options != null)
+                options(opts);
+
+            TreeOptions.SetItemOptions(opts);
+
+            return this;
         }
 
         ITreeApi ITreeApi.Check(Action<TreeCheckOptions> options)
         {
-            throw new NotImplementedException();
+            var opts = new TreeCheckOptions();
+
+            if (options != null)
+                options(opts);
+
+            TreeOptions.SetItemOptions(opts);
+
+            return this;
         }
 
         ITreeApi ITreeApi.Data()
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         ITreeApi ITreeApi.Edit(Action<TreeEditOptions> options)
         {
-            throw new NotImplementedException();
+            var opts = new TreeEditOptions();
+
+            if (options != null)
+                options(opts);
+
+            TreeOptions.SetItemOptions(opts);
+
+            return this;
         }
 
         ITreeApi ITreeApi.View(Action<TreeViewOptions> options)
         {
-            throw new NotImplementedException();
+            var opts = new TreeViewOptions();
+
+            if (options != null)
+                options(opts);
+
+            TreeOptions.SetItemOptions(opts);
+
+            return this;
         }
 
         #endregion
