@@ -1,0 +1,29 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapPathHelperModel
+@using System.Web.Mvc.Html
+@using System.Linq
+@using MvcSiteMapProvider.Web.Html.Models
+@{
+    var currentNode = Model.FirstOrDefault(f => f.IsCurrentNode);
+}
+@if (currentNode != null && currentNode.Attributes.ContainsKey("visible") && currentNode.Attributes["visible"].ToString() == "false")
+{
+    //不显示sitemap控制
+    <div class="m-b-20"></div>
+}
+else
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title pull-left">@Html.MvcSiteMap().SiteMapTitle()</h4>
+                <ol class="breadcrumb pull-right">
+                    @foreach (var node in Model)
+                    {
+                        @Html.DisplayFor(m => node)
+                    }
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+}

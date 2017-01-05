@@ -1,0 +1,88 @@
+﻿@using TongYan.Web.Controls.Tree
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">深度定制的样式(zTree)</h3>
+            </div>
+            <div class="panel-body">
+                <ul id="treeDemo" class="ztree"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Test</h3>
+            </div>
+            <div class="panel-body">
+                @{
+                    var api = new TreeControl("demoId") as ITreeApi;
+                }
+                @(
+                    api.Async(x =>
+                    {
+                        x.AutoParam = "fuck";
+                    })
+                )
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        var settings = {
+
+        };
+
+        // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+        var zNodes = [
+            {
+                name: "设备购置类合同",
+                open: true,
+                children: [
+                    { name: "机电类" },
+                    { name: "生活家具购置类", chkDisabled: true },
+                    { name: "设备购置预留费用类" }
+                ]
+            },
+            {
+                name: "其他费用类合同",
+                open: true,
+                children: [
+                    {
+                        name: "新增费用类",
+                        open: true,
+                        children: [
+                            { name: "服务类合同", checked: true },
+                            { name: "监测合同" }
+                        ]
+                    },
+                    {
+                        name: "建设项目管理费类",
+                        open: true,
+                        children: [
+                            { name: "建设单位管理费类" },
+                            { name: "设计文件审查费类" },
+                            { name: "工程监理费(含第三方检测)" }
+                        ]
+                    }
+                ]
+            }, {
+                name: '没有子节点的一级节点'
+            }
+        ];
+
+        $(function () {
+            //默认带缩进线的树
+            $.fn.zTree.init($("#treeDemo"), settings, zNodes);
+        });
+
+    </script>
+}
