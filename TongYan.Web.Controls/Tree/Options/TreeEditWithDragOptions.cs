@@ -6,7 +6,8 @@ namespace TongYan.Web.Controls.Tree.Options
     public class TreeEditWithDragOptions
     {
         private readonly IDictionary<string, object> _hasSetOptionsProperties;
-        public TreeEditWithDragOptions()
+
+        internal TreeEditWithDragOptions()
         {
             _hasSetOptionsProperties = new Dictionary<string, object>();
         }
@@ -20,7 +21,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _autoExpandTrigger = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoExpandTrigger), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(AutoExpandTrigger).ToCamelCaseString(), value);
             }
         }
 
@@ -31,7 +32,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _isCopy = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(IsCopy), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(IsCopy).ToCamelCaseString(), value);
             }
         }
 
@@ -42,7 +43,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _isMove = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(IsMove), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(IsMove).ToCamelCaseString(), value);
             }
         }
 
@@ -53,7 +54,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _prev = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Prev), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(Prev).ToCamelCaseString(), value);
             }
         }
 
@@ -64,7 +65,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _next = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Next), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(Next).ToCamelCaseString(), value);
             }
         }
 
@@ -75,7 +76,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _inner = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Inner), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(Inner).ToCamelCaseString(), value);
             }
         }
 
@@ -86,7 +87,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _borderMax = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BorderMax), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(BorderMax).ToCamelCaseString(), value);
             }
         }
 
@@ -97,7 +98,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _borderMin = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BorderMin), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(BorderMin).ToCamelCaseString(), value);
             }
         }
 
@@ -108,7 +109,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _minMoveSize = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(MinMoveSize), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(MinMoveSize).ToCamelCaseString(), value);
             }
         }
 
@@ -119,7 +120,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _maxShowNodeNum = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(MaxShowNodeNum), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(MaxShowNodeNum).ToCamelCaseString(), value);
             }
         }
 
@@ -130,7 +131,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _autoOpenTime = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoOpenTime), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(AutoOpenTime).ToCamelCaseString(), value);
             }
         }
 

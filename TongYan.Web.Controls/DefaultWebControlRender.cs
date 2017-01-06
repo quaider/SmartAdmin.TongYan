@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -114,7 +115,8 @@ namespace TongYan.Web.Controls
                 {
                     //eg: data-options = "fixed: true, border: 0"
                     //不同类型控件，我们都会我们会内置一些key
-                    builder.AppendFormat("{0}=\"{1}\"", attr.Key, GetOptions(attr.Key));
+                    InitOptions(attr.Key);
+                    builder.AppendFormat("{0}=\'{1}'", attr.Key, JsonConvert.SerializeObject(DynamicOptionContainer));
                 }
 
                 if (attr.Key != Options.Attributes.Keys.Last())
@@ -125,57 +127,48 @@ namespace TongYan.Web.Controls
         }
 
         /// <summary>
-        /// 返回控件的所有配置信息(eg: border:'none', pagination:true, width:200)
+        /// 设置控件的所有配置信息(eg: border:'none', pagination:true, width:200)
         /// </summary>
         /// <returns>StringBuilder</returns>
-        protected virtual StringBuilder GetOptions(string key)
+        protected virtual void InitOptions(string key)
         {
-            var builder = ParseNestedOptions(Options.Options);
-
-            return builder;
+            ParseNestedOptions(Options.Options);
         }
 
         /// <summary>
+        /// 存放配置数据的容器
+        /// </summary>
+        protected dynamic DynamicOptionContainer = new ExpandoObject();
+
+        /// <summary>
         /// 解析嵌套Dictionary为Html属性
+        /// todo: 待改成嵌套对象再序列化的形式
         /// </summary>
         /// <param name="dic">待解析字典配置</param>
         /// <returns>StringBuilder</returns>
-        protected StringBuilder ParseNestedOptions(IDictionary<string, object> dic)
+        protected dynamic ParseNestedOptions(IDictionary<string, object> dic)
         {
-            var builder = new StringBuilder();
-            builder.Append("{");
+            //临时容器
+            dynamic currentOptionContainer = new ExpandoObject();
+            var d = currentOptionContainer as IDictionary<string, object>;
+
+            //全局容器
+            var dynamicDic = DynamicOptionContainer as IDictionary<string, object>;
 
             foreach (var option in dic)
             {
                 if (option.Value is IDictionary<string, object>)
                 {
-                    builder.AppendFormat("{0}:{1}", option.Key,
-                        ParseNestedOptions(option.Value as IDictionary<string, object>));
-                }
-                else if (option.Value is string)
-                {
-                    builder.AppendFormat("{0}:'{1}'", option.Key, option.Value);
-                }
-                else if (option.Value is bool)
-                {
-                    builder.AppendFormat("{0}:{1}", option.Key, option.Value.ToString().ToLower());
-                }
-                else if (option.Value is IEnumerable)
-                {
-                    builder.AppendFormat("{0}:{1}", option.Key, JsonConvert.SerializeObject(option.Value));
+                    dynamicDic[option.Key] = ParseNestedOptions(option.Value as IDictionary<string, object>);
                 }
                 else
                 {
-                    builder.AppendFormat("{0}:{1}", option.Key, option.Value);
+                    dynamicDic[option.Key] = option.Value;
+                    d[option.Key] = option.Value;
                 }
-
-                if (option.Key != dic.Keys.Last())
-                    builder.Append(",");
             }
 
-            builder.Append("}");
-
-            return builder;
+            return d;
         }
 
         /// <summary>

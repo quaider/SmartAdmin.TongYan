@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using TongYan.Web.Controls.Extensions;
 
 namespace TongYan.Web.Controls
 {
@@ -31,6 +32,24 @@ namespace TongYan.Web.Controls
         public override string ToString()
         {
             return ToHtmlString();
+        }
+
+        protected void AddClass(params string[] classes)
+        {
+            var clsStr = string.Join(" ", classes);
+            AddClass(clsStr);
+        }
+
+        protected void AddClass(string classes)
+        {
+            var cls = !Options.Attributes.Keys.Contains("class") || Options.Attributes["class"] == null
+                ? ""
+                : Options.Attributes["class"].ToString();
+
+            if (!string.IsNullOrWhiteSpace(classes))
+                cls += string.Format(" {0}", string.Join(" ", classes));
+
+            Options.Attributes.SetKeyValue("class", cls.Trim());
         }
     }
 }

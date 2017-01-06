@@ -21,5 +21,17 @@ namespace TongYan.Web.Controls.Extensions
 
             return source;
         }
+
+        /// <summary>
+        /// 字符串首字母小写(驼峰)
+        /// </summary>
+        /// <param name="source">待转换字符串</param>
+        /// <returns>驼峰字符串</returns>
+        public static string ToCamelCaseString(this string source)
+        {
+            if (string.IsNullOrWhiteSpace(source)) return source;
+
+            return source.Substring(0, 1).ToLower() + source.Substring(1);
+        }
     }
 }

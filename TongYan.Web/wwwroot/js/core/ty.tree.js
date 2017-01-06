@@ -1,27 +1,36 @@
-﻿TyApp.Tree = {
+﻿(function ($) {
 
-    /**
-     * 返回zTree异步树的配置
-     * @param {object} options 需自定义的zTree异步树的配置 
-     * @returns {object} 最终zTree异步树的配置 
-     */
-    enableAsync: function (options) {
-        var defaults = {
-            enable: true,
-            autoParam: ["id=pId"],
-            dataType: "json",
-            type: "post"
-        };
-
-        return options ? defaults : $.extend(defaults, options);
-    },
-
-    /**
-     * 返回zTree callback配置
-     * @param {object} options callback配置
-     * @returns {object} 最终callback配置
-     */
-    callback: function (options) {
-
+    $.fn.tyTree = function () {
+        var opt = $.fn.tyTree.parseOptions(this);
+        $.fn.zTree.init($(this), opt);
+        return this;
     }
-}
+
+    $.fn.tyTree.parseOptions = function (target) {
+        var options = {},
+            t = $(target);
+
+        if (t.attr('data-tree-edit')) {
+            options["edit"] = $.TongYan.parser.parseOptions(target, 'data-tree-edit');
+        }
+
+        if (t.attr('data-tree-view')) {
+            options["view"] = $.TongYan.parser.parseOptions(target, 'data-tree-view');
+        }
+
+        if (t.attr('data-tree-async')) {
+            options["async"] = $.TongYan.parser.parseOptions(target, 'data-tree-async');
+        }
+
+        if (t.attr('data-tree-callback')) {
+            options["callback"] = $.TongYan.parser.parseOptions(target, 'data-tree-callback');
+        }
+
+        if (t.attr('data-tree-check')) {
+            options["check"] = $.TongYan.parser.parseOptions(target, 'data-tree-check');
+        }
+
+        return options;
+    }
+
+})(jQuery)

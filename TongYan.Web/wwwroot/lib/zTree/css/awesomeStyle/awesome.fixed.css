@@ -94,12 +94,19 @@
                 padding-top: 0;
             }
 
+            .ztree li span.button.ico_loading {
+                background-position: center center;
+            }
+
             .ztree li span.button.roots_open,
+            .ztree li span.button.root_open,
             .ztree li span.button.center_open,
             .ztree li span.button.bottom_open,
             .ztree li span.button.center_docu,
+            .ztree li span.button.roots_docu,
             .ztree li span.button.bottom_docu,
             .ztree li span.button.roots_close,
+            .ztree li span.button.root_close,
             .ztree li span.button.center_close,
             .ztree li span.button.bottom_close,
             /*no lines*/
@@ -110,6 +117,7 @@
                 background-position: -132px -4px;
             }
 
+            .ztree li span.button.roots_docu,
             .ztree li span.button.center_docu {
                 background-position: -68px -4px;
             }
@@ -119,6 +127,7 @@
             }
 
             .ztree li span.button.roots_close,
+            .ztree li span.button.root_close,
             .ztree li span.button.center_close,
             .ztree li span.button.bottom_close {
                 background-position: -100px -4px;

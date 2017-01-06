@@ -12,6 +12,8 @@ namespace TongYan.Web.Controls.Tree
         public TreeControl(string id) : base(new TreeControlOptions())
         {
             Options.Id = id;
+
+            SetDefault();
         }
 
         protected TreeControlOptions TreeOptions
@@ -94,5 +96,10 @@ namespace TongYan.Web.Controls.Tree
         }
 
         #endregion
+
+        void SetDefault()
+        {
+            AddClass("ztree");
+        }
     }
 }

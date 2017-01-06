@@ -14,10 +14,10 @@ namespace TongYan.Web.Controls.Tree.Options
         public TreeAsyncOptions()
         {
             //设置默认值
-            AutoParam = "[\"id\"]";
+            AutoParam = new[] { "id" };
             _hasSetOptionsProperties = new Dictionary<string, object>
             {
-                {"Enable", true }
+                {"enable", true }
             };
         }
 
@@ -28,14 +28,14 @@ namespace TongYan.Web.Controls.Tree.Options
 
         #region 对应zTree的async配置
 
-        private string _autoParam;
-        public string AutoParam
+        private string[] _autoParam;
+        public string[] AutoParam
         {
             get { return _autoParam; }
             set
             {
                 _autoParam = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoParam), _autoParam);
+                _hasSetOptionsProperties.SetKeyValue(nameof(AutoParam).ToCamelCaseString(), _autoParam);
             }
         }
 
@@ -46,7 +46,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _contentType = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ContentType), _contentType);
+                _hasSetOptionsProperties.SetKeyValue(nameof(ContentType).ToCamelCaseString(), _contentType);
             }
         }
 
@@ -57,7 +57,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _dataFilter = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(DataFilter), _dataFilter);
+                _hasSetOptionsProperties.SetKeyValue(nameof(DataFilter).ToCamelCaseString(), _dataFilter);
             }
         }
 
@@ -68,7 +68,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _dataType = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(DataType), _dataType);
+                _hasSetOptionsProperties.SetKeyValue(nameof(DataType).ToCamelCaseString(), _dataType);
             }
         }
 
@@ -79,7 +79,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _otherParam = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OtherParam), _otherParam);
+                _hasSetOptionsProperties.SetKeyValue(nameof(OtherParam).ToCamelCaseString(), _otherParam);
             }
         }
 
@@ -90,7 +90,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _type = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Type), _type);
+                _hasSetOptionsProperties.SetKeyValue(nameof(Type).ToCamelCaseString(), _type);
             }
         }
 
@@ -101,7 +101,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _url = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Url), _url);
+                _hasSetOptionsProperties.SetKeyValue(nameof(Url).ToCamelCaseString(), _url);
             }
         }
 

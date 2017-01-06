@@ -32,11 +32,9 @@ namespace TongYan.Web.Controls.Tree
         /// </summary>
         /// <param name="key">模块对应的配置名称 如data-tree-async</param>
         /// <returns>StringBuilder</returns>
-        protected override StringBuilder GetOptions(string key)
+        protected override void InitOptions(string key)
         {
-            var builder = ParseNestedOptions(TreeOptions[key]);
-
-            return builder;
+            ParseNestedOptions(TreeOptions[key]);
         }
 
         protected override void RenderEnd()

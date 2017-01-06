@@ -11,7 +11,7 @@ namespace TongYan.Web.Controls.Tree.Options
         {
             _hasSetOptionsProperties = new Dictionary<string, object>
             {
-                {"Enable", true }
+                {"enable", true }
             };
         }
 
@@ -29,7 +29,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _autoCheckTrigger = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoCheckTrigger), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(AutoCheckTrigger).ToCamelCaseString(), value);
             }
         }
 
@@ -40,7 +40,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _chkboxType = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ChkboxType), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(ChkboxType).ToCamelCaseString(), value);
             }
         }
 
@@ -51,7 +51,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _chkStyle = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ChkStyle), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(ChkStyle).ToCamelCaseString(), value);
             }
         }
 
@@ -62,7 +62,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _nocheckInherit = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(NocheckInherit), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(NocheckInherit).ToCamelCaseString(), value);
             }
         }
 
@@ -73,7 +73,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _chkDisabledInherit = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ChkDisabledInherit), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(ChkDisabledInherit).ToCamelCaseString(), value);
             }
         }
 
@@ -84,7 +84,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _radioType = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(RadioType), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(RadioType).ToCamelCaseString(), value);
             }
         }
 

@@ -27,15 +27,13 @@
                 @(
                     api.Async(x =>
                     {
-                        x.AutoParam = "fuck";
-                    }).Callback(x =>
-                    {
-                        x.BeforeAsync = "bfAsync";
+                        x.Url = "js:getUrl";
+                        x.AutoParam = new[] { "id", "name", "level=lv" };
                     }).Edit(x =>
                     {
+                        x.Drag.BorderMin = 1;
                         x.Drag.BorderMax = 100;
-                        x.Drag.BorderMin = 10;
-                        x.RemoveTitle = "rmTitle";
+                        x.RemoveTitle = "rmt";
                     })
                 )
             </div>
@@ -48,6 +46,13 @@
         var settings = {
 
         };
+
+        function getUrl() {
+            return "/Main/GetTreeData";
+        }
+
+        $("#demoId").tyTree();
+        //$.TongYan.parser.parseOptions("#demoId", [{ Enable: 'boolean' }, { Drag: 'boolean' }]);
 
         // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
         var zNodes = [

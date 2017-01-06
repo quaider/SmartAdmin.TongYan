@@ -25,5 +25,28 @@ namespace TongYan.Web.Controllers
 
             return Content("a test!");
         }
+
+        public ActionResult GetTreeData(string id, string name, int? lv)
+        {
+            lv = lv ?? 0;
+            if (lv > 0)
+            {
+                System.Threading.Thread.Sleep(1500);
+            }
+
+            var obj = new List<object>();
+
+            for (var i = 0; i < 5; i++)
+            {
+                obj.Add(new
+                {
+                    id = id + i,
+                    isParent = lv < 2 && i % 2 != 0,
+                    name = (string.IsNullOrEmpty(name) ? "n" : (name + ".")) + i
+                });
+            }
+
+            return Json(obj);
+        }
     }
 }

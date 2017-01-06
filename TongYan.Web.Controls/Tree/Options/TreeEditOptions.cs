@@ -11,7 +11,7 @@ namespace TongYan.Web.Controls.Tree.Options
         {
             _hasSetOptionsProperties = new Dictionary<string, object>
             {
-                {"Enable", true }
+                {"enable", true }
             };
 
             _drag = new TreeEditWithDragOptions();
@@ -37,7 +37,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _editNameSelectAll = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(EditNameSelectAll), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(EditNameSelectAll).ToCamelCaseString(), value);
             }
         }
 
@@ -48,7 +48,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _removeTitle = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(RemoveTitle), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(RemoveTitle).ToCamelCaseString(), value);
             }
         }
 
@@ -59,7 +59,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _renameTitle = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(RenameTitle), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(RenameTitle).ToCamelCaseString(), value);
             }
         }
 
@@ -70,7 +70,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _showRemoveBtn = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ShowRemoveBtn), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(ShowRemoveBtn).ToCamelCaseString(), value);
             }
         }
 
@@ -81,7 +81,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _showRenameBtn = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ShowRenameBtn), value);
+                _hasSetOptionsProperties.SetKeyValue(nameof(ShowRenameBtn).ToCamelCaseString(), value);
             }
         }
 
