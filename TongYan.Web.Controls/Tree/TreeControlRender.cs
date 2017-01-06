@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using TongYan.Web.Controls.Tree.Options;
+using System.Web.Mvc;
+using System.Web.WebPages;
 
 namespace TongYan.Web.Controls.Tree
 {
@@ -32,15 +34,16 @@ namespace TongYan.Web.Controls.Tree
         /// </summary>
         /// <param name="key">模块对应的配置名称 如data-tree-async</param>
         /// <returns>StringBuilder</returns>
-        protected override void InitOptions(string key)
+        protected override StringBuilder GetOptions(string key)
         {
-            ParseNestedOptions(TreeOptions[key]);
+            var builder = ParseNestedOptions(TreeOptions[key]);
+
+            return builder;
         }
 
         protected override void RenderEnd()
         {
-            RenderText(EndTag);
-            //输出js脚本
+            RenderTextLine(EndTag);
         }
     }
 }

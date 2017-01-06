@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Web.Mvc;
 using TongYan.Web.Controls.Tree.Options;
 
 namespace TongYan.Web.Controls.Tree
@@ -9,9 +10,11 @@ namespace TongYan.Web.Controls.Tree
     /// </summary>
     public class TreeControl : WebControlBase<object>, ITreeApi
     {
-        public TreeControl(string id) : base(new TreeControlOptions())
+        private ViewContext _context;
+        public TreeControl(string id, ViewContext context) : base(new TreeControlOptions())
         {
             Options.Id = id;
+            _context = context;
 
             SetDefault();
         }
@@ -24,7 +27,7 @@ namespace TongYan.Web.Controls.Tree
         public override string ToHtmlString()
         {
             var writer = new StringWriter();
-            TreeOptions.Render.Render(TreeOptions, writer, null);
+            TreeOptions.Render.Render(TreeOptions, writer, _context);
             return writer.ToString();
         }
 

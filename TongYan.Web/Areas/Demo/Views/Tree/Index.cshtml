@@ -22,18 +22,21 @@
             </div>
             <div class="panel-body">
                 @{
-                    var api = new TreeControl("demoId") as ITreeApi;
+                    var api = new TreeControl("demoId", this.ViewContext) as ITreeApi;
                 }
                 @(
                     api.Async(x =>
                     {
-                        x.Url = "js:getUrl";
-                        x.AutoParam = new[] { "id", "name", "level=lv" };
+                        //fn告诉解析器这是js函数(不执行)
+                        x.Url = "fn:getUrl";
+                        //fr告诉解析器这是js函数(立即执行，执行由前台程序解析)
+                        x.AutoParam = new[] { "id", "fr:name", "level=lv" };
                     }).Edit(x =>
                     {
                         x.Drag.BorderMin = 1;
                         x.Drag.BorderMax = 100;
-                        x.RemoveTitle = "rmt";
+                        //jo告诉解析器这是js对象(由前台程序解析)
+                        x.RemoveTitle = "jo:[{a:1},{b:2}]";
                     })
                 )
             </div>
@@ -43,11 +46,19 @@
 
 @section scripts {
     <script>
+        //jo -> 翻译为js object
+        //fn -> 翻译为js function 不立即执行
+        //fr -> 翻译为js 立即执行函数
+        //这些函数为了提供一定程度的灵活性，但通常不建议使用！
         var settings = {
 
         };
 
-        function getUrl() {
+        function name() {
+            return "name";
+        }
+
+        function getUrl(a, b) {
             return "/Main/GetTreeData";
         }
 

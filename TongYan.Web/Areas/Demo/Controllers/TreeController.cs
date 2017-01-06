@@ -13,5 +13,10 @@ namespace TongYan.Web.Areas.Demo.Controllers
         {
             return View();
         }
+
+        protected override void OnResultExecuted(ResultExecutedContext filterContext)
+        {
+            base.OnResultExecuted(filterContext);
+        }
     }
 }

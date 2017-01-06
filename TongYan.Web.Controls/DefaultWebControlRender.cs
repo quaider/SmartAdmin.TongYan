@@ -47,7 +47,6 @@ namespace TongYan.Web.Controls
             _writer = output;
             ViewContext = viewContext;
 
-
             RenderStart();
             RenderBody();
             RenderEnd();
@@ -115,8 +114,7 @@ namespace TongYan.Web.Controls
                 {
                     //eg: data-options = "fixed: true, border: 0"
                     //不同类型控件，我们都会我们会内置一些key
-                    InitOptions(attr.Key);
-                    builder.AppendFormat("{0}=\'{1}'", attr.Key, JsonConvert.SerializeObject(DynamicOptionContainer));
+                    builder.AppendFormat("{0}=\"{1}\"", attr.Key, GetOptions(attr.Key));
                 }
 
                 if (attr.Key != Options.Attributes.Keys.Last())
@@ -127,48 +125,66 @@ namespace TongYan.Web.Controls
         }
 
         /// <summary>
-        /// 设置控件的所有配置信息(eg: border:'none', pagination:true, width:200)
+        /// 返回控件的所有配置信息(eg: border:'none', pagination:true, width:200)
         /// </summary>
         /// <returns>StringBuilder</returns>
-        protected virtual void InitOptions(string key)
+        protected virtual StringBuilder GetOptions(string key)
         {
-            ParseNestedOptions(Options.Options);
+            var builder = ParseNestedOptions(Options.Options);
+
+            return builder;
         }
 
         /// <summary>
-        /// 存放配置数据的容器
-        /// </summary>
-        protected dynamic DynamicOptionContainer = new ExpandoObject();
-
-        /// <summary>
-        /// 解析嵌套Dictionary为Html属性
-        /// todo: 待改成嵌套对象再序列化的形式
+        /// 解析嵌套Dictionary为Html属性(注：配置并不是json格式，曾经陷入误区，它应该是js字面量！)
         /// </summary>
         /// <param name="dic">待解析字典配置</param>
         /// <returns>StringBuilder</returns>
-        protected dynamic ParseNestedOptions(IDictionary<string, object> dic)
+        protected StringBuilder ParseNestedOptions(IDictionary<string, object> dic)
         {
-            //临时容器
-            dynamic currentOptionContainer = new ExpandoObject();
-            var d = currentOptionContainer as IDictionary<string, object>;
-
-            //全局容器
-            var dynamicDic = DynamicOptionContainer as IDictionary<string, object>;
+            var builder = new StringBuilder();
+            builder.Append("{");
 
             foreach (var option in dic)
             {
                 if (option.Value is IDictionary<string, object>)
                 {
-                    dynamicDic[option.Key] = ParseNestedOptions(option.Value as IDictionary<string, object>);
+                    builder.AppendFormat("{0}:{1}", option.Key,
+                        ParseNestedOptions(option.Value as IDictionary<string, object>));
+                }
+                else if (option.Value is string)
+                {
+                    var value = option.Value.ToString();
+                    if (!string.IsNullOrWhiteSpace(value) && (value.StartsWith("jo:") || value.StartsWith("fn:") || value.StartsWith("fr:")))
+                    {
+                        //解析js对象、函数
+                        builder.AppendFormat("{0}:{1}", option.Key, value.Substring(3));
+                    }
+                    else
+                    {
+                        builder.AppendFormat("{0}:'{1}'", option.Key, option.Value);
+                    }
+                }
+                else if (option.Value is bool)
+                {
+                    builder.AppendFormat("{0}:{1}", option.Key, option.Value.ToString().ToLower());
+                }
+                else if (option.Value is IEnumerable)
+                {
+                    builder.AppendFormat("{0}:{1}", option.Key, JsonConvert.SerializeObject(option.Value).Replace("\"","\'"));
                 }
                 else
                 {
-                    dynamicDic[option.Key] = option.Value;
-                    d[option.Key] = option.Value;
+                    builder.AppendFormat("{0}:{1}", option.Key, option.Value);
                 }
+
+                if (option.Key != dic.Keys.Last())
+                    builder.Append(",");
             }
 
-            return d;
+            builder.Append("}");
+
+            return builder;
         }
 
         /// <summary>
