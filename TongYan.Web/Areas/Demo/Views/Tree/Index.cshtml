@@ -1,4 +1,4 @@
-﻿@using TongYan.Web.Controls.Tree
+﻿@using TongYan.Web.Controls.Extensions
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -21,23 +21,21 @@
                 <h3 class="panel-title">Test</h3>
             </div>
             <div class="panel-body">
-                @{
-                    var api = new TreeControl("demoId", this.ViewContext) as ITreeApi;
-                }
                 @(
-                    api.Async(x =>
-                    {
-                        //fn告诉解析器这是js函数(不执行)
-                        x.Url = "fn:getUrl";
-                        //fr告诉解析器这是js函数(立即执行，执行由前台程序解析)
-                        x.AutoParam = new[] { "id", "fr:name", "level=lv" };
-                    }).Edit(x =>
-                    {
-                        x.Drag.BorderMin = 1;
-                        x.Drag.BorderMax = 100;
-                        //jo告诉解析器这是js对象(由前台程序解析)
-                        x.RemoveTitle = "jo:[{a:1},{b:2}]";
-                    })
+                    Html.Control().Tree("demoId")
+                        .Async(x =>
+                        {
+                            //fn告诉解析器这是js函数(不执行)
+                            x.Url = "fn:getUrl";
+                            //fr告诉解析器这是js函数(立即执行，执行由前台程序解析)
+                            x.AutoParam = new[] { "id", "fr:name", "level=lv" };
+                        }).Edit(x =>
+                        {
+                            x.Drag.BorderMin = 1;
+                            x.Drag.BorderMax = 100;
+                            //jo告诉解析器这是js对象(由前台程序解析)
+                            x.RemoveTitle = "jo:[{a:1},{b:2}]";
+                        }).RunScriptForMe()
                 )
             </div>
         </div>
@@ -62,7 +60,7 @@
             return "/Main/GetTreeData";
         }
 
-        $("#demoId").tyTree();
+        //$("#demoId").tyTree();
         //$.TongYan.parser.parseOptions("#demoId", [{ Enable: 'boolean' }, { Drag: 'boolean' }]);
 
         // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）

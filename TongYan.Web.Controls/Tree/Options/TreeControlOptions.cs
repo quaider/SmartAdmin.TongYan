@@ -12,6 +12,11 @@ namespace TongYan.Web.Controls.Tree.Options
         public IList<IOptionKey> ItemOptions { get; private set; }
 
         /// <summary>
+        /// 是否执行脚本
+        /// </summary>
+        public bool RunScript { get; private set; }
+
+        /// <summary>
         /// 初始化整个树的配置信息
         /// </summary>
         public TreeControlOptions()
@@ -41,6 +46,14 @@ namespace TongYan.Web.Controls.Tree.Options
         public IDictionary<string, object> this[string key]
         {
             get { return Options[key] as IDictionary<string, object>; }
+        }
+
+        /// <summary>
+        /// 运行脚本
+        /// </summary>
+        public void EnableClientScript()
+        {
+            RunScript = true;
         }
 
         /// <summary>

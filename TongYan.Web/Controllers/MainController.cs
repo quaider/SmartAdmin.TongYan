@@ -31,7 +31,7 @@ namespace TongYan.Web.Controllers
             lv = lv ?? 0;
             if (lv > 0)
             {
-                System.Threading.Thread.Sleep(1500);
+                System.Threading.Thread.Sleep(900);
             }
 
             var obj = new List<object>();

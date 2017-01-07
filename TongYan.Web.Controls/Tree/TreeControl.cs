@@ -98,6 +98,13 @@ namespace TongYan.Web.Controls.Tree
             return this;
         }
 
+        ITreeApi ITreeApi.RunScriptForMe()
+        {
+            TreeOptions.EnableClientScript();
+
+            return this;
+        }
+
         #endregion
 
         void SetDefault()

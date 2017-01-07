@@ -44,5 +44,11 @@ namespace TongYan.Web.Controls.Tree
         ITreeApi View(Action<TreeViewOptions> options);
 
         ITreeApi Data();
+
+        /// <summary>
+        /// 立即执行初始化脚本
+        /// </summary>
+        /// <returns>ITreeApi</returns>
+        ITreeApi RunScriptForMe();
     }
 }

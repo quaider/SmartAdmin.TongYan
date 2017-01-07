@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using TongYan.Web.Controls.Tree.Options;
 using System.Web.Mvc;
 using System.Web.WebPages;
+using TongYan.Web.Controls.Extensions;
 
 namespace TongYan.Web.Controls.Tree
 {
@@ -44,6 +45,9 @@ namespace TongYan.Web.Controls.Tree
         protected override void RenderEnd()
         {
             RenderTextLine(EndTag);
+
+            if (TreeOptions.RunScript)
+                ViewContext.HttpContext.WriteControlScript("$('#demoId').tyTree();");
         }
     }
 }

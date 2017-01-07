@@ -79,6 +79,7 @@
     <Compile Include="IOptionKey.cs" />
     <Compile Include="IWebControlOptions.cs" />
     <Compile Include="IWebControlRender.cs" />
+    <Compile Include="IWebControlWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tree\ITreeApi.cs" />
     <Compile Include="Tree\Options\TreeAsyncOptions.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Tree\TreeControl.cs" />
     <Compile Include="Tree\TreeControlRender.cs" />
     <Compile Include="WebControlBase.cs" />
+    <Compile Include="WebControlWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
