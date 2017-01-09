@@ -18,25 +18,13 @@
         //初始化菜单
         $("#sidebar-menu").smartMenu();
 
-        /* Set the defaults for DataTables initialisation */
-        $.extend(true, $.fn.dataTable.defaults, {
-            dom:
-                "<'row'<'col-sm-6'l><'col-sm-6 text-right'B>>" +
-                    "<'row'<'col-sm-12'tr>>" +
-                    "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-            renderer: 'bootstrap',
-            language: {
-                "url": "Scripts/i18n/datatable.lang.chinese.json"
-            }
-        });
-
         self.initIframe();
     },
 
     initIframe: function () {
         var mainFrame = $("#mainFrame")[0];
         if (mainFrame.attachEvent) {
-            iframe.attachEvent("onload", function () {
+            mainFrame.attachEvent("onload", function () {
                 iframeLoaded();
             });
         }

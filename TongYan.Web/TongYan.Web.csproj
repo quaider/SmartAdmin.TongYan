@@ -133,8 +133,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Demo\Controllers\DataGridController.cs" />
     <Compile Include="Areas\Demo\Controllers\TreeController.cs" />
     <Compile Include="Areas\Demo\DemoAreaRegistration.cs" />
+    <Compile Include="Areas\Demo\Models\EmployeeDemo.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -162,6 +164,7 @@
     <Content Include="wwwroot\css\themes\default\images\logo_title.png" />
     <Content Include="wwwroot\js\core\ty.app.js" />
     <Content Include="wwwroot\js\core\ty.core.js" />
+    <Content Include="wwwroot\js\core\ty.datatable.js" />
     <Content Include="wwwroot\js\core\ty.menu.js" />
     <Content Include="wwwroot\js\core\ty.parser.js" />
     <Content Include="wwwroot\js\core\ty.tree.js" />
@@ -189,7 +192,6 @@
     <Content Include="wwwroot\lib\jquery-datatable\css\buttons.bootstrap.css" />
     <Content Include="wwwroot\lib\jquery-datatable\css\buttons.bootstrap.min.css" />
     <Content Include="wwwroot\lib\jquery-datatable\css\dataTables.bootstrap.css" />
-    <Content Include="wwwroot\lib\jquery-datatable\css\dataTables.bootstrap.min.css" />
     <Content Include="wwwroot\lib\jquery-datatable\css\dataTables.material.css" />
     <Content Include="wwwroot\lib\jquery-datatable\css\dataTables.material.min.css" />
     <Content Include="wwwroot\lib\jquery-datatable\css\jquery.dataTables.css" />
@@ -245,6 +247,7 @@
     <Content Include="Views\Shared\DisplayTemplates\BootstrapSiteMapPathHelperModel.cshtml" />
     <Content Include="Areas\Demo\Views\web.config" />
     <Content Include="Areas\Demo\Views\Tree\Index.cshtml" />
+    <Content Include="Areas\Demo\Views\DataGrid\Index.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="wwwroot\lib\jquery\jquery-1.10.2.intellisense.js" />
     <None Include="wwwroot\lib\jquery-validation\jquery.validate-vsdoc.js" />
@@ -338,7 +341,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Demo\Models\" />
     <Folder Include="Areas\Demo\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="wwwroot\images\" />

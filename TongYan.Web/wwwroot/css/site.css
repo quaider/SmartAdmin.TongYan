@@ -3230,9 +3230,6 @@ input[type=radio][disabled]:checked + label:after {
     border-top: none !important;
 }
 
-/*datatable style*/
-
-
 /*!
  * bootstrap-star-rating v4.0.2
  * http://plugins.krajee.com/star-rating

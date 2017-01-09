@@ -61,7 +61,7 @@
             else if (typeof (obj[p]) == "string") {
                 if (!obj[p]) continue;
 
-                obj[p] = parseJsString(obj[p])
+                obj[p] = parseJsString(obj[p]);
             }
         }
     }
