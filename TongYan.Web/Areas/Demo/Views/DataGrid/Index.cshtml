@@ -100,7 +100,7 @@
                 <h3 class="panel-title">Server-side Datatable</h3>
             </div>
             <div class="panel-body">
-                <table id="example2" class="table table-striped table-hover table-primary table-bordered" width="100%">
+                <table id="example2" class="table table-striped table-hover table-primary" width="100%">
                     <thead>
                         <tr role="row">
                             <th>
@@ -131,6 +131,7 @@
         $(function () {
             $("#example1").DataTable();
 
+            /*
             $('#example2').DataTable({
                 "processing": true,
                 "serverSide": true,
@@ -142,6 +143,22 @@
                     { "data": "Gender" },
                     { "data": "Tel" }
                 ]
+            });
+            */
+            $.ajax({
+                url: 'DataGrid/GetData',
+                type: 'get',
+                data: {
+                    start: 0,
+                    draw: 10,
+                    length: 15,
+                    search: {
+                        value: 'test',
+                        regex: false
+                    }
+                }
+            }).done(function (d) {
+
             });
         })
     </script>

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using TongYan.Web.Areas.Demo.Models;
+using TongYan.Web.Models;
 
 namespace TongYan.Web.Areas.Demo.Controllers
 {
@@ -12,12 +13,9 @@ namespace TongYan.Web.Areas.Demo.Controllers
             return View();
         }
 
-        public JsonResult GetData(int? start = 0, int? length = 10)
+        public JsonResult GetData(GridQuery query)
         {
             System.Threading.Thread.Sleep(1000);
-
-            start = start ?? 0;
-            length = length ?? 10;
 
             var data = new List<EmployeeDemo>
             {
@@ -34,7 +32,7 @@ namespace TongYan.Web.Areas.Demo.Controllers
             }
 
             var result = data
-                .OrderBy(f => f.UserName).Skip(start.Value).Take(length.Value);
+                .OrderBy(f => f.UserName).Skip(query.Start).Take(query.Length);
 
             var r = new
             {
