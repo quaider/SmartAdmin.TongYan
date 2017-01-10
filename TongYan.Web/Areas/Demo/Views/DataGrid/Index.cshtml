@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="col-lg-6 col-md-12 col-sm-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Server-side Datatable</h3>
@@ -125,41 +125,41 @@
         </div>
     </div>
 </div>
-
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">HTML data-attribute*</h3>
+            </div>
+            <div class="panel-body">
+                <table id="dataAttr" data-ajax='{"url":"DataGrid/GetData","type":"post"}'>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts{
     <script>
         $(function () {
             $("#example1").DataTable();
 
-            /*
             $('#example2').DataTable({
                 "processing": true,
                 "serverSide": true,
-                "ajax": "DataGrid/GetData",
+                "ajax": {
+                    url: "DataGrid/GetData",
+                    type: "post"
+                },
                 "columns": [
-                    { "data": "UserName" },
+                    { "data": "UserName", "name": "a" },
                     { "data": "FullName" },
                     { "data": "DptName" },
                     { "data": "Gender" },
                     { "data": "Tel" }
                 ]
             });
-            */
-            $.ajax({
-                url: 'DataGrid/GetData',
-                type: 'get',
-                data: {
-                    start: 0,
-                    draw: 10,
-                    length: 15,
-                    search: {
-                        value: 'test',
-                        regex: false
-                    }
-                }
-            }).done(function (d) {
 
-            });
+            $("#dataAttr").DataTable();
         })
     </script>
 }

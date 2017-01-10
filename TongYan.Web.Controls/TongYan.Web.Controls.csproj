@@ -73,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGrid\Options\GridDataOptions.cs" />
+    <Compile Include="DataGrid\Options\GridFeaturesOptions.cs" />
     <Compile Include="DefaultWebControlOptions.cs" />
     <Compile Include="DefaultWebControlRender.cs" />
     <Compile Include="Extensions\Extensions.cs" />
@@ -99,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Button\" />
-    <Folder Include="DataGrid\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
