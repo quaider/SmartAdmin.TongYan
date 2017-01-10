@@ -2,6 +2,9 @@
 
 namespace TongYan.Web.Controls.DataGrid.Options
 {
+    /// <summary>
+    /// DataTables Data
+    /// </summary>
     public class GridDataOptions
     {
         /// <summary>
@@ -14,17 +17,36 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// 三种模式
         /// 1、一个url链接字符串
         /// 2、和$.ajax一样的参数对象
-        /// 3、function Custom data get function
+        /// 3、function:Custom data get function, 一些用法请参考以下文档
+        /// https://datatables.net/reference/option/ajax
         /// </summary>
-        public GridAjax Ajax { get; set; }
+        public GridDataAjaxOptions Ajax { get; set; }
     }
 
-    public class GridAjax
+    /// <summary>
+    /// GridDataOptions for ajax options
+    /// </summary>
+    public class GridDataAjaxOptions
     {
-        public string UrlMode { get; set; }
+        /// <summary>
+        /// 提供数据的Url地址
+        /// </summary>
+        public string Url { get; set; }
 
-        public object AjaxMode { get; set; }
+        /// <summary>
+        /// 提供DataTable所需的数据，如果给其设定值，将忽略其他ajax设置(互斥)
+        /// </summary>
+        public string AjaxFunction { get; set; }
 
-        public string FnMode { get; set; }
+        /// <summary>
+        /// 发送到服务器的参数 data:{user_id:451} or data: function(d){ d.some_name = $('#element').val(); }
+        /// or data: function(d) { return $.extend({}, d, {some_name: $('#element').val()}); }
+        /// </summary>
+        public string Data { get; set; }
+
+        /// <summary>
+        /// 主体数据的根定义(默认是data)
+        /// </summary>
+        public string DataSrc { get; set; }
     }
 }
