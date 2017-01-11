@@ -89,7 +89,7 @@ namespace TongYan.Web.Controls.Tree.Options
 
         IDictionary<string, object> IOptionKey.ConvertToDic()
         {
-            _hasSetOptionsProperties.SetKeyValue(nameof(Drag), Drag.ConvertToDic());
+            _hasSetOptionsProperties.SetKeyValue(nameof(Drag).ToCamelCaseString(), Drag.ConvertToDic());
 
             return _hasSetOptionsProperties;
         }

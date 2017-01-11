@@ -73,8 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGrid\GridControl.cs" />
+    <Compile Include="DataGrid\GridControlRender.cs" />
+    <Compile Include="DataGrid\IGridApi.cs" />
     <Compile Include="DataGrid\Options\GridCallbacksOptions.cs" />
     <Compile Include="DataGrid\Options\GridColumnsOptions.cs" />
+    <Compile Include="DataGrid\Options\GridControlOptions.cs" />
     <Compile Include="DataGrid\Options\GridDataOptions.cs" />
     <Compile Include="DataGrid\Options\GridFeaturesOptions.cs" />
     <Compile Include="DataGrid\Options\GridOptions.cs" />
