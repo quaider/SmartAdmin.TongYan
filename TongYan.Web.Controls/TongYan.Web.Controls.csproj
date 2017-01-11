@@ -74,8 +74,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataGrid\Options\GridCallbacksOptions.cs" />
+    <Compile Include="DataGrid\Options\GridColumnsOptions.cs" />
     <Compile Include="DataGrid\Options\GridDataOptions.cs" />
     <Compile Include="DataGrid\Options\GridFeaturesOptions.cs" />
+    <Compile Include="DataGrid\Options\GridOptions.cs" />
     <Compile Include="DefaultWebControlOptions.cs" />
     <Compile Include="DefaultWebControlRender.cs" />
     <Compile Include="Extensions\Extensions.cs" />
