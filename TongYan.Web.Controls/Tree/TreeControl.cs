@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Web.Mvc;
 using TongYan.Web.Controls.Tree.Options;
 
@@ -35,38 +36,17 @@ namespace TongYan.Web.Controls.Tree
 
         ITreeApi ITreeApi.Async(Action<TreeAsyncOptions> options)
         {
-            var opts = new TreeAsyncOptions();
-
-            if (options != null)
-                options(opts);
-
-            TreeOptions.SetItemOptions(opts);
-
-            return this;
+            return SetOptions(options);
         }
 
         ITreeApi ITreeApi.Callback(Action<TreeCallbackOptions> options)
         {
-            var opts = new TreeCallbackOptions();
-
-            if (options != null)
-                options(opts);
-
-            TreeOptions.SetItemOptions(opts);
-
-            return this;
+            return SetOptions(options);
         }
 
         ITreeApi ITreeApi.Check(Action<TreeCheckOptions> options)
         {
-            var opts = new TreeCheckOptions();
-
-            if (options != null)
-                options(opts);
-
-            TreeOptions.SetItemOptions(opts);
-
-            return this;
+            return SetOptions(options);
         }
 
         ITreeApi ITreeApi.Data()
@@ -76,31 +56,30 @@ namespace TongYan.Web.Controls.Tree
 
         ITreeApi ITreeApi.Edit(Action<TreeEditOptions> options)
         {
-            var opts = new TreeEditOptions();
-
-            if (options != null)
-                options(opts);
-
-            TreeOptions.SetItemOptions(opts);
-
-            return this;
+            return SetOptions(options);
         }
 
         ITreeApi ITreeApi.View(Action<TreeViewOptions> options)
         {
-            var opts = new TreeViewOptions();
-
-            if (options != null)
-                options(opts);
-
-            TreeOptions.SetItemOptions(opts);
-
-            return this;
+            return SetOptions(options);
         }
 
         ITreeApi ITreeApi.RunScriptForMe()
         {
             TreeOptions.EnableClientScript();
+
+            return this;
+        }
+
+        ITreeApi SetOptions<T>(Action<T> action) where T : class, IOptionKey
+        {
+            //为了不暴露过多信息， 各配置构造函数设置为internal，因此此处无法使用new()约束，故使用Activator.CreateInstance
+            //尽管会带来略微的性能损失， 但是性能瓶颈绝不在此！
+            var opt = Activator.CreateInstance(typeof(T), BindingFlags.Instance | BindingFlags.NonPublic, null, new object[] { }, null) as T;
+            if (action != null)
+                action(opt);
+
+            TreeOptions.SetItemOptions(opt);
 
             return this;
         }

@@ -8,7 +8,7 @@ namespace TongYan.Web.Controls.Tree.Options
     {
         private readonly IDictionary<string, object> _hasSetOptionsProperties;
 
-        public TreeCallbackOptions()
+        internal TreeCallbackOptions()
         {
             _hasSetOptionsProperties = new Dictionary<string, object>();
         }

@@ -11,7 +11,7 @@ namespace TongYan.Web.Controls.Tree.Options
     {
         private readonly IDictionary<string, object> _hasSetOptionsProperties;
 
-        public TreeAsyncOptions()
+        internal TreeAsyncOptions()
         {
             //设置默认值
             AutoParam = new[] { "id" };

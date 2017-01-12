@@ -135,7 +135,7 @@ namespace TongYan.Web.Controls
         }
 
         /// <summary>
-        /// 解析嵌套Dictionary为Html属性(注：配置并不是json格式，曾经陷入误区，它应该是js字面量！)
+        /// 解析嵌套Dictionary为Html属性(注：配置并不是json格式，json格式不支持函数、js对象等，它应该是js字面量！)
         /// </summary>
         /// <param name="dic">待解析字典配置</param>
         /// <returns>StringBuilder</returns>

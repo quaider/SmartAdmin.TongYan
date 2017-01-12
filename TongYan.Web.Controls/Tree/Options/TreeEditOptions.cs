@@ -7,7 +7,7 @@ namespace TongYan.Web.Controls.Tree.Options
     public class TreeEditOptions : IOptionKey
     {
         private readonly IDictionary<string, object> _hasSetOptionsProperties;
-        public TreeEditOptions()
+        internal TreeEditOptions()
         {
             _hasSetOptionsProperties = new Dictionary<string, object>
             {

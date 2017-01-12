@@ -86,6 +86,8 @@
     <Compile Include="DataGrid\Options\GridDataOptions.cs" />
     <Compile Include="DataGrid\Options\GridFeaturesOptions.cs" />
     <Compile Include="DataGrid\Options\GridOptions.cs" />
+    <Compile Include="DefaultWebControlMultipleOptions.cs" />
+    <Compile Include="DefaultWebControlMultipleOptionsRender.cs" />
     <Compile Include="DefaultWebControlOptions.cs" />
     <Compile Include="DefaultWebControlRender.cs" />
     <Compile Include="Extensions\Align.cs" />

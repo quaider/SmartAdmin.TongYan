@@ -1,11 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
+﻿using System.Web.Mvc;
 using TongYan.Web.Controls.Tree.Options;
-using System.Web.Mvc;
-using System.Web.WebPages;
 using TongYan.Web.Controls.Extensions;
 
 namespace TongYan.Web.Controls.Tree
@@ -13,7 +7,7 @@ namespace TongYan.Web.Controls.Tree
     /// <summary>
     /// 树形控件渲染器
     /// </summary>
-    public class TreeControlRender : DefaultWebControlRender<object>
+    public class TreeControlRender : DefaultWebControlMultipleOptionsRender<object>
     {
         protected override string BeginTag
         {
@@ -30,24 +24,9 @@ namespace TongYan.Web.Controls.Tree
             get { return Options as TreeControlOptions; }
         }
 
-        /// <summary>
-        /// 组装zTree各模块配置信息
-        /// </summary>
-        /// <param name="key">模块对应的配置名称 如data-tree-async</param>
-        /// <returns>StringBuilder</returns>
-        protected override StringBuilder GetOptions(string key)
+        protected override void RenderScript()
         {
-            var builder = ParseNestedOptions(TreeOptions[key]);
-
-            return builder;
-        }
-
-        protected override void RenderEnd()
-        {
-            RenderTextLine(EndTag);
-
-            if (TreeOptions.RunScript)
-                ViewContext.HttpContext.WriteControlScript("$('#demoId').tyTree();");
+            ViewContext.HttpContext.WriteControlScript("$('#demoId').tyTree();");
         }
     }
 }

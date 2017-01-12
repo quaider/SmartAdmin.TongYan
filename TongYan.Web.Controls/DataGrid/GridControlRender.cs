@@ -7,16 +7,8 @@ using TongYan.Web.Controls.DataGrid.Options;
 
 namespace TongYan.Web.Controls.DataGrid
 {
-    public class GridControlRender : DefaultWebControlRender<object>
+    public class GridControlRender : DefaultWebControlMultipleOptionsRender<object>
     {
-        /// <summary>
-        /// 强类型表格控件配置信息
-        /// </summary>
-        protected GridControlOptions GridControlOptions
-        {
-            get { return Options as GridControlOptions; }
-        }
-
         protected override string BeginTag
         {
             get { return "<table{0}>"; }
@@ -25,6 +17,14 @@ namespace TongYan.Web.Controls.DataGrid
         protected override string EndTag
         {
             get { return "</table>"; }
+        }
+
+        /// <summary>
+        /// 强类型表格控件配置信息
+        /// </summary>
+        protected GridControlOptions GridControlOptions
+        {
+            get { return Options as GridControlOptions; }
         }
 
         protected override void RenderBody()
@@ -51,6 +51,11 @@ namespace TongYan.Web.Controls.DataGrid
             RenderText("</tr>");
             RenderWrapIndent(1);
             RenderText("</thead>");
+        }
+
+        protected override void RenderScript()
+        {
+
         }
     }
 }

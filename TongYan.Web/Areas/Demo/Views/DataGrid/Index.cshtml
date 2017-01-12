@@ -134,12 +134,12 @@
             </div>
             <div class="panel-body">
                 @*<table id="dataAttr" data-ajax='{"url":"DataGrid/GetData","type":"post"}'>
-                </table>*@
+                    </table>*@
                 @(new GridControl("aaa").GridOptions(x =>
-                  {
-                      x.LengthMenu = "[1,2]";
-                      x.OrderClasses = true;
-                  }))
+            {
+                x.LengthMenu = "[1,2]";
+                x.OrderClasses = true;
+            }))
             </div>
         </div>
     </div>

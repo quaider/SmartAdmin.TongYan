@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TongYan.Web.Controls.Extensions;
 
 namespace TongYan.Web.Controls.DataGrid.Options
@@ -15,6 +16,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
         {
             _hasSetOptionsProperties = new Dictionary<string, object>();
             OrderClasses = true;
+            _search = new GridSearchOptions();
         }
 
         private string _deferLoading;
@@ -259,7 +261,9 @@ namespace TongYan.Web.Controls.DataGrid.Options
 
         IDictionary<string, object> IOptionKey.ConvertToDic()
         {
-            _hasSetOptionsProperties.SetKeyValue(nameof(Search).ToCamelCaseString(), Search.ConvertToDic());
+            var searchDic = Search.ConvertToDic();
+            if (searchDic != null && searchDic.Keys.Any())
+                _hasSetOptionsProperties.SetKeyValue(nameof(Search).ToCamelCaseString(), searchDic);
 
             return _hasSetOptionsProperties;
         }
