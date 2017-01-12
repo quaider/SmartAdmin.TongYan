@@ -7,13 +7,14 @@ namespace TongYan.Web.Controls.DataGrid.Options
     /// <summary>
     /// 列定义
     /// </summary>
-    public class GridColumnsOptions : IOptionKey
+    internal class GridColumnsOptions : IOptionKey
     {
         private readonly IDictionary<string, object> _hasSetOptionsProperties;
 
         internal GridColumnsOptions()
         {
             _hasSetOptionsProperties = new Dictionary<string, object>();
+            Searchable = false;
         }
 
         private string _width;

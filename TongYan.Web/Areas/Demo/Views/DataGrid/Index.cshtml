@@ -1,4 +1,5 @@
-﻿@{
+﻿@using TongYan.Web.Controls.DataGrid
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -132,8 +133,13 @@
                 <h3 class="panel-title">HTML data-attribute*</h3>
             </div>
             <div class="panel-body">
-                <table id="dataAttr" data-ajax='{"url":"DataGrid/GetData","type":"post"}'>
-                </table>
+                @*<table id="dataAttr" data-ajax='{"url":"DataGrid/GetData","type":"post"}'>
+                </table>*@
+                @(new GridControl("aaa").GridOptions(x =>
+                  {
+                      x.LengthMenu = "[1,2]";
+                      x.OrderClasses = true;
+                  }))
             </div>
         </div>
     </div>
