@@ -33,15 +33,15 @@ namespace TongYan.Web.Controls.DataGrid
         IGridColumn Hidden();
 
         /// <summary>
-        /// 可否搜索， 默认是可以的
+        /// 禁用该列搜索
         /// </summary>
         /// <returns>IGridColumn</returns>
-        IGridColumn Searchable();
+        IGridColumn UnSearchable();
 
         /// <summary>
         /// 列呈现器
         /// </summary>
-        /// <param name="render">列呈现器<seealso cref="GridColumnsOptions.Render"/></param>
+        /// <param name="render">列呈现器<seealso cref="GridColumnOptions.Render"/></param>
         /// <returns>IGridColumn</returns>
         IGridColumn Render(string render);
 
@@ -54,7 +54,7 @@ namespace TongYan.Web.Controls.DataGrid
         /// <summary>
         /// 列的默认内容
         /// </summary>
-        /// <param name="content">默认内容<seealso cref="GridColumnsOptions.DefaultContent"/></param>
+        /// <param name="content">默认内容<seealso cref="GridColumnOptions.DefaultContent"/></param>
         /// <returns>IGridColumn</returns>
         IGridColumn DefaultContent(string content);
 
@@ -77,7 +77,5 @@ namespace TongYan.Web.Controls.DataGrid
         /// </summary>
         /// <returns>IGridColumn</returns>
         IGridColumn Align(Align align);
-
-
     }
 }

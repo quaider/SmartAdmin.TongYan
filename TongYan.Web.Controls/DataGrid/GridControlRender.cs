@@ -54,6 +54,7 @@ namespace TongYan.Web.Controls.DataGrid
             RenderText("</tr>");
             RenderWrapIndent(1);
             RenderText("</thead>");
+            RenderWrapIndent(3);
         }
 
         protected override void RenderScript()

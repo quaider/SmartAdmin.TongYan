@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using TongYan.Web.Controls.DataGrid.Options;
+using TongYan.Web.Controls.DataGrid.Providers;
 
 namespace TongYan.Web.Controls.DataGrid
 {
@@ -73,16 +74,30 @@ namespace TongYan.Web.Controls.DataGrid
         }
 
         /// <summary>
-        /// api隐藏设计
+        /// <see cref=IGridApi.Columns(Action{IGridColumnBuilderApi})"/>
         /// </summary>
-        /// <param name="columnBuilder"></param>
-        /// <returns>IGridApi</returns>
         IGridApi IGridApi.Columns(Action<IGridColumnBuilderApi> columnBuilder)
         {
-            var builder = new GridColumnBuilder();
+            var builder = new GridColumnsBuilder();
             columnBuilder(builder);
 
             foreach (var column in builder)
+            {
+                GridCtrlOptions.ColumnBuilder.Add(column);
+            }
+
+            return this;
+        }
+
+        protected GridColumnsProvider Provider { get; private set; }
+
+        /// <summary>
+        /// <see cref=IGridApi.ColumnsProvider(GridColumnsProvider)"/>
+        /// </summary>
+        IGridApi IGridApi.ColumnsProvider(GridColumnsProvider provider)
+        {
+            Provider = provider;
+            foreach (var column in provider.Builder)
             {
                 GridCtrlOptions.ColumnBuilder.Add(column);
             }

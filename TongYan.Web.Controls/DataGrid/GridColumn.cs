@@ -13,21 +13,23 @@ namespace TongYan.Web.Controls.DataGrid
         /// <summary>
         /// 存储列配置信息
         /// </summary>
-        internal GridColumnsOptions ColumnOptions { get; private set; }
+        internal GridColumnOptions ColumnOptions { get; private set; }
 
-        public GridColumn(string fieldName) : base(new DefaultWebControlOptions<object>())
+        public GridColumn(string fieldName) : base(new DefaultWebControlOptions<object>("data-grid-column"))
         {
-            Options.Render = new GridColumnRender();
-            ColumnOptions = new GridColumnsOptions
+            ColumnOptions = new GridColumnOptions()
             {
-                Data = fieldName,
-                Name = fieldName
+                Name = fieldName,
+                Data = fieldName
             };
+
+            Options.Render = new GridColumnRender(ColumnOptions);
+
         }
 
         public override string ToHtmlString()
         {
-            foreach(var dic in (ColumnOptions as IOptionKey).ConvertToDic())
+            foreach (var dic in ColumnOptions.ConvertToDic())
             {
                 Options.Options.SetKeyValue(dic.Key, dic.Value);
             }
@@ -36,6 +38,11 @@ namespace TongYan.Web.Controls.DataGrid
             Options.Render.Render(Options, writer, null);
 
             return writer.ToString();
+        }
+
+        public string GetColumnName()
+        {
+            return ColumnOptions.Name;
         }
 
         #region IGridColumn Members
@@ -86,9 +93,9 @@ namespace TongYan.Web.Controls.DataGrid
             return this;
         }
 
-        IGridColumn IGridColumn.Searchable()
+        IGridColumn IGridColumn.UnSearchable()
         {
-            ColumnOptions.Searchable = true;
+            ColumnOptions.Searchable = false;
             return this;
         }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TongYan.Web.Controls.DataGrid.Options;
+using TongYan.Web.Controls.DataGrid.Providers;
 
 namespace TongYan.Web.Controls.DataGrid
 {
@@ -46,5 +47,12 @@ namespace TongYan.Web.Controls.DataGrid
         /// <param name="columnBuilder">列配置</param>
         /// <returns>IGridApi</returns>
         IGridApi Columns(System.Action<IGridColumnBuilderApi> columnBuilder);
+
+        /// <summary>
+        /// 设置列提供器(也许你并不需要使用该方法)
+        /// </summary>
+        /// <param name="provider">列提供器</param>
+        /// <returns>IGridApi</returns>
+        IGridApi ColumnsProvider(GridColumnsProvider provider);
     }
 }

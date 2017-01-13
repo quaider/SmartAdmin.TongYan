@@ -148,7 +148,8 @@
         x.Order = "jo:[[0,'asc'], [1,'desc']]";
     }).Columns(c =>
     {
-        c.Column("aaa").Title("设置列标题").Width(100);
+        c.Column("aaa").Title("设置列标题").Width(100).UnSearchable();
+        c.Column("abc").Title("测试").Width(200);
     })
                 )
             </div>
@@ -170,7 +171,7 @@
                 "columns": [
                     { "data": "UserName", title: 'Use name' },
                     { "data": "FullName", title: 'Full name' },
-                    { "data": "DptName", title: 'Department name', classNames:'' },
+                    { "data": "DptName", title: 'Department name', className:'text-center' },
                     { "data": "Gender", title: 'Gender' },
                     { "data": "Tel", title: 'Use name' }
                 ]

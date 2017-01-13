@@ -52,7 +52,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
 
         IDictionary<string, object> IOptionKey.ConvertToDic()
         {
-            throw new NotImplementedException();
+            return _hasSetOptionsProperties;
         }
     }
 

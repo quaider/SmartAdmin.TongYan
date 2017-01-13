@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TongYan.Web.Controls.DataGrid.Options
 {
@@ -10,7 +11,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
     {
         public GridControlOptions()
         {
-            ColumnBuilder = new GridColumnBuilder();
+            ColumnBuilder = new GridColumnsBuilder();
             Render = new GridControlRender();
             ItemOptions = new List<IOptionKey>();
         }
@@ -18,6 +19,6 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// <summary>
         /// DataTable列定义
         /// </summary>
-        public GridColumnBuilder ColumnBuilder { get; }
+        public GridColumnsBuilder ColumnBuilder { get; }
     }
 }

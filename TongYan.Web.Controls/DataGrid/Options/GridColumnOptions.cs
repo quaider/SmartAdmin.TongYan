@@ -7,14 +7,13 @@ namespace TongYan.Web.Controls.DataGrid.Options
     /// <summary>
     /// 列定义
     /// </summary>
-    public class GridColumnsOptions : IOptionKey
+    public class GridColumnOptions
     {
         private readonly IDictionary<string, object> _hasSetOptionsProperties;
 
-        internal GridColumnsOptions()
+        internal GridColumnOptions()
         {
             _hasSetOptionsProperties = new Dictionary<string, object>();
-            Searchable = false;
         }
 
         private string _width;
@@ -64,7 +63,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _title = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Title).ToCamelCaseString(), value);
+                //_hasSetOptionsProperties.SetKeyValue(nameof(Title).ToCamelCaseString(), value);
             }
         }
 
@@ -225,13 +224,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             }
         }
 
-
-        public string OptionKey
-        {
-            get { return "data-grid-columns"; }
-        }
-
-        IDictionary<string, object> IOptionKey.ConvertToDic()
+        internal IDictionary<string, object> ConvertToDic()
         {
             return _hasSetOptionsProperties;
         }

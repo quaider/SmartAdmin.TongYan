@@ -8,13 +8,19 @@ namespace TongYan.Web.Controls
     /// </summary>
     public class DefaultWebControlOptions<T> : IWebControlOptions<T>
     {
+        readonly string OptionsKey = "data-options";
+
         public DefaultWebControlOptions()
         {
             Attributes = new Dictionary<string, object>();
             Render = new DefaultWebControlRender<T>();
         }
 
-        const string OptionsKey = "data-options";
+        public DefaultWebControlOptions(string optionsKey)
+            : this()
+        {
+            OptionsKey = optionsKey;
+        }
 
         public string Id
         {

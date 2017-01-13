@@ -73,7 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataGrid\GridColumnBuilder.cs" />
+    <Compile Include="DataGrid\GridColumnsBuilder.cs" />
     <Compile Include="DataGrid\GridColumn.cs" />
     <Compile Include="DataGrid\GridColumnRender.cs" />
     <Compile Include="DataGrid\GridControl.cs" />
@@ -82,11 +82,12 @@
     <Compile Include="DataGrid\IGridColumn.cs" />
     <Compile Include="DataGrid\IGridColumnBuilderApi.cs" />
     <Compile Include="DataGrid\Options\GridCallbacksOptions.cs" />
-    <Compile Include="DataGrid\Options\GridColumnsOptions.cs" />
+    <Compile Include="DataGrid\Options\GridColumnOptions.cs" />
     <Compile Include="DataGrid\Options\GridControlOptions.cs" />
     <Compile Include="DataGrid\Options\GridDataOptions.cs" />
     <Compile Include="DataGrid\Options\GridFeaturesOptions.cs" />
     <Compile Include="DataGrid\Options\GridOptions.cs" />
+    <Compile Include="DataGrid\Providers\GridColumnsProvider.cs" />
     <Compile Include="DefaultWebControlMultipleOptions.cs" />
     <Compile Include="DefaultWebControlMultipleOptionsRender.cs" />
     <Compile Include="DefaultWebControlOptions.cs" />

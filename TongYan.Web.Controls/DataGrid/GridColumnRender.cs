@@ -5,10 +5,13 @@ namespace TongYan.Web.Controls.DataGrid
 {
     public class GridColumnRender : DefaultWebControlRender<object>
     {
-        protected GridColumnsOptions GridColumnsOptions
+        public GridColumnRender(GridColumnOptions opt)
         {
-            get { return Options as GridColumnsOptions; }
+            GridColumnsOptions = opt;
         }
+
+        protected GridColumnOptions GridColumnsOptions { get; }
+
         protected override string BeginTag
         {
             get { return "<th{0}>"; }
@@ -19,10 +22,15 @@ namespace TongYan.Web.Controls.DataGrid
             get { return "</th>"; }
         }
 
-        protected override StringBuilder GetAttributes()
+        protected override void RenderBody()
         {
-            
-            return new StringBuilder();
+            base.RenderBody();
+            RenderText(GridColumnsOptions.Title);
+        }
+
+        protected override void RenderEnd()
+        {
+            RenderText(EndTag);
         }
     }
 }
