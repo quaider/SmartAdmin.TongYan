@@ -45,6 +45,6 @@ namespace TongYan.Web.Controls.DataGrid
         /// </summary>
         /// <param name="columnBuilder">列配置</param>
         /// <returns>IGridApi</returns>
-        IGridApi Columns(System.Action<GridColumnBuilder> columnBuilder);
+        IGridApi Columns(System.Action<IGridColumnBuilderApi> columnBuilder);
     }
 }

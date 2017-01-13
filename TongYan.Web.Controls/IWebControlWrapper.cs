@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TongYan.Web.Controls.DataGrid;
 using TongYan.Web.Controls.Tree;
 
 namespace TongYan.Web.Controls
@@ -15,5 +16,12 @@ namespace TongYan.Web.Controls
         /// <param name="id">Tree id</param>
         /// <returns>ITreeApi</returns>
         ITreeApi Tree(string id);
+
+        /// <summary>
+        /// 生成datatable
+        /// </summary>
+        /// <param name="id">table id</param>
+        /// <returns>IGridApi</returns>
+        IGridApi Grid(string id);
     }
 }

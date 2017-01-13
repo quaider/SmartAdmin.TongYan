@@ -4,14 +4,14 @@ using TongYan.Web.Controls.Extensions;
 
 namespace TongYan.Web.Controls.DataGrid
 {
-    public class GridColumnBuilder : List<GridColumn>
+    public class GridColumnBuilder : List<GridColumn>, IGridColumnBuilderApi
     {
-        IGridColumn Name(string fileName)
+        IGridColumn IGridColumnBuilderApi.Column(string name)
         {
-            var gridColumn = new GridColumn(fileName);
-            Add(gridColumn);
-
-            return gridColumn;
+            var column = new GridColumn(name);
+            if (!Exists(f => f.ColumnOptions.Name == name))
+                Add(column);
+            return column;
         }
     }
 }

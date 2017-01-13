@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using TongYan.Web.Controls.DataGrid;
 using TongYan.Web.Controls.Tree;
 
 namespace TongYan.Web.Controls
@@ -20,6 +21,11 @@ namespace TongYan.Web.Controls
         public ITreeApi Tree(string id)
         {
             return new TreeControl(id, _helper.ViewContext);
+        }
+
+        public IGridApi Grid(string id)
+        {
+            return new GridControl(id);
         }
     }
 }

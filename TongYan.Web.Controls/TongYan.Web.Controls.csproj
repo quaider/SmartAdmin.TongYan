@@ -80,6 +80,7 @@
     <Compile Include="DataGrid\GridControlRender.cs" />
     <Compile Include="DataGrid\IGridApi.cs" />
     <Compile Include="DataGrid\IGridColumn.cs" />
+    <Compile Include="DataGrid\IGridColumnBuilderApi.cs" />
     <Compile Include="DataGrid\Options\GridCallbacksOptions.cs" />
     <Compile Include="DataGrid\Options\GridColumnsOptions.cs" />
     <Compile Include="DataGrid\Options\GridControlOptions.cs" />

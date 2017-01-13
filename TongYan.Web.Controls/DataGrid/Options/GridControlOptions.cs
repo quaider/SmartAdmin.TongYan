@@ -8,14 +8,9 @@ namespace TongYan.Web.Controls.DataGrid.Options
     /// </summary>
     public class GridControlOptions : DefaultWebControlMultipleOptions<object>
     {
-        /// <summary>
-        /// 列组装
-        /// </summary>
-        private readonly GridColumnBuilder _columnBuilder;
-
         public GridControlOptions()
         {
-            _columnBuilder = new GridColumnBuilder();
+            ColumnBuilder = new GridColumnBuilder();
             Render = new GridControlRender();
             ItemOptions = new List<IOptionKey>();
         }
@@ -23,9 +18,6 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// <summary>
         /// DataTable列定义
         /// </summary>
-        public IList<GridColumn> Columns
-        {
-            get { return _columnBuilder; }
-        }
+        public GridColumnBuilder ColumnBuilder { get; }
     }
 }

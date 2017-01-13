@@ -33,6 +33,9 @@ namespace TongYan.Web.Controls.DataGrid
             RenderColumns();
         }
 
+        /// <summary>
+        /// table thead 列渲染
+        /// </summary>
         protected virtual void RenderColumns()
         {
             RenderWrapIndent(1);
@@ -41,7 +44,7 @@ namespace TongYan.Web.Controls.DataGrid
             RenderText("<tr>");
 
             //th
-            foreach (var column in GridControlOptions.Columns)
+            foreach (var column in GridControlOptions.ColumnBuilder)
             {
                 RenderWrapIndent(3);
                 RenderText(column.ToString());

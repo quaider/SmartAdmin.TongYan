@@ -31,12 +31,7 @@ namespace TongYan.Web.Controls.DataGrid
         /// <summary>
         /// <see cref="IGridApi.GridOptions(Action{Options.GridOptions})"/>
         /// </summary>
-        //IGridApi IGridApi.GridOptions(Action<GridOptions> action)
-        //{
-        //return SetOptions(action);
-        //}
-
-        public IGridApi GridOptions(Action<GridOptions> action)
+        IGridApi IGridApi.GridOptions(Action<GridOptions> action)
         {
             return SetOptions(action);
         }
@@ -68,7 +63,6 @@ namespace TongYan.Web.Controls.DataGrid
         IGridApi SetOptions<T>(Action<T> action) where T : class, IOptionKey//, new()
         {
             //为了不暴露过多信息， 各配置构造函数设置为internal，因此此处无法使用new()约束，故使用Activator.CreateInstance
-            //尽管会带来略微的性能损失， 但是性能瓶颈绝不在此！
             var opt = Activator.CreateInstance(typeof(T), BindingFlags.Instance | BindingFlags.NonPublic, null, new object[] { }, null) as T;
             if (action != null)
                 action(opt);
@@ -82,15 +76,15 @@ namespace TongYan.Web.Controls.DataGrid
         /// api隐藏设计
         /// </summary>
         /// <param name="columnBuilder"></param>
-        /// <returns></returns>
-        IGridApi IGridApi.Columns(Action<GridColumnBuilder> columnBuilder)
+        /// <returns>IGridApi</returns>
+        IGridApi IGridApi.Columns(Action<IGridColumnBuilderApi> columnBuilder)
         {
             var builder = new GridColumnBuilder();
             columnBuilder(builder);
 
             foreach (var column in builder)
             {
-                GridCtrlOptions.Columns.Add(column);
+                GridCtrlOptions.ColumnBuilder.Add(column);
             }
 
             return this;

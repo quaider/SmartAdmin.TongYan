@@ -1,4 +1,5 @@
 ﻿@using TongYan.Web.Controls.DataGrid
+@using TongYan.Web.Controls.Extensions
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -135,11 +136,21 @@
             <div class="panel-body">
                 @*<table id="dataAttr" data-ajax='{"url":"DataGrid/GetData","type":"post"}'>
                     </table>*@
-                @(new GridControl("aaa").GridOptions(x =>
-            {
-                x.LengthMenu = "[1,2]";
-                x.OrderClasses = true;
-            }))
+                @(
+    Html.Control().Grid("dataAttr").Features(x =>
+    {
+        x.AutoWidth = false;
+        x.ServerSide = true;
+        x.Processing = true;
+    }).GridOptions(x =>
+    {
+        x.LengthMenu = "jo:[10,15,20]";
+        x.Order = "jo:[[0,'asc'], [1,'desc']]";
+    }).Columns(c =>
+    {
+        c.Column("aaa").Title("设置列标题").Width(100);
+    })
+                )
             </div>
         </div>
     </div>
@@ -157,11 +168,11 @@
                     type: "post"
                 },
                 "columns": [
-                    { "data": "UserName", "name": "a" },
-                    { "data": "FullName" },
-                    { "data": "DptName" },
-                    { "data": "Gender" },
-                    { "data": "Tel" }
+                    { "data": "UserName", title: 'Use name' },
+                    { "data": "FullName", title: 'Full name' },
+                    { "data": "DptName", title: 'Department name', classNames:'' },
+                    { "data": "Gender", title: 'Gender' },
+                    { "data": "Tel", title: 'Use name' }
                 ]
             });
 
