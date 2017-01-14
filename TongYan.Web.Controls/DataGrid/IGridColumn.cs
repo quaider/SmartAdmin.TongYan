@@ -13,6 +13,13 @@ namespace TongYan.Web.Controls.DataGrid
         IGridColumn Title(string title);
 
         /// <summary>
+        /// 设置列名称标识和列数据源
+        /// </summary>
+        /// <param name="name">列名称标识和列数据源</param>
+        /// <returns>IGridColumn</returns>
+        IGridColumn Name(string name);
+
+        /// <summary>
         /// 设置列宽
         /// </summary>
         /// <param name="width">列宽度</param>
@@ -77,5 +84,19 @@ namespace TongYan.Web.Controls.DataGrid
         /// </summary>
         /// <returns>IGridColumn</returns>
         IGridColumn Align(Align align);
+
+        /// <summary>
+        /// 设定行合并
+        /// </summary>
+        /// <param name="rows">要合并的行数</param>
+        /// <returns>IGridColumn</returns>
+        IGridColumn Rowspan(int rows);
+
+        /// <summary>
+        /// 设定列合并
+        /// </summary>
+        /// <param name="cols">要合并的列数</param>
+        /// <returns>IGridColumn</returns>
+        IGridColumn Colspan(int cols);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using TongYan.Web.Controls.DataGrid.Options;
+using TongYan.Web.Controls.Extensions;
 
 namespace TongYan.Web.Controls.DataGrid
 {

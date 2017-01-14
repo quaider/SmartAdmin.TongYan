@@ -15,16 +15,14 @@ namespace TongYan.Web.Controls.DataGrid
         /// </summary>
         internal GridColumnOptions ColumnOptions { get; private set; }
 
-        public GridColumn(string fieldName) : base(new DefaultWebControlOptions<object>("data-grid-column"))
+        public GridColumn(string title) : base(new DefaultWebControlOptions<object>("data-grid-column"))
         {
             ColumnOptions = new GridColumnOptions()
             {
-                Name = fieldName,
-                Data = fieldName
+                Title = title
             };
 
             Options.Render = new GridColumnRender(ColumnOptions);
-
         }
 
         public override string ToHtmlString()
@@ -105,6 +103,13 @@ namespace TongYan.Web.Controls.DataGrid
             return this;
         }
 
+        IGridColumn IGridColumn.Name(string name)
+        {
+            ColumnOptions.Data = name;
+            ColumnOptions.Name = name;
+            return this;
+        }
+
         IGridColumn IGridColumn.UnOrderable()
         {
             ColumnOptions.Orderable = false;
@@ -120,6 +125,20 @@ namespace TongYan.Web.Controls.DataGrid
         IGridColumn IGridColumn.Width(int width)
         {
             ColumnOptions.Width = width.ToString();
+            return this;
+        }
+
+        IGridColumn IGridColumn.Rowspan(int rows)
+        {
+            if (rows > 1)
+                Options.Attributes.SetKeyValue("rowspan", rows);
+            return this;
+        }
+
+        IGridColumn IGridColumn.Colspan(int cols)
+        {
+            if (cols > 1)
+                Options.Attributes.SetKeyValue("colspan", cols);
             return this;
         }
 

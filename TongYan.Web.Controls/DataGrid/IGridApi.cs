@@ -42,7 +42,7 @@ namespace TongYan.Web.Controls.DataGrid
         IGridApi Features(Action<GridFeaturesOptions> action);
 
         /// <summary>
-        /// 列配置(列配置于数据库中，也许你应该慎重调用此方法，它会覆盖其他读取方式！)
+        /// 列配置，每调用一次就会生成一行tr(列配置于数据库中，也许你应该慎重调用此方法！)
         /// </summary>
         /// <param name="columnBuilder">列配置</param>
         /// <returns>IGridApi</returns>

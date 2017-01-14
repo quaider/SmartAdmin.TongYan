@@ -81,10 +81,7 @@ namespace TongYan.Web.Controls.DataGrid
             var builder = new GridColumnsBuilder();
             columnBuilder(builder);
 
-            foreach (var column in builder)
-            {
-                GridCtrlOptions.ColumnBuilder.Add(column);
-            }
+            GridCtrlOptions.ColumnBuilders.Add(builder);
 
             return this;
         }
@@ -96,11 +93,13 @@ namespace TongYan.Web.Controls.DataGrid
         /// </summary>
         IGridApi IGridApi.ColumnsProvider(GridColumnsProvider provider)
         {
+            /*
             Provider = provider;
             foreach (var column in provider.Builder)
             {
                 GridCtrlOptions.ColumnBuilder.Add(column);
             }
+            */
 
             return this;
         }

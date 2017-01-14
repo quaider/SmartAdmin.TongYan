@@ -2,6 +2,6 @@
 {
     public interface IGridColumnBuilderApi
     {
-        IGridColumn Column(string name);
+        IGridColumn Title(string title);
     }
 }

@@ -5,16 +5,20 @@ using TongYan.Web.Controls.Extensions;
 
 namespace TongYan.Web.Controls.DataGrid
 {
+    /// <summary>
+    /// thead中单个行tr的列组装
+    /// </summary>
     public class GridColumnsBuilder : List<GridColumn>, IGridColumnBuilderApi
     {
-        IGridColumn IGridColumnBuilderApi.Column(string name)
+        /// <summary>
+        /// 列配置总是以一个标题作为起点
+        /// </summary>
+        /// <param name="title">列标题</param>
+        /// <returns>IGridColumn</returns>
+        IGridColumn IGridColumnBuilderApi.Title(string title)
         {
-            var column = new GridColumn(name);
-            if (!Exists(f => f.ColumnOptions.Name == name))
-            {
-                Add(column);
-            }
-
+            var column = new GridColumn(title);
+            Add(column);
             return column;
         }
 

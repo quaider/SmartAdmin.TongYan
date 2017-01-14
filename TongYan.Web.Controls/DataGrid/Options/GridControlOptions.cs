@@ -11,7 +11,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
     {
         public GridControlOptions()
         {
-            ColumnBuilder = new GridColumnsBuilder();
+            ColumnBuilders = new List<GridColumnsBuilder>();
             Render = new GridControlRender();
             ItemOptions = new List<IOptionKey>();
         }
@@ -19,6 +19,6 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// <summary>
         /// DataTable列定义
         /// </summary>
-        public GridColumnsBuilder ColumnBuilder { get; }
+        public IList<GridColumnsBuilder> ColumnBuilders { get; }
     }
 }

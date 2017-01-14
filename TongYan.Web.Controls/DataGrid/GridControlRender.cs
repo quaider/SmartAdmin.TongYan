@@ -40,21 +40,28 @@ namespace TongYan.Web.Controls.DataGrid
         {
             RenderWrapIndent(1);
             RenderText("<thead>");
-            RenderWrapIndent(2);
-            RenderText("<tr>");
-
-            //th
-            foreach (var column in GridControlOptions.ColumnBuilder)
+            
+            //组装Thead tr 及 th
+            foreach(var builder in GridControlOptions.ColumnBuilders)
             {
-                RenderWrapIndent(3);
-                RenderText(column.ToString());
+                //tr
+                RenderWrapIndent(2);
+                RenderText("<tr>");
+
+                //th
+                foreach(var column in builder)
+                {
+                    RenderWrapIndent(3);
+                    RenderText(column.ToString());
+                }
+
+                RenderWrapIndent(2);
+                RenderText("</tr>");
             }
 
-            RenderWrapIndent(2);
-            RenderText("</tr>");
             RenderWrapIndent(1);
             RenderText("</thead>");
-            RenderWrapIndent(3);
+            RenderWrapIndent(1);
         }
 
         protected override void RenderScript()
