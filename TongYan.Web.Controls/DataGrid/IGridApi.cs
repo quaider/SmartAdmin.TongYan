@@ -42,17 +42,18 @@ namespace TongYan.Web.Controls.DataGrid
         IGridApi Features(Action<GridFeaturesOptions> action);
 
         /// <summary>
-        /// 列配置，每调用一次就会生成一行tr(列配置于数据库中，也许你应该慎重调用此方法！)
+        /// 列配置，每调用一次就会生成一行tr(不可指定多个不同的初始化方式！)
         /// </summary>
         /// <param name="columnBuilder">列配置</param>
         /// <returns>IGridApi</returns>
         IGridApi Columns(System.Action<IGridColumnBuilderApi> columnBuilder);
 
         /// <summary>
-        /// 设置列提供器(也许你并不需要使用该方法)
+        /// 设置列提供器(不可指定多个不同的初始化方式！)
         /// </summary>
         /// <param name="provider">列提供器</param>
+        /// <param name="group">列组标识</param>
         /// <returns>IGridApi</returns>
-        IGridApi ColumnsProvider(GridColumnsProvider provider);
+        IGridApi ColumnsProvider(GridColumnsProvider provider, string group);
     }
 }

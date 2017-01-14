@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using TongYan.Web.Controls.DataGrid.Options;
 using TongYan.Web.Controls.DataGrid.Providers;
@@ -78,6 +79,8 @@ namespace TongYan.Web.Controls.DataGrid
         /// </summary>
         IGridApi IGridApi.Columns(Action<IGridColumnBuilderApi> columnBuilder)
         {
+            if (Provider != null) throw new InvalidOperationException("已通过其他途径初始化列，请不要指定多个列初始化方式！");
+
             var builder = new GridColumnsBuilder();
             columnBuilder(builder);
 
@@ -91,15 +94,17 @@ namespace TongYan.Web.Controls.DataGrid
         /// <summary>
         /// <see cref=IGridApi.ColumnsProvider(GridColumnsProvider)"/>
         /// </summary>
-        IGridApi IGridApi.ColumnsProvider(GridColumnsProvider provider)
+        IGridApi IGridApi.ColumnsProvider(GridColumnsProvider provider, string group)
         {
-            /*
+            if (GridCtrlOptions.ColumnBuilders.Any()) throw new InvalidOperationException("已通过其他途径初始化列，请不要指定多个列初始化方式！");
+
             Provider = provider;
-            foreach (var column in provider.Builder)
+            Provider.BuildColumns(group);
+
+            foreach (var builder in provider.Builders)
             {
-                GridCtrlOptions.ColumnBuilder.Add(column);
+                GridCtrlOptions.ColumnBuilders.Add(builder);
             }
-            */
 
             return this;
         }
