@@ -52,6 +52,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
 
         IDictionary<string, object> IOptionKey.ConvertToDic()
         {
+            _hasSetOptionsProperties.SetKeyValue(nameof(Ajax).ToCamelCaseString(), Ajax.ConvertToDic());
             return _hasSetOptionsProperties;
         }
     }

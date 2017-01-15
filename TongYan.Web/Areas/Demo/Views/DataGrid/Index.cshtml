@@ -5,163 +5,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <div class="col-lg-6 col-md-12 col-sm-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">根据table生成Datatable</h3>
-            </div>
-            <div class="panel-body">
-                <table id="example1" class="table table-striped table-hover table-primary table-bordered" width="100%">
-                    <thead>
-                        <tr>
-                            <th colspan="2">test1</th>
-                            <th rowspan="2">
-                                Office
-                            </th>
-                            <th colspan="3">Person Info</th>
-                        </tr>
-                        <tr role="row">
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Position
-                            </th>
-
-                            <th>
-                                Age
-                            </th>
-                            <th>
-                                Start date
-                            </th>
-                            <th>
-                                Salary
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Timothy Mooney</td>
-                            <td>Office Manager</td>
-                            <td>London</td>
-                            <td>37</td>
-                            <td>2008/12/11</td>
-                            <td>$136,200</td>
-                        </tr>
-                        <tr>
-                            <td>Unity Butler</td>
-                            <td>Marketing Designer</td>
-                            <td>San Francisco</td>
-                            <td>47</td>
-                            <td>2009/12/09</td>
-                            <td>$85,675</td>
-                        </tr>
-                        <tr>
-                            <td>Vivian Harrell</td>
-                            <td>Financial Controller</td>
-                            <td>San Francisco</td>
-                            <td>62</td>
-                            <td>2009/02/14</td>
-                            <td>$452,500</td>
-                        </tr>
-                        <tr>
-                            <td>Yuri Berry</td>
-                            <td>Chief Marketing Officer (CMO)</td>
-                            <td>New York</td>
-                            <td>40</td>
-                            <td>2009/06/25</td>
-                            <td>$675,000</td>
-                        </tr>
-                        <tr>
-                            <td>Zenaida Frank</td>
-                            <td>Software Engineer</td>
-                            <td>New York</td>
-                            <td>63</td>
-                            <td>2010/01/04</td>
-                            <td>$125,250</td>
-                        </tr>
-                        <tr>
-                            <td>Zorita Serrano</td>
-                            <td>Software Engineer</td>
-                            <td>San Francisco</td>
-                            <td>56</td>
-                            <td>2012/06/01</td>
-                            <td>$115,000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-12 col-sm-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Server-side Datatable</h3>
-            </div>
-            <div class="panel-body">
-                <table id="example2" class="table table-striped table-hover table-primary" width="100%">
-                    <thead>
-                        <tr role="row">
-                            <th>
-                                Use name
-                            </th>
-                            <th>
-                                Full name
-                            </th>
-                            <th>
-                                Department name
-                            </th>
-                            <th>
-                                Gender
-                            </th>
-                            <th>
-                                Tel.
-                            </th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">HTML data-attribute*</h3>
+                <h3 class="panel-title table-condensed">复杂表头表格</h3>
             </div>
             <div class="panel-body">
-                @*<table id="dataAttr" data-ajax='{"url":"DataGrid/GetData","type":"post"}'>
-                    </table>*@
                 @(
-    Html.Control().Grid("dataAttr").Features(x =>
+    Html.Control().Grid("dataAttr").Highlight().ClassName("table-lilac").Features(x =>
     {
         x.AutoWidth = false;
         x.ServerSide = true;
         x.Processing = true;
-    }).GridOptions(x =>
+    }).Data(x =>
     {
-        x.LengthMenu = "jo:[10,15,20]";
-        x.Order = "jo:[[0,'asc'], [1,'desc']]";
-    }).Columns(c =>
-    {
-        c.Title("设置列标题").Colspan(2).Align(Align.Center);
-        c.Title("测试").Name("bbb").Width(200).Rowspan(2);
-        c.Title("测试1").Name("ccc").Width(200).Rowspan(2);
-        c.Title("测试2").Name("ddd").Rowspan(2);
-    }).Columns(c =>
-    {
-        c.Title("子1").Name("aaa").UnSearchable();
-        c.Title("子2").Name("bbb");
-    })
+        x.Ajax.Url = "DataGrid/GetData";
+    }).ColumnsProvider(new TongYan.Web.Controls.DataGrid.Providers.JsonGridColumnsProvider(), "Test")
                 )
             </div>
         </div>
@@ -188,7 +47,7 @@
                 ]
             });
 
-            $("#dataAttr").DataTable();
+            $("#dataAttr").tyDataTable();
         })
     </script>
 }

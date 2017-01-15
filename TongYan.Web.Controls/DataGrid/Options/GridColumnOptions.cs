@@ -182,20 +182,6 @@ namespace TongYan.Web.Controls.DataGrid.Options
             }
         }
 
-        private string _className;
-        /// <summary>
-        /// Class to assign to each cell in the column.
-        /// </summary>
-        public string ClassName
-        {
-            get { return _className; }
-            set
-            {
-                _className = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ClassName).ToCamelCaseString(), value);
-            }
-        }
-
         private string _align;
         /// <summary>
         /// center left right
@@ -228,5 +214,6 @@ namespace TongYan.Web.Controls.DataGrid.Options
         {
             return _hasSetOptionsProperties;
         }
+
     }
 }

@@ -80,10 +80,10 @@ namespace TongYan.Web.Controls.DataGrid
         IGridColumn ClassName(string cls);
 
         /// <summary>
-        /// 默认左对齐
+        /// 默认左对齐(left, center, right)
         /// </summary>
         /// <returns>IGridColumn</returns>
-        IGridColumn Align(Align align);
+        IGridColumn Align(string align);
 
         /// <summary>
         /// 设定行合并
@@ -98,5 +98,12 @@ namespace TongYan.Web.Controls.DataGrid
         /// <param name="cols">要合并的列数</param>
         /// <returns>IGridColumn</returns>
         IGridColumn Colspan(int cols);
+
+        /// <summary>
+        /// 设定多行复杂表头时，数据列的解析顺序， 此方法在多行表头中非常重要，单行表头请忽略
+        /// </summary>
+        /// <param name="order">数据列的解析顺序</param>
+        /// <returns>IGridColumn</returns>
+        IGridColumn SetOrderCrossRows(int order);
     }
 }

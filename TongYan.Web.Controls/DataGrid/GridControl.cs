@@ -109,12 +109,36 @@ namespace TongYan.Web.Controls.DataGrid
             return this;
         }
 
+        IGridApi IGridApi.Highlight()
+        {
+            AddClass("table-sort-bg");
+            return this;
+        }
+
+        IGridApi IGridApi.ClassName(string cls)
+        {
+            AddClass(cls);
+            return this;
+        }
+
+        IGridApi IGridApi.Bordered()
+        {
+            AddClass("table-bordered");
+            return this;
+        }
+
+        IGridApi IGridApi.Condensed()
+        {
+            AddClass("table-condensed");
+            return this;
+        }
+
         /// <summary>
         /// 初始化配置
         /// </summary>
         private void InitDefault()
         {
-            AddClass("table table-hover table-bordered table-striped");
+            AddClass("table table-hover table-striped");
         }
     }
 }

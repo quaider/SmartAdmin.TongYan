@@ -45,25 +45,24 @@ namespace TongYan.Web.Controls.DataGrid
 
         #region IGridColumn Members
 
-        IGridColumn IGridColumn.Align(Align align)
+        IGridColumn IGridColumn.Align(string align)
         {
-            if (align == Align.Right)
+            if (string.Compare(align, "right", true) == 0)
             {
-                ColumnOptions.ClassName = (ColumnOptions.ClassName + " text-right").Trim();
+                AddClass("text-right");
             }
-            else if (align == Align.Center)
+            else if (string.Compare(align, "center", true) == 0)
             {
-                ColumnOptions.ClassName = (ColumnOptions.ClassName + " text-center").Trim();
+                AddClass("text-center");
             }
-
-            //Options.Options.SetKeyValue
 
             return this;
         }
 
         IGridColumn IGridColumn.ClassName(string cls)
         {
-            ColumnOptions.ClassName = (ColumnOptions.ClassName + " " + cls).Trim();
+            AddClass(cls);
+
             return this;
         }
 
@@ -139,6 +138,12 @@ namespace TongYan.Web.Controls.DataGrid
         {
             if (cols > 1)
                 Options.Attributes.SetKeyValue("colspan", cols);
+            return this;
+        }
+
+        IGridColumn IGridColumn.SetOrderCrossRows(int order)
+        {
+            Options.Attributes.SetKeyValue("data-grid-columnOrder", order);
             return this;
         }
 

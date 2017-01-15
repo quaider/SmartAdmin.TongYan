@@ -250,6 +250,7 @@
     <Content Include="Areas\Demo\Views\Tree\Index.cshtml" />
     <Content Include="Areas\Demo\Views\DataGrid\Index.cshtml" />
     <None Include="bundleconfig.json" />
+    <Content Include="test\columns.json" />
     <None Include="wwwroot\lib\jquery\jquery-1.10.2.intellisense.js" />
     <None Include="wwwroot\lib\jquery-validation\jquery.validate-vsdoc.js" />
     <Content Include="wwwroot\lib\jquery-select2\css\select2.css" />

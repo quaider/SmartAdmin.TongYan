@@ -2849,7 +2849,7 @@ input[type=radio][disabled]:checked + label:after {
     background-color: #EEEEEE;
     border-color: #ddd #ddd gainsboro;
     vertical-align: middle;
-    border-width: 1px 1px 7px;
+    border-width: 1px 1px 1px;
     border-style: solid;
 }
 
@@ -2865,6 +2865,11 @@ input[type=radio][disabled]:checked + label:after {
     background-color: #fff;
     vertical-align: middle;
     transition: background-color linear .15s;
+}
+
+/*修复高亮时背景闪烁问题*/
+.table-sort-bg tbody tr td.sorting_1 {
+    transition: none;
 }
 
 /*table striped*/

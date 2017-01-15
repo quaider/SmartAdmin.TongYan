@@ -15,7 +15,7 @@ namespace TongYan.Web.Areas.Demo.Controllers
 
         public JsonResult GetData(GridQuery query)
         {
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(600);
 
             var data = new List<EmployeeDemo>
             {

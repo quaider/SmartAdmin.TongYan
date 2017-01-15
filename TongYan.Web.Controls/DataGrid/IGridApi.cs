@@ -49,11 +49,36 @@ namespace TongYan.Web.Controls.DataGrid
         IGridApi Columns(System.Action<IGridColumnBuilderApi> columnBuilder);
 
         /// <summary>
-        /// 设置列提供器(不可指定多个不同的初始化方式！)
+        /// 设置列提供器(不可指定多个不同的初始化方式！ 后续重构为IOC注入或配置的方式)
         /// </summary>
         /// <param name="provider">列提供器</param>
         /// <param name="group">列组标识</param>
         /// <returns>IGridApi</returns>
         IGridApi ColumnsProvider(GridColumnsProvider provider, string group);
+
+        /// <summary>
+        /// 高亮排序背景
+        /// </summary>
+        /// <returns>IGridApi</returns>
+        IGridApi Highlight();
+
+        /// <summary>
+        /// 添加自定义样式
+        /// </summary>
+        /// <param name="cls">样式名</param>
+        /// <returns>IGridApi</returns>
+        IGridApi ClassName(string cls);
+
+        /// <summary>
+        /// 边框
+        /// </summary>
+        /// <returns>IGridApi</returns>
+        IGridApi Bordered();
+
+        /// <summary>
+        /// 压缩行高
+        /// </summary>
+        /// <returns>IGridApi</returns>
+        IGridApi Condensed();
     }
 }

@@ -1,0 +1,76 @@
+﻿[
+  [
+    {
+      "Key": "Test",
+      "Title": "用户信息",
+      "Orderable": true,
+      "Searchable": true,
+      "Row": 1,
+      "Colspan": 2,
+      "ShowOrder": 1,
+      "ClassName": "myCls",
+      "Align": "center"
+      //
+      //"CrossRowDataColumnsOrder": 1
+    },
+    {
+      "Key": "Test",
+      "Title": "其他信息",
+      "Orderable": true,
+      "Searchable": true,
+      "Row": 1,
+      "Colspan": 2,
+      "ShowOrder": 2,
+      "Align": "center"
+      //"CrossRowDataColumnsOrder": 1
+    },
+    {
+      "Key": "Test",
+      "Title": "电话",
+      "Name": "Tel",
+      "Row": 1,
+      "ShowOrder": 3,
+      "Rowspan": 2,
+      "CrossRowDataColumnsOrder": 5
+    },
+    {
+      "Key": "Test",
+      "Title": "用户名",
+      "Name": "UserName",
+      "Orderable": true,
+      "Searchable": true,
+      "Row": 2,
+      "ShowOrder": 1,
+      //
+      "CrossRowDataColumnsOrder": 1
+    },
+    {
+      "Key": "Test",
+      "Title": "姓名",
+      "Name": "FullName",
+      "Orderable": true,
+      "Searchable": true,
+      "Row": 2,
+      "ShowOrder": 2,
+      "CrossRowDataColumnsOrder": 2
+    },
+    {
+      "Key": "Test",
+      "Title": "部门",
+      "Name": "DptName",
+      "Orderable": true,
+      "Searchable": true,
+      "Row": 2,
+      "ShowOrder": 3,
+      "CrossRowDataColumnsOrder": 3
+    },
+    {
+      "Key": "Test",
+      "Title": "性别",
+      "Name": "Gender",
+      "Row": 2,
+      "ShowOrder": 4,
+      "CrossRowDataColumnsOrder": 4
+    }
+  ]
+]
