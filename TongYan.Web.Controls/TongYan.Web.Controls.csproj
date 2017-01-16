@@ -94,7 +94,6 @@
     <Compile Include="DefaultWebControlMultipleOptionsRender.cs" />
     <Compile Include="DefaultWebControlOptions.cs" />
     <Compile Include="DefaultWebControlRender.cs" />
-    <Compile Include="Extensions\Align.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="IOptionKey.cs" />
     <Compile Include="IWebControlOptions.cs" />
