@@ -27,8 +27,6 @@
     Html.Control().Grid("demoTable").Highlight().ClassName("table-lilac").Features(x =>
     {
         x.AutoWidth = false;
-        x.ServerSide = true;
-        x.Processing = true;
     }).Data(x =>
     {
         x.Ajax.Url = "DataGrid/GetData";
