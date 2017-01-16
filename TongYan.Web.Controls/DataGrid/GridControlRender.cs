@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TongYan.Web.Controls.DataGrid.Options;
+using TongYan.Web.Controls.Extensions;
 
 namespace TongYan.Web.Controls.DataGrid
 {
@@ -66,7 +67,7 @@ namespace TongYan.Web.Controls.DataGrid
 
         protected override void RenderScript()
         {
-
+            ViewContext.HttpContext.WriteControlScript(string.Format("$('#{0}').tyDataTable();", GridControlOptions.Id));
         }
     }
 }

@@ -24,7 +24,7 @@ namespace TongYan.Web.Areas.Demo.Controllers
                 new EmployeeDemo("zkwin", "Quaider Zh", "TongYan Digital Dev Department", "18812345678", "Male")
             };
 
-            for (var i = 1; i < 100; i++)
+            for (var i = 1; i < 50; i++)
             {
                 data.Add(new EmployeeDemo("admin", "Jeffery Li", "Windows Presentation Foundation", "15900000000", "Male", i.ToString()));
                 data.Add(new EmployeeDemo("tester", "Jenny Chen", "Windows Communication Foundation", "18899999999", "Female", i.ToString()));

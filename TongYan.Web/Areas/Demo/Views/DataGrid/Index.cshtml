@@ -12,7 +12,7 @@
             </div>
             <div class="panel-body">
                 @(
-    Html.Control().Grid("dataAttr").Highlight().ClassName("table-lilac").Features(x =>
+    Html.Control().Grid("demoTable").Highlight().ClassName("table-lilac").Features(x =>
     {
         x.AutoWidth = false;
         x.ServerSide = true;
@@ -20,34 +20,9 @@
     }).Data(x =>
     {
         x.Ajax.Url = "DataGrid/GetData";
-    }).ColumnsProvider(new TongYan.Web.Controls.DataGrid.Providers.JsonGridColumnsProvider(), "Test")
+    }).ColumnsProvider(new TongYan.Web.Controls.DataGrid.Providers.JsonGridColumnsProvider(), "Test").RunScriptForMe()
                 )
             </div>
         </div>
     </div>
 </div>
-@section scripts{
-    <script>
-        $(function () {
-            $("#example1").DataTable();
-
-            $('#example2').DataTable({
-                "processing": true,
-                "serverSide": true,
-                "ajax": {
-                    url: "DataGrid/GetData",
-                    type: "post"
-                },
-                "columns": [
-                    { "data": "UserName", title: 'Use name' },
-                    { "data": "FullName", title: 'Full name' },
-                    { "data": "DptName", title: 'Department name', className: 'text-center' },
-                    { "data": "Gender", title: 'Gender' },
-                    { "data": "Tel", title: 'Use name' }
-                ]
-            });
-
-            $("#dataAttr").tyDataTable();
-        })
-    </script>
-}

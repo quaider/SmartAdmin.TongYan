@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Web.Mvc;
 using TongYan.Web.Controls.DataGrid.Options;
 using TongYan.Web.Controls.DataGrid.Providers;
 
@@ -12,9 +13,12 @@ namespace TongYan.Web.Controls.DataGrid
     /// </summary>
     public class GridControl : WebControlBase<object>, IGridApi
     {
-        public GridControl(string id) : base(new GridControlOptions())
+        private readonly ViewContext _context;
+
+        public GridControl(string id, ViewContext contex) : base(new GridControlOptions())
         {
             Options.Id = id;
+            _context = contex;
             InitDefault();
         }
 
@@ -26,7 +30,7 @@ namespace TongYan.Web.Controls.DataGrid
         public override string ToHtmlString()
         {
             var writer = new StringWriter();
-            GridCtrlOptions.Render.Render(GridCtrlOptions, writer, null);
+            GridCtrlOptions.Render.Render(GridCtrlOptions, writer, _context);
             return writer.ToString();
         }
 
@@ -130,6 +134,13 @@ namespace TongYan.Web.Controls.DataGrid
         IGridApi IGridApi.Condensed()
         {
             AddClass("table-condensed");
+            return this;
+        }
+
+        IGridApi IGridApi.RunScriptForMe()
+        {
+            GridCtrlOptions.EnableClientScript();
+
             return this;
         }
 

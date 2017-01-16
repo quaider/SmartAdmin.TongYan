@@ -7,9 +7,12 @@
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
         renderer: 'bootstrap',
+        //多语言
         language: {
             "url": "/wwwroot/lib/jquery-datatable/js/i18n/datatable.lang.chinese.json"
         },
+        //菜单长度
+        lengthMenu: [10, 15, 20, 50],
         //给空默认值，防止报错
         buttons: []
     });
@@ -26,21 +29,21 @@
 
         if (t.attr('data-grid-features')) {
             opt = $.TongYan.parser.parseOptions(target, 'data-grid-features');
-            options = $.extend({}, options, opt)
+            options = $.extend({}, options, opt);
         }
 
         if (t.attr('data-grid-option')) {
             opt = $.TongYan.parser.parseOptions(target, 'data-grid-option');
-            options = $.extend({}, options, opt)
+            options = $.extend({}, options, opt);
         }
 
         if (t.attr('data-grid-data')) {
             opt = $.TongYan.parser.parseOptions(target, 'data-grid-data');
-            options = $.extend({}, options, opt)
+            options = $.extend({}, options, opt);
         }
 
         options["columns"] = [];
-        var domColumns = [];
+        var domColumns;
 
         //多行复杂表头，必须按照解析顺序进行解析
         if (t.find("thead tr").length > 1) {
@@ -56,9 +59,8 @@
         domColumns.each(function (i, tr) {
             var columnOpt = $.TongYan.parser.parseOptions($(tr), 'data-grid-column');
             if (columnOpt && columnOpt.data && columnOpt.name) {
-                options["columns"].push(columnOpt)
+                options["columns"].push(columnOpt);
             }
-
         });
 
         return options;

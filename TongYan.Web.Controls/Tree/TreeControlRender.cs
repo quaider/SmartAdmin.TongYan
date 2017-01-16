@@ -26,7 +26,7 @@ namespace TongYan.Web.Controls.Tree
 
         protected override void RenderScript()
         {
-            ViewContext.HttpContext.WriteControlScript("$('#demoId').tyTree();");
+            ViewContext.HttpContext.WriteControlScript(string.Format("$('#{0}').tyTree();", TreeOptions.Id));
         }
     }
 }

@@ -80,5 +80,11 @@ namespace TongYan.Web.Controls.DataGrid
         /// </summary>
         /// <returns>IGridApi</returns>
         IGridApi Condensed();
+
+        /// <summary>
+        /// 立即执行初始化脚本
+        /// </summary>
+        /// <returns>ITreeApi</returns>
+        IGridApi RunScriptForMe();
     }
 }

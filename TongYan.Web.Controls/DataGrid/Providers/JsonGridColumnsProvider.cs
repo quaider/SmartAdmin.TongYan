@@ -19,7 +19,7 @@ namespace TongYan.Web.Controls.DataGrid.Providers
             var columnsGroups = new List<IList<IGridColumn>>();
             var jsonStr = File.ReadAllText(HttpContext.Current.Server.MapPath("~/test/columns.json"));
             var allColumnsCgfs = JsonConvert.DeserializeObject<IList<IList<GridColumn4Provider>>>(jsonStr);
-            var keyColumns = allColumnsCgfs.Where(f => f.Count(c => c.Key == group) > 0).SingleOrDefault();
+            var keyColumns = allColumnsCgfs.SingleOrDefault(f => f.Count(c => c.Key == group) > 0);
 
             foreach (var row in keyColumns.GroupBy(f => f.Row).Select(f => f.Key))
             {
@@ -36,6 +36,11 @@ namespace TongYan.Web.Controls.DataGrid.Providers
                     if (c.Orderable.HasValue && !c.Orderable.Value)
                     {
                         gridColumn.UnOrderable();
+                    }
+
+                    if (c.Searchable.HasValue && !c.Searchable.Value)
+                    {
+                        gridColumn.UnSearchable();
                     }
 
                     if (c.Rowspan.HasValue && c.Rowspan.Value > 1)

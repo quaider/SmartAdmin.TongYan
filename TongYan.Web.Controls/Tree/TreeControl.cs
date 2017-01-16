@@ -11,7 +11,8 @@ namespace TongYan.Web.Controls.Tree
     /// </summary>
     public class TreeControl : WebControlBase<object>, ITreeApi
     {
-        private ViewContext _context;
+        private readonly ViewContext _context;
+
         public TreeControl(string id, ViewContext context) : base(new TreeControlOptions())
         {
             Options.Id = id;

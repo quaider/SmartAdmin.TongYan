@@ -25,7 +25,7 @@ namespace TongYan.Web.Controls
 
         public IGridApi Grid(string id)
         {
-            return new GridControl(id);
+            return new GridControl(id, _helper.ViewContext);
         }
     }
 }
