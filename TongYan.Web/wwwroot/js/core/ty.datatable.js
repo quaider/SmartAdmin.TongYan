@@ -37,6 +37,11 @@
             options = $.extend({}, options, opt);
         }
 
+        if (t.attr('data-grid-callbacks')) {
+            opt = $.TongYan.parser.parseOptions(target, 'data-grid-callbacks');
+            options = $.extend({}, options, opt);
+        }
+
         if (t.attr('data-grid-data')) {
             opt = $.TongYan.parser.parseOptions(target, 'data-grid-data');
             options = $.extend({}, options, opt);
