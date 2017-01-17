@@ -140,7 +140,12 @@ namespace TongYan.Web.Controls.DataGrid
         IGridApi IGridApi.RunScriptForMe()
         {
             GridCtrlOptions.EnableClientScript();
+            return this;
+        }
 
+        IGridApi IGridApi.Checkable()
+        {
+            GridCtrlOptions.Checkable = true;
             return this;
         }
 
@@ -150,6 +155,6 @@ namespace TongYan.Web.Controls.DataGrid
         private void InitDefault()
         {
             AddClass("table table-hover table-striped");
-        }
+        } 
     }
 }

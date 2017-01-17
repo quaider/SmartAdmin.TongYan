@@ -86,5 +86,11 @@ namespace TongYan.Web.Controls.DataGrid
         /// </summary>
         /// <returns>ITreeApi</returns>
         IGridApi RunScriptForMe();
+
+        /// <summary>
+        /// 首列增加复选框
+        /// </summary>
+        /// <returns>IGridApi</returns>
+        IGridApi Checkable();
     }
 }

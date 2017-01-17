@@ -11,7 +11,7 @@
                 <h3 class="panel-title table-condensed">查询条件</h3>
             </div>
             <div class="panel-body">
-                
+
             </div>
         </div>
     </div>
@@ -24,16 +24,32 @@
             </div>
             <div class="panel-body">
                 @(
-    Html.Control().Grid("demoTable").Highlight().ClassName("table-lilac").Features(x =>
+    Html.Control().Grid("demoTable").Highlight().Checkable().ClassName("table-lilac").Features(x =>
     {
         x.AutoWidth = false;
+    }).GridOptions(x =>
+    {
+        x.Order = "jo:[[ 1, \'asc\' ]]";
     }).Data(x =>
     {
         x.Ajax.Url = "DataGrid/GetData";
-    }).ColumnsProvider(new TongYan.Web.Controls.DataGrid.Providers.JsonGridColumnsProvider(), "Test").RunScriptForMe()
+    })
+    .Columns(x =>
+    {
+        x.Title("用户信息").Colspan(2).Align("center");
+        x.Title("其他信息").Colspan(2).Align("center");
+        x.Title("电话").Rowspan(2).Name("Tel").SetOrderCrossRows(5).UnOrderable();
+    }).
+    Columns(x =>
+    {
+        x.Title("用户名").Name("UserName").SetOrderCrossRows(1);
+        x.Title("姓名").Name("FullName").SetOrderCrossRows(2);
+        x.Title("部门").Name("DptName").SetOrderCrossRows(3);
+        x.Title("性别").Name("Gender").SetOrderCrossRows(4);
+    }).RunScriptForMe()
+                //.ColumnsProvider(new TongYan.Web.Controls.DataGrid.Providers.JsonGridColumnsProvider(), "Test").RunScriptForMe()
                 )
             </div>
         </div>
     </div>
 </div>
-

@@ -2,6 +2,15 @@
   [
     {
       "Key": "Test",
+      "Title": "全选",
+      "Orderable": false,
+      "Searchable": false,
+      "Row": 1,
+      "Rowspan": 2,
+      "Width": "60px"
+    },
+    {
+      "Key": "Test",
       "Title": "用户信息",
       "Orderable": true,
       "Searchable": true,

@@ -39,7 +39,6 @@
     * obj 需要遍历的对象 
     */
     function checkAndSetJsString(obj) {
-
         if (typeof (obj) == "string") {
             return parseJsString(obj);
         }
@@ -52,6 +51,7 @@
                     for (var i = 0; i < obj[p].length; i++) {
                         a[i] = checkAndSetJsString(obj[p][i]);
                     }
+
                     obj[p] = a;
                 }
                 else {
@@ -64,6 +64,8 @@
                 obj[p] = parseJsString(obj[p]);
             }
         }
+
+        return obj;
     }
 
     function parseJsString(source) {
