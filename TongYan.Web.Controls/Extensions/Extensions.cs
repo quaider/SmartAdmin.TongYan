@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq.Expressions;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -24,6 +26,16 @@ namespace TongYan.Web.Controls.Extensions
                 source.Add(key, value);
 
             return source;
+        }
+
+        /// <summary>
+        /// VS12, VS13不支持nameof
+        /// </summary>
+        /// <returns>返回成员的名称</returns>
+        public static string NameOf<T, TProperty>(this T source, Expression<Func<T, TProperty>> name)
+        {
+            MemberExpression expressionBody = (MemberExpression)name.Body;
+            return expressionBody.Member.Name;
         }
 
         /// <summary>

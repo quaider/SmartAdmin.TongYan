@@ -19,6 +19,6 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// <summary>
         /// DataTable列定义
         /// </summary>
-        public IList<GridColumnsBuilder> ColumnBuilders { get; }
+        public IList<GridColumnsBuilder> ColumnBuilders { get; private set; }
     }
 }

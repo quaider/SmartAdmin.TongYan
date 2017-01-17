@@ -29,7 +29,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _autoCheckTrigger = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoCheckTrigger).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.AutoCheckTrigger).ToCamelCaseString(), value);
             }
         }
 
@@ -40,7 +40,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _chkboxType = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ChkboxType).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ChkboxType).ToCamelCaseString(), value);
             }
         }
 
@@ -51,7 +51,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _chkStyle = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ChkStyle).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ChkStyle).ToCamelCaseString(), value);
             }
         }
 
@@ -62,7 +62,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _nocheckInherit = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(NocheckInherit).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.NocheckInherit).ToCamelCaseString(), value);
             }
         }
 
@@ -73,7 +73,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _chkDisabledInherit = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ChkDisabledInherit).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ChkDisabledInherit).ToCamelCaseString(), value);
             }
         }
 
@@ -84,7 +84,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _radioType = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(RadioType).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.RadioType).ToCamelCaseString(), value);
             }
         }
 

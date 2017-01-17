@@ -28,7 +28,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _data = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Data).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Data).ToCamelCaseString(), value);
             }
         }
 
@@ -52,7 +52,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
 
         IDictionary<string, object> IOptionKey.ConvertToDic()
         {
-            _hasSetOptionsProperties.SetKeyValue(nameof(Ajax).ToCamelCaseString(), Ajax.ConvertToDic());
+            _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Ajax).ToCamelCaseString(), Ajax.ConvertToDic());
             return _hasSetOptionsProperties;
         }
     }
@@ -79,7 +79,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _url = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Url).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Url).ToCamelCaseString(), value);
             }
         }
 
@@ -93,7 +93,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _ajaxFunction = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AjaxFunction).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.AjaxFunction).ToCamelCaseString(), value);
             }
         }
 
@@ -108,7 +108,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _data = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Data).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Data).ToCamelCaseString(), value);
             }
         }
 
@@ -122,7 +122,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _dataSrc = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(DataSrc).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.DataSrc).ToCamelCaseString(), value);
             }
         }
 

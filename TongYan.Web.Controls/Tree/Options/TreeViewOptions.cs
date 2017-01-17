@@ -26,7 +26,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _addDiyDom = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AddDiyDom), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.AddDiyDom), value);
             }
         }
 
@@ -37,7 +37,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _addHoverDom = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AddHoverDom), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.AddHoverDom), value);
             }
         }
 
@@ -48,7 +48,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _autoCancelSelected = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoCancelSelected), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.AutoCancelSelected), value);
             }
         }
 
@@ -59,7 +59,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _dblClickExpand = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(DblClickExpand), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.DblClickExpand), value);
             }
         }
 
@@ -70,7 +70,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _expandSpeed = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ExpandSpeed), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ExpandSpeed), value);
             }
         }
 
@@ -81,7 +81,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _fontCss = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(FontCss), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.FontCss), value);
             }
         }
 
@@ -92,7 +92,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _nameIsHTML = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(NameIsHTML), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.NameIsHTML), value);
             }
         }
 
@@ -103,7 +103,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _removeHoverDom = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(RemoveHoverDom), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.RemoveHoverDom), value);
             }
         }
 
@@ -114,7 +114,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _selectedMulti = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(SelectedMulti), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.SelectedMulti), value);
             }
         }
 
@@ -125,7 +125,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _showIcon = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ShowIcon), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ShowIcon), value);
             }
         }
 
@@ -136,7 +136,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _showLine = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ShowLine), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ShowLine), value);
             }
         }
 
@@ -147,7 +147,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _showTitle = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ShowTitle), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ShowTitle), value);
             }
         }
 
@@ -158,7 +158,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _txtSelectedEnable = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(TxtSelectedEnable), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.TxtSelectedEnable), value);
             }
         }
 

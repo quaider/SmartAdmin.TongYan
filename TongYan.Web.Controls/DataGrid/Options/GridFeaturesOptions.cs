@@ -29,7 +29,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _autoWidth = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoWidth).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.AutoWidth).ToCamelCaseString(), value);
             }
         }
 
@@ -44,7 +44,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _deferRender = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(DeferRender).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.DeferRender).ToCamelCaseString(), value);
             }
         }
 
@@ -59,7 +59,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _info = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Info).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Info).ToCamelCaseString(), value);
             }
         }
 
@@ -74,7 +74,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _lengthChange = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(LengthChange).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.LengthChange).ToCamelCaseString(), value);
             }
         }
 
@@ -88,7 +88,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _ordering = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Ordering).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Ordering).ToCamelCaseString(), value);
             }
         }
 
@@ -102,7 +102,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _paging = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Paging).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Paging).ToCamelCaseString(), value);
             }
         }
 
@@ -116,7 +116,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _processing = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Processing).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Processing).ToCamelCaseString(), value);
             }
         }
 
@@ -130,7 +130,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _scrollX = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ScrollX).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ScrollX).ToCamelCaseString(), value);
             }
         }
 
@@ -145,7 +145,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _scrollY = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ScrollY).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ScrollY).ToCamelCaseString(), value);
             }
         }
 
@@ -159,7 +159,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _searching = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Searching).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Searching).ToCamelCaseString(), value);
             }
         }
 
@@ -174,7 +174,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _serverSide = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ServerSide).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ServerSide).ToCamelCaseString(), value);
             }
         }
 

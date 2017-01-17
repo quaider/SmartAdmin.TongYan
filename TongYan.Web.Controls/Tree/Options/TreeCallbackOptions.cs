@@ -27,7 +27,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeAsync = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeAsync).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeAsync).ToCamelCaseString(), value);
             }
         }
 
@@ -38,7 +38,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeCheck = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeCheck).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeCheck).ToCamelCaseString(), value);
             }
         }
 
@@ -49,7 +49,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeClick = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeClick).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeClick).ToCamelCaseString(), value);
             }
         }
 
@@ -60,7 +60,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeCollapse = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeCollapse).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeCollapse).ToCamelCaseString(), value);
             }
         }
 
@@ -71,7 +71,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeDblClick = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeDblClick).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeDblClick).ToCamelCaseString(), value);
             }
         }
 
@@ -82,7 +82,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeDrag = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeDrag).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeDrag).ToCamelCaseString(), value);
             }
         }
 
@@ -93,7 +93,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeDragOpen = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeDragOpen).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeDragOpen).ToCamelCaseString(), value);
             }
         }
 
@@ -104,7 +104,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeDrop = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeDrop).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeDrop).ToCamelCaseString(), value);
             }
         }
 
@@ -115,7 +115,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeEditName = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeEditName).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeEditName).ToCamelCaseString(), value);
             }
         }
 
@@ -126,7 +126,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeExpand = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeExpand).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeExpand).ToCamelCaseString(), value);
             }
         }
 
@@ -137,7 +137,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeMouseDown = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeMouseDown).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeMouseDown).ToCamelCaseString(), value);
             }
         }
 
@@ -148,7 +148,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeMouseUp = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeMouseUp).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeMouseUp).ToCamelCaseString(), value);
             }
         }
 
@@ -159,7 +159,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeRemove = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeRemove).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeRemove).ToCamelCaseString(), value);
             }
         }
 
@@ -170,7 +170,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeRename = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeRename).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeRename).ToCamelCaseString(), value);
             }
         }
 
@@ -181,7 +181,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _beforeRightClick = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BeforeRightClick).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BeforeRightClick).ToCamelCaseString(), value);
             }
         }
 
@@ -192,7 +192,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onAsyncError = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnAsyncError).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnAsyncError).ToCamelCaseString(), value);
             }
         }
 
@@ -203,7 +203,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onAsyncSuccess = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnAsyncSuccess).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnAsyncSuccess).ToCamelCaseString(), value);
             }
         }
 
@@ -214,7 +214,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onCheck = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnCheck).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnCheck).ToCamelCaseString(), value);
             }
         }
 
@@ -225,7 +225,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onClick = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnClick).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnClick).ToCamelCaseString(), value);
             }
         }
 
@@ -236,7 +236,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onCollapse = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnCollapse).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnCollapse).ToCamelCaseString(), value);
             }
         }
 
@@ -247,7 +247,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onDblClick = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnDblClick).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnDblClick).ToCamelCaseString(), value);
             }
         }
 
@@ -258,7 +258,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onDrag = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnDrag).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnDrag).ToCamelCaseString(), value);
             }
         }
 
@@ -269,7 +269,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onDragMove = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnDragMove).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnDragMove).ToCamelCaseString(), value);
             }
         }
 
@@ -280,7 +280,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onDrop = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnDrop).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnDrop).ToCamelCaseString(), value);
             }
         }
 
@@ -291,7 +291,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onExpand = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnExpand).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnExpand).ToCamelCaseString(), value);
             }
         }
 
@@ -302,7 +302,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onMouseDown = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnMouseDown).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnMouseDown).ToCamelCaseString(), value);
             }
         }
 
@@ -313,7 +313,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onMouseUp = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnMouseUp).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnMouseUp).ToCamelCaseString(), value);
             }
         }
 
@@ -324,7 +324,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onNodeCreated = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnNodeCreated).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnNodeCreated).ToCamelCaseString(), value);
             }
         }
 
@@ -335,7 +335,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onRemove = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnRemove).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnRemove).ToCamelCaseString(), value);
             }
         }
 
@@ -346,7 +346,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onRename = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnRename).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnRename).ToCamelCaseString(), value);
             }
         }
 
@@ -357,7 +357,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _onRightClick = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OnRightClick).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OnRightClick).ToCamelCaseString(), value);
             }
         }
 

@@ -26,7 +26,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _width = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Width).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Width).ToCamelCaseString(), value);
             }
         }
 
@@ -40,7 +40,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _visible = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Visible).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Visible).ToCamelCaseString(), value);
             }
         }
 
@@ -51,7 +51,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _type = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Type).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Type).ToCamelCaseString(), value);
             }
         }
 
@@ -63,7 +63,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _title = value;
-                //_hasSetOptionsProperties.SetKeyValue(nameof(Title).ToCamelCaseString(), value);
+                //_hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Title).ToCamelCaseString(), value);
             }
         }
 
@@ -77,7 +77,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _searchable = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Searchable).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Searchable).ToCamelCaseString(), value);
             }
         }
 
@@ -91,7 +91,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _render = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Render).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Render).ToCamelCaseString(), value);
             }
         }
 
@@ -106,7 +106,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _orderSequence = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OrderSequence).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OrderSequence).ToCamelCaseString(), value);
             }
         }
 
@@ -120,7 +120,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _orderable = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Orderable).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Orderable).ToCamelCaseString(), value);
             }
         }
 
@@ -134,7 +134,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _name = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Name).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Name).ToCamelCaseString(), value);
             }
         }
 
@@ -149,7 +149,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _defaultContent = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(DefaultContent).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.DefaultContent).ToCamelCaseString(), value);
             }
         }
 
@@ -164,7 +164,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _data = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Data).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Data).ToCamelCaseString(), value);
             }
         }
 
@@ -178,7 +178,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _createdCell = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(CreatedCell).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.CreatedCell).ToCamelCaseString(), value);
             }
         }
 
@@ -192,7 +192,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _align = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Align).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Align).ToCamelCaseString(), value);
             }
         }
 
@@ -206,7 +206,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
             set
             {
                 _cellType = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(CellType).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.CellType).ToCamelCaseString(), value);
             }
         }
 

@@ -11,7 +11,7 @@ namespace TongYan.Web.Controls.DataGrid
             GridColumnsOptions = opt;
         }
 
-        protected GridColumnOptions GridColumnsOptions { get; }
+        protected GridColumnOptions GridColumnsOptions { get; private set; }
 
         protected override string BeginTag
         {

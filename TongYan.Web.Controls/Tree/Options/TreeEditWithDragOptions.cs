@@ -21,7 +21,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _autoExpandTrigger = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoExpandTrigger).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.AutoExpandTrigger).ToCamelCaseString(), value);
             }
         }
 
@@ -32,7 +32,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _isCopy = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(IsCopy).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.IsCopy).ToCamelCaseString(), value);
             }
         }
 
@@ -43,7 +43,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _isMove = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(IsMove).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.IsMove).ToCamelCaseString(), value);
             }
         }
 
@@ -54,7 +54,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _prev = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Prev).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Prev).ToCamelCaseString(), value);
             }
         }
 
@@ -65,7 +65,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _next = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Next).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Next).ToCamelCaseString(), value);
             }
         }
 
@@ -76,7 +76,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _inner = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Inner).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Inner).ToCamelCaseString(), value);
             }
         }
 
@@ -87,7 +87,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _borderMax = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BorderMax).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BorderMax).ToCamelCaseString(), value);
             }
         }
 
@@ -98,7 +98,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _borderMin = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(BorderMin).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.BorderMin).ToCamelCaseString(), value);
             }
         }
 
@@ -109,7 +109,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _minMoveSize = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(MinMoveSize).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.MinMoveSize).ToCamelCaseString(), value);
             }
         }
 
@@ -120,7 +120,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _maxShowNodeNum = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(MaxShowNodeNum).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.MaxShowNodeNum).ToCamelCaseString(), value);
             }
         }
 
@@ -131,7 +131,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _autoOpenTime = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoOpenTime).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.AutoOpenTime).ToCamelCaseString(), value);
             }
         }
 

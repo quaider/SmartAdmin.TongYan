@@ -8,7 +8,7 @@ namespace TongYan.Web.Controls.DataGrid.Providers
     /// </summary>
     public abstract class GridColumnsProvider
     {
-        public IList<GridColumnsBuilder> Builders { get; }
+        public IList<GridColumnsBuilder> Builders { get; private set; }
 
         protected GridColumnsProvider()
         {

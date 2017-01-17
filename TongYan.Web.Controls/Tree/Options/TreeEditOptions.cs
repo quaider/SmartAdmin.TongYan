@@ -37,7 +37,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _editNameSelectAll = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(EditNameSelectAll).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.EditNameSelectAll).ToCamelCaseString(), value);
             }
         }
 
@@ -48,7 +48,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _removeTitle = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(RemoveTitle).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.RemoveTitle).ToCamelCaseString(), value);
             }
         }
 
@@ -59,7 +59,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _renameTitle = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(RenameTitle).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.RenameTitle).ToCamelCaseString(), value);
             }
         }
 
@@ -70,7 +70,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _showRemoveBtn = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ShowRemoveBtn).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ShowRemoveBtn).ToCamelCaseString(), value);
             }
         }
 
@@ -81,7 +81,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _showRenameBtn = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ShowRenameBtn).ToCamelCaseString(), value);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ShowRenameBtn).ToCamelCaseString(), value);
             }
         }
 
@@ -89,7 +89,7 @@ namespace TongYan.Web.Controls.Tree.Options
 
         IDictionary<string, object> IOptionKey.ConvertToDic()
         {
-            _hasSetOptionsProperties.SetKeyValue(nameof(Drag).ToCamelCaseString(), Drag.ConvertToDic());
+            _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Drag).ToCamelCaseString(), Drag.ConvertToDic());
 
             return _hasSetOptionsProperties;
         }

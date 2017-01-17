@@ -35,7 +35,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _autoParam = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(AutoParam).ToCamelCaseString(), _autoParam);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.AutoParam).ToCamelCaseString(), _autoParam);
             }
         }
 
@@ -46,7 +46,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _contentType = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(ContentType).ToCamelCaseString(), _contentType);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ContentType).ToCamelCaseString(), _contentType);
             }
         }
 
@@ -57,7 +57,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _dataFilter = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(DataFilter).ToCamelCaseString(), _dataFilter);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.DataFilter).ToCamelCaseString(), _dataFilter);
             }
         }
 
@@ -68,7 +68,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _dataType = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(DataType).ToCamelCaseString(), _dataType);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.DataType).ToCamelCaseString(), _dataType);
             }
         }
 
@@ -79,7 +79,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _otherParam = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(OtherParam).ToCamelCaseString(), _otherParam);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.OtherParam).ToCamelCaseString(), _otherParam);
             }
         }
 
@@ -90,7 +90,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _type = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Type).ToCamelCaseString(), _type);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Type).ToCamelCaseString(), _type);
             }
         }
 
@@ -101,7 +101,7 @@ namespace TongYan.Web.Controls.Tree.Options
             set
             {
                 _url = value;
-                _hasSetOptionsProperties.SetKeyValue(nameof(Url).ToCamelCaseString(), _url);
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Url).ToCamelCaseString(), _url);
             }
         }
 
