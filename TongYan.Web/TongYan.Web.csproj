@@ -163,6 +163,7 @@
     <Content Include="wwwroot\css\site.css" />
     <Content Include="wwwroot\css\themes\default\images\logo.png" />
     <Content Include="wwwroot\css\themes\default\images\logo_title.png" />
+    <Content Include="wwwroot\js\core\dataTables.check.js" />
     <Content Include="wwwroot\js\core\JavaScript.js" />
     <Content Include="wwwroot\js\core\ty.app.js" />
     <Content Include="wwwroot\js\core\ty.core.js" />

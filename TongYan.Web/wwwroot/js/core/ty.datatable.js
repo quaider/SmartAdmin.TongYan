@@ -3,7 +3,7 @@
     /* Set the defaults for DataTables initialisation */
     $.extend(true, $.fn.dataTable.defaults, {
         dom:
-            "<'row'<'col-sm-6'l><'col-sm-6 text-right'f>>" +
+            "<'row'<'col-sm-6'l><'col-sm-6 text-right'B>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
         renderer: 'bootstrap',
@@ -23,6 +23,7 @@
             defaults = $.fn.tyDataTable.parseOptions(this);
 
         var option = $.extend({}, defaults, {
+            check: true,
             drawCallback: function (settings) {
                 //渲染完毕后的回调
                 //清空全选状态
@@ -123,6 +124,7 @@
 
 })(jQuery)
 
+/*
 (function ($, window, document, undefined) {
     DataTable.checkbox = {};
     DataTable.checkbox.init = function (dt) {
@@ -141,3 +143,4 @@
 
    
 })(jQuery)
+*/
