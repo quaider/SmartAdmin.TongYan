@@ -3,7 +3,7 @@
     /* Set the defaults for DataTables initialisation */
     $.extend(true, $.fn.dataTable.defaults, {
         dom:
-            "<'row'<'col-sm-6'l><'col-sm-6 text-right'B>>" +
+            "<'row'<'col-sm-6'l><'col-sm-6 text-right'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
         renderer: 'bootstrap',
@@ -40,7 +40,6 @@
 
         //全部勾选与全部取消
         $table.on('change', '.ckbox > :checkbox', function () {
-
             if ($(this).is("[id='" + tableId + "_check_all']")) {
                 $(".ckbox > :checkbox", $table).prop("checked", this.checked);
             }
@@ -124,23 +123,3 @@
 
 })(jQuery)
 
-/*
-(function ($, window, document, undefined) {
-    DataTable.checkbox = {};
-    DataTable.checkbox.init = function (dt) {
-        alert(0);
-    }
-
-    // Local variables to improve compression
-    var apiRegister = DataTable.Api.register;
-    var apiRegisterPlural = DataTable.Api.registerPlural;
-
-    apiRegister('checkbox()', function () {
-        return this.iterator('table', function (ctx) {
-            DataTable.checkbox.init(new DataTable.Api(ctx));
-        });
-    });
-
-   
-})(jQuery)
-*/

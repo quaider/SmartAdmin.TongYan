@@ -27,203 +27,89 @@
     'use strict';
     var DataTable = $.fn.dataTable;
 
-    DataTable.check = {};
-    DataTable.check.init = function (dt) {
-        var ctx = dt.settings()[0];
-        //初始配置
-        var init = ctx.oInit.check;
-        var defaults = DataTable.defaults.check;
-        var opts = init === undefined ?
-            defaults :
-            init;
-
-        var items = 'row';
-        var style = 'api';
-        var setStyle = false;
-
-        if (opts === true) {
-            style = 'os';
-            setStyle = true;
-        }
-        else if (typeof opts === 'string') {
-            style = opts;
-            setStyle = true;
+    var Check = function (dt, config) {
+        if (config === true) {
+            config = {};
         }
 
-        ctx._check = {};
+        dt = new DataTable.Api(dt);
 
-        dt.check.items(items);
-        dt.check.style(style);
-    }
+        this.c = $.extend(true, {}, Check.defaults, config);
 
-    function eventTrigger(api, type, args, any) {
-        if (any && !api.flatten().length) {
-            return;
+        this.s = {
+            dt: dt
+        };
+
+        this.dom = {
+            thead: $(dt.table().header()),
+            tbody: $(dt.table().body())
         }
 
-        if (typeof type === 'string') {
-            type = type + '.dt';
+        var dtSettings = dt.settings()[0];
+        if (dtSettings._check) {
+            throw "Check already initialised on table " + dtSettings.nTable.id;
         }
 
-        args.unshift(api);
+        dtSettings._check = this;
 
-        $(api.table().node()).triggerHandler(type, args);
+        this._constructor();
     }
 
-    function enableCheck(dt) {
-        var container = $(dt.table().container());
-        var ctx = dt.settings()[0];
-        var selector = ctx._check.selector;
+    $.extend(Check.prototype, {
 
-        container
-            .on('click.dtCheck', selector, function (e) {
-                var items = dt.check.items();
-                var idx;
+        _constructor: function () {
+            var that = this;
+            var dt = this.s.dt;
 
-                // If text was selected (click and drag), then we shouldn't change
-                // the row's checked state
-                if (window.getSelection && window.getSelection().toString()) {
-                    return;
-                }
+            //首列插入checkbox
+            var rowspan = that.dom.thead.find(" > tr").length,
+                firstRow = that.dom.thead.find(" > tr").first(),
+                ckRow = $(that.c.template);
 
-                var ctx = dt.settings()[0];
+            if (rowspan > 1)
+                ckRow.attr("rowspan", rowspan);
 
-                // Ignore clicks inside a sub-table
-                if ($(e.target).closest('div.dataTables_wrapper')[0] != dt.table().container()) {
-                    return;
-                }
+            ckRow.insertBefore(firstRow.find("th:eq(0)"));
+        }
 
-                //数据项单元格(不含thead的部分) quaider注
-                var cell = dt.cell($(e.target).closest('td, th'));
-
-                // Check the cell actually belongs to the host DataTable (so child
-                // rows, etc, are ignored)
-                if (!cell.any()) {
-                    return;
-                }
-
-                var event = $.Event('user-check.dt');
-                eventTrigger(dt, event, [items, cell, e]);
-
-                if (event.isDefaultPrevented()) {
-                    return;
-                }
-
-                var cellIndex = cell.index();
-                if (items === 'row') {
-                    idx = cellIndex.row;
-                    //typeSelect(e, dt, ctx, 'row', idx);
-                }
-                else if (items === 'column') {
-                    idx = cell.index().column;
-                    //typeSelect(e, dt, ctx, 'column', idx);
-                }
-                else if (items === 'cell') {
-                    idx = cell.index();
-                    //typeSelect(e, dt, ctx, 'cell', idx);
-                }
-
-                ctx._check_lastCell = cellIndex;
-            });
-    }
-
-    function init(ctx) {
-        var api = new DataTable.Api(ctx);
-        api.on('preXhr.dt.dtCheck', function () {
-            
-        });
-
-        api.one('draw.dt.dtCheck', function () {
-            
-        });
-
-        // Update the table information element with selected item summary
-        api.on('draw.dtCheck.dt check.dtCheck.dt decheck.dtCheck.dt info.dt', function () {
-            //info(api);
-            
-        });
-    }
-
-    // Common events with suitable namespaces
-    function namespacedEvents(config) {
-        var unique = config._eventNamespace;
-        return 'draw.dt.DT' + unique + ' check.dt.DT' + unique + ' decheck.dt.DT' + unique;
-    }
-
-
-    // Local variables to improve compression
-    var apiRegister = DataTable.Api.register;
-    var apiRegisterPlural = DataTable.Api.registerPlural;
-
-    apiRegister('check()', function () {
-        return this.iterator('table', function (ctx) {
-            DataTable.check.init(new DataTable.Api(ctx));
-        });
     });
 
-    apiRegister('check.items()', function (items) {
-        if (items === undefined) {
-            return this.context[0]._check.items;
-        }
 
-        return this.iterator('table', function (ctx) {
-            ctx._check.items = items;
-            eventTrigger(new DataTable.Api(ctx), 'checkItems', [items]);
-        });
-    });
+    /**
+	 * Defaults
+	 * @type {Object}
+	 * @static
+	 */
+    Check.defaults = {
+        className: 'ckbox-default',
+        template: '<th><div class="ckbox"><input type="checkbox"><label></label></div></th>'
+    };
 
-    apiRegister('check.style()', function (style) {
-        if (style === undefined) {
-            return this.context[0]._select.style;
-        }
 
-        return this.iterator('table', function (ctx) {
-            ctx._check.style = style;
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 * DataTables interfaces
+	 */
 
-            if (!ctx._check_init) {
-                init(ctx);
-            }
+    // Attach for constructor access
+    $.fn.dataTable.Check = Check;
+    $.fn.DataTable.Check = Check;
 
-            // Add / remove mouse event handlers. They aren't required when only
-            // API selection is available
-            var dt = new DataTable.Api(ctx);
-            //disableMouseSelection(dt);
-
-            if (style !== 'api') {
-                enableCheck(dt);
-            }
-
-            //eventTrigger(new DataTable.Api(ctx), 'selectStyle', [style]);
-        });
-    });
-
-    apiRegisterPlural("rows().check()", "row().check()", function (select) {
-        var api = this;
-        alert(0);
-        this.iterator('row', function (ctx, idx) {
-            //clear(ctx);
-            ctx.aoData[idx]._check_checked = true;
-        })
-
-        this.iterator('table', function (ctx, i) {
-            eventTrigger(api, 'check', ['row', api[i]], true);
-        });
-
-        return this;
-    });
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-     * Initialisation
-     */
-    $(document).on('preInit.dt.dtCheck', function (e, ctx) {
+    //init check plugin
+    $(document).on('preInit.dt.dtCheck', function (e, ctx, json) {
         if (e.namespace !== 'dt') {
             return;
         }
 
-        DataTable.check.init(new DataTable.Api(ctx));
+        var init = ctx.oInit.check;
+        var defaults = DataTable.defaults.check;
+
+        if ((init || defaults) && !ctx._check) {
+            var opts = $.extend({}, defaults, init);
+            if (init !== false) {
+                new Check(ctx, opts);
+            }
+        }
     });
 
-
-    return DataTable.check;
-
+    return Check;
 }))
