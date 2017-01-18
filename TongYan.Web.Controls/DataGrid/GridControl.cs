@@ -143,12 +143,6 @@ namespace TongYan.Web.Controls.DataGrid
             return this;
         }
 
-        IGridApi IGridApi.Checkable()
-        {
-            GridCtrlOptions.Checkable = true;
-            return this;
-        }
-
         /// <summary>
         /// 初始化配置
         /// </summary>

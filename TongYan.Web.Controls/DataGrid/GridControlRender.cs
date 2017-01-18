@@ -42,16 +42,6 @@ namespace TongYan.Web.Controls.DataGrid
             RenderWrapIndent(1);
             RenderText("<thead>");
 
-            //设置勾选列
-            if (GridControlOptions.Checkable && GridControlOptions.ColumnBuilders.Any())
-            {
-                var ckCol = GridControlOptions.CheckGridColumn as IGridColumn;
-                if (GridControlOptions.ColumnBuilders.Count > 1)
-                    ckCol.Rowspan(GridControlOptions.ColumnBuilders.Count);
-
-                GridControlOptions.ColumnBuilders.First().Insert(0, (GridColumn)ckCol);
-            }
-
             //组装Thead tr 及 th
             foreach (var builder in GridControlOptions.ColumnBuilders)
             {

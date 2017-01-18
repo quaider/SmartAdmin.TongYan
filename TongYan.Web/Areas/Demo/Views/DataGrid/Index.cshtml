@@ -58,7 +58,8 @@
         $(function () {
             var dataApi = $("#demoTable").tyDataTable();
             $("#test").bind("click", function () {
-                //dataApi.rows().check();
+                var a = dataApi.rows().getChecked();
+                debugger;
             });
         });
     </script>

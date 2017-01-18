@@ -22,22 +22,5 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// DataTable列定义
         /// </summary>
         public IList<GridColumnsBuilder> ColumnBuilders { get; private set; }
-
-        /// <summary>
-        /// 复选框选择列
-        /// </summary>
-        internal GridColumn CheckGridColumn
-        {
-            get
-            {
-                if (!Checkable) return null;
-
-                var title = "<div class=\"ckbox{1}\"><input id=\"{0}_check_all\" type =\"checkbox\">" +
-                                "<label for=\"{0}_check_all\" ></label>" +
-                            "</div>";
-
-                return new GridColumn(string.Format(title, Id, ""));
-            }
-        }
     }
 }

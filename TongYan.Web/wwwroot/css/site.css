@@ -2867,6 +2867,21 @@ input[type=radio][disabled]:checked + label:after {
     transition: background-color linear .15s;
 }
 
+/*checkbox in table cell*/
+.table th.ckbox-cell, .table td.ckbox-cell {
+    text-align: center !important;
+    width: 42px !important;
+    box-sizing: border-box;
+}
+
+    .table th.ckbox-cell .ckbox, .table td.ckbox-cell .ckbox {
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
 /*修复高亮时背景闪烁问题*/
 .table-sort-bg tbody tr td.sorting_1 {
     transition: none;
