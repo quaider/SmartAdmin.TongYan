@@ -1,4 +1,13 @@
-﻿(function (factory) {
+﻿/**
+ * @summary     DataTable check 首列可勾选插件
+ * @description 该插件代码在不熟悉DataTable Api及其正确使用场景时, 摸索调试而成, 其中难免有诸多不合适之处, 可能需要你自己重写.
+ *              具体插件写法请参考官网提供的插件，如select、FixHeader、rowreorder等优秀插件。
+ * @version     1.0.0
+ * @file        dataTables.check.js
+ * @author      Quaider Zhang (pto.kratos@hotmail.com)
+ * @contact     datatables.net/forums
+ */
+(function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD
         define(['jquery', 'datatables.net'], function ($) {
@@ -69,7 +78,7 @@
             var rowspan = that.dom.thead.find(" > tr").length,
                 firstRow = that.dom.thead.find(" > tr").first(),
                 ckAllId = ctx.sTableId + "_ckbox_all",
-                headCkRow = $(getTemplate(that.c.template, true).replace(/{{id}}/g, ckAllId));
+                headCkRow = $(getTemplate(that.c, true).replace(/{{id}}/g, ckAllId));
 
             //thead checkbox
             if (rowspan > 1)
@@ -82,9 +91,12 @@
                 fn: function (row, data, index) {
                     //var d = ctx.aoData[index];
                     var id = ctx.sTableId + "_ckbox_" + index;
-                    var bodyCkRow = $(getTemplate(that.c.template).replace(/{{id}}/g, id));
+                    var bodyCkRow = $(getTemplate(that.c).replace(/{{id}}/g, id));
                     bodyCkRow.addClass("ckbox-cell");
                     bodyCkRow.insertBefore($(row).find(" > td:eq(0)"));
+
+                    //清空全选状态
+                    $("#" + ctx.sTableId + "_ckbox_all", table).prop('checked', false);
                 }
             });
 
@@ -92,17 +104,12 @@
             container.on('change.check', that.c.selector, function (e) {
                 if (!e.target || !e.target.id) return;
                 if (e.target.id === ckAllId) {
-                    $("tbody .ckbox > :checkbox", table).prop("checked", this.checked);
                     dt.rows().check(this.checked);
-                }
-                else {
-                    var checkbox = $("tbody .ckbox > :checkbox", table);
-                    $("#" + ckAllId, table).prop('checked', checkbox.length === checkbox.filter(':checked').length);
-
+                } else {
                     //dt.row($(e.target).closest('tr')).check();
                     that._checkItem($(e.target).closest('tr').index(), this.checked);
                 }
-            })
+            });
         },
 
         _emitEvent: function (name, args) {
@@ -122,6 +129,14 @@
                 ctx = dt.settings()[0],
                 d = ctx.aoData[rowIdx];
 
+            var table = $(dt.table().node()),
+                ckAllId = ctx.sTableId + "_ckbox_all",
+                checkbox = $(dt.row(rowIdx).node()).find(" .ckbox > :checkbox");
+
+            checkbox.prop("checked", check);
+            var allCks = $("tbody tr > td:first-child .ckbox > :checkbox", table);
+            $("#" + ckAllId, table).prop('checked', allCks.length === allCks.filter(':checked').length);
+
             d._check_checked = check;
         },
 
@@ -139,7 +154,6 @@
                 return d._aData;
             });
         }
-
     });
 
 
@@ -150,13 +164,14 @@
 	 */
     Check.defaults = {
         className: 'ckbox-default',
-        template: '<div class="ckbox"><input type="checkbox" id="{{id}}"><label for="{{id}}"></label></div>',
-        selector: 'td:first-child .ckbox > :checkbox, th:first-child .ckbox > :checkbox',
+        template: '<div class="ckbox {{className}}"><input type="checkbox" id="{{id}}"><label for="{{id}}"></label></div>',
+        selector: 'td:first-child .ckbox > :checkbox, th:first-child .ckbox > :checkbox'
     };
 
-    function getTemplate(template, isHead) {
+    function getTemplate(settings, isHead) {
+        var template = settings.template.replace(/{{className}}/g, settings.className);
         if (isHead === true) {
-            return '<th>' + template + '</th>'
+            return '<th>' + template + '</th>';
         }
 
         return '<td>' + template + '</td>';
@@ -168,9 +183,28 @@
     var apiRegister = DataTable.Api.register;
     var apiRegisterPlural = DataTable.Api.registerPlural;
 
-    //获取勾选的元素
-    apiRegister("rows().getChecked()", function () {
+    //获取勾选的数据
+    apiRegister("data().getChecked()", function () {
         return this.context[0]._check._getCheckedItems();
+    });
+
+    //获取勾选的行(DataTable rows() api)
+    apiRegister("rows().getChecked()", function () {
+
+        var rows;
+        this.iterator('table', function (ctx) {
+            var dt = new DataTable.Api(ctx);
+            var indexes = ctx.aoData.filter(function (ad, idx) {
+                return ad._check_checked === true;
+            }).map(function (d) {
+                return d.idx;
+            });
+
+            rows = dt.rows(indexes);
+        });
+
+        return rows;
+
     });
 
     //勾选指定行中的checkbox
@@ -178,7 +212,7 @@
         check = check === false ? false : true;
         this.iterator('row', function (ctx, idx) {
             ctx._check._checkItem(idx, check);
-        })
+        });
 
         return this;
     });

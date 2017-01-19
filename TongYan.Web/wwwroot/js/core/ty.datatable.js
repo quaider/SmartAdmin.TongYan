@@ -23,32 +23,12 @@
             defaults = $.fn.tyDataTable.parseOptions(this);
 
         var option = $.extend({}, defaults, {
-            check: true,
-            drawCallback: function (settings) {
-                //渲染完毕后的回调
-                //清空全选状态
-                $("#" + tableId + "_check_all", $table).prop('checked', false);
-
-                //自定义drawCallback
-                if (defaults.drawCallback && typeof (defaults.drawCallback) == "function") {
-                    defaults.drawCallback(settings);
-                }
+            check: {
+                className: "ckbox-inverse"
             }
         });
 
         var dataApi = $table.DataTable(option);
-
-        //全部勾选与全部取消
-        $table.on('change', '.ckbox > :checkbox', function () {
-            if ($(this).is("[id='" + tableId + "_check_all']")) {
-                $(".ckbox > :checkbox", $table).prop("checked", this.checked);
-            }
-            else {
-                //一般复选
-                var checkbox = $("tbody .ckbox > :checkbox", $table);
-                $("#" + tableId + "_check_all", $table).prop('checked', checkbox.length === checkbox.filter(':checked').length);
-            }
-        });
 
         return dataApi;
     }

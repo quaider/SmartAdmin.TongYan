@@ -12,6 +12,9 @@
             </div>
             <div class="panel-body">
                 <input type="button" id="test" value="测试" class="btn btn-teal" />
+                <input type="button" id="checkTest" value="勾选第4项" class="btn btn-inverse" />
+                <input type="button" id="checkAllTest" value="全选" class="btn btn-inverse" />
+                <input type="button" id="checkNoneTest" value="全不选" class="btn btn-inverse" />
             </div>
         </div>
     </div>
@@ -34,7 +37,7 @@
     {
         x.Ajax.Url = "DataGrid/GetData";
     })
-                .ColumnsProvider(new TongYan.Web.Controls.DataGrid.Providers.JsonGridColumnsProvider(), "Test")
+    .ColumnsProvider(new TongYan.Web.Controls.DataGrid.Providers.JsonGridColumnsProvider(), "Test")
                 //.Columns(x =>
                 //{
                 //    x.Title("用户信息").Colspan(2).Align("center");
@@ -55,11 +58,25 @@
 </div>
 @section scripts{
     <script>
+        var dataApi;
         $(function () {
-            var dataApi = $("#demoTable").tyDataTable();
+            dataApi = $("#demoTable").tyDataTable();
+
             $("#test").bind("click", function () {
-                var a = dataApi.rows().getChecked();
-                debugger;
+                var a = dataApi.data().getChecked();
+                alert(JSON.stringify(a));
+            });
+
+            $("#checkTest").bind("click", function () {
+                dataApi.rows(3).check();
+            });
+
+            $("#checkAllTest").bind("click", function () {
+                dataApi.rows().check();
+            });
+
+            $("#checkNoneTest").bind("click", function () {
+                dataApi.rows().check(false);
             });
         });
     </script>
