@@ -22,13 +22,13 @@
             tableId = $table.attr('id'),
             defaults = $.fn.tyDataTable.parseOptions(this);
 
-        var option = $.extend({}, defaults, {
-            check: {
-                className: "ckbox-inverse"
-            }
-        });
+        //var option = $.extend({}, defaults, {
+        //    check: {
+        //        className: "ckbox-inverse"
+        //    }
+        //});
 
-        var dataApi = $table.DataTable(option);
+        var dataApi = $table.DataTable(defaults);
 
         return dataApi;
     }

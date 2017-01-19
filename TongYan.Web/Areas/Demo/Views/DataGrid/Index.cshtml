@@ -1,5 +1,4 @@
-﻿@using TongYan.Web.Controls.DataGrid
-@using TongYan.Web.Controls.Extensions
+﻿@using TongYan.Web.Controls.Extensions
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,10 +7,10 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title table-condensed">查询条件</h3>
+                <h3 class="panel-title table-condensed">自定义插件提供的Api方法</h3>
             </div>
             <div class="panel-body">
-                <input type="button" id="test" value="测试" class="btn btn-teal" />
+                <input type="button" id="test" value="获取选中的数据数组" class="btn btn-teal" />
                 <input type="button" id="checkTest" value="勾选第4项" class="btn btn-inverse" />
                 <input type="button" id="checkAllTest" value="全选" class="btn btn-inverse" />
                 <input type="button" id="checkNoneTest" value="全不选" class="btn btn-inverse" />
@@ -30,6 +29,7 @@
     Html.Control().Grid("demoTable").Highlight().ClassName("table-lilac").Features(x =>
     {
         x.AutoWidth = false;
+        x.EnableCheck();
     }).GridOptions(x =>
     {
         x.Order = "jo:[[ 1, \'asc\' ]]";

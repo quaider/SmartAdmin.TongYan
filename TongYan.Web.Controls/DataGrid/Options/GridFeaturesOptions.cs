@@ -178,6 +178,24 @@ namespace TongYan.Web.Controls.DataGrid.Options
             }
         }
 
+        /// <summary>
+        /// 启用表格首列勾选(采用方法而非属性是为了减少配置的复杂度)
+        /// </summary>
+        /// <param name="theme">复选框主题(className)</param>
+        public void EnableCheck(string theme = "")
+        {
+            if (!string.IsNullOrWhiteSpace(theme))
+            {
+                theme = theme.Replace("'", "").Replace("\"", "");
+                _hasSetOptionsProperties.SetKeyValue("check", "jo:{className:'" + theme + "'}");
+            }
+            else
+            {
+                _hasSetOptionsProperties.SetKeyValue("check", true);
+            }
+        }
+
+
         public string OptionKey
         {
             get { return "data-grid-features"; }
