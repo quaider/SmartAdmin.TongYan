@@ -83,6 +83,17 @@ namespace TongYan.Web.Controls.DataGrid.Options
             }
         }
 
+        private string _type;
+        protected string Type
+        {
+            get { return _type; }
+            set
+            {
+                _type = value;
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Type).ToCamelCaseString(), value);
+            }
+        }
+
         private string _ajaxFunction;
         /// <summary>
         /// 提供DataTable所需的数据，如果给其设定值，将忽略其他ajax设置(互斥)

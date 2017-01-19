@@ -19,14 +19,8 @@
 
     $.fn.tyDataTable = function () {
         var $table = $(this),
-            tableId = $table.attr('id'),
+            //tableId = $table.attr('id'),
             defaults = $.fn.tyDataTable.parseOptions(this);
-
-        //var option = $.extend({}, defaults, {
-        //    check: {
-        //        className: "ckbox-inverse"
-        //    }
-        //});
 
         var dataApi = $table.DataTable(defaults);
 
