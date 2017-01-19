@@ -94,7 +94,7 @@
 
             $("#query").bind("click", function () {
                 var val = $(a).val();
-                dataApi.columns(2).search(val).draw();
+                dataApi.columns(2).search(val).column(1).search('fuck').draw();
             });
         });
     </script>

@@ -16,6 +16,8 @@ namespace TongYan.Web.Controls.DataGrid.Options
         {
             _hasSetOptionsProperties = new Dictionary<string, object>();
             OrderClasses = true;
+            //禁用第一列默认排序
+            Order = "jo:[]";
             _search = new GridSearchOptions();
         }
 

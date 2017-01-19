@@ -67,6 +67,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
         internal GridDataAjaxOptions()
         {
             _hasSetOptionsProperties = new Dictionary<string, object>();
+            Type = "post";
         }
 
         private string _url;

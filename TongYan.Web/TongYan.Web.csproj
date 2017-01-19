@@ -138,9 +138,11 @@
     <Compile Include="Areas\Demo\DemoAreaRegistration.cs" />
     <Compile Include="Areas\Demo\Models\EmployeeDemo.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Extensions\CastExtensons.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmployeeQueryModel.cs" />
     <Compile Include="Models\GridQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

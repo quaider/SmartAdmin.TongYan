@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using TongYan.Web.Areas.Demo.Models;
+using TongYan.Web.Extensions;
 using TongYan.Web.Models;
 
 namespace TongYan.Web.Areas.Demo.Controllers
@@ -15,6 +16,8 @@ namespace TongYan.Web.Areas.Demo.Controllers
 
         public JsonResult GetData(GridQuery query)
         {
+            var model = query.CastToQueryModel<EmployeeQueryModel>();
+
             System.Threading.Thread.Sleep(600);
 
             var data = new List<EmployeeDemo>
