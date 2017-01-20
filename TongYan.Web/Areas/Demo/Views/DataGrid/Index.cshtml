@@ -26,6 +26,7 @@
                 @(
     Html.Control().Grid("demoTable").Highlight().ClassName("table-lilac").Features(x =>
     {
+        x.Searching = false;
         x.AutoWidth = false;
         x.EnableCheck();
     }).GridOptions(x =>
@@ -93,8 +94,8 @@
             });
 
             $("#query").bind("click", function () {
-                var val = $(a).val();
-                dataApi.columns(2).search(val).column(1).search('fuck').draw();
+                var val = $('#a').val();
+                dataApi.columns(2).search(val).column(1).search('a').draw();
             });
         });
     </script>
