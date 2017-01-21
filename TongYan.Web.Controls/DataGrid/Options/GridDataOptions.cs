@@ -22,6 +22,7 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// grid显示的数据(2D数据不列入支持计划)
         /// if data is specified, the data given in the array will replace any information that was found in the table's DOM when initialised.
         /// </summary>
+        [Obsolete("注意：为了与其他特性配合，减少查询等的代码量，我们使用自定义的完全控制ajax request的方式初始化，而不是DataTable的原生方式！", true)]
         public IEnumerable<object> Data
         {
             get { return _data; }
@@ -85,6 +86,9 @@ namespace TongYan.Web.Controls.DataGrid.Options
         }
 
         private string _type;
+        /// <summary>
+        /// 请求方式默认就是post
+        /// </summary>
         protected string Type
         {
             get { return _type; }
@@ -99,7 +103,8 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// <summary>
         /// 提供DataTable所需的数据，如果给其设定值，将忽略其他ajax设置(互斥)
         /// </summary>
-        public string AjaxFunction
+        [Obsolete("注意：为了与其他特性配合，减少查询等的代码量，我们使用自定义的完全控制ajax request的方式初始化，而不是DataTable的原生方式！", true)]
+        protected string AjaxFunction
         {
             get { return _ajaxFunction; }
             set
@@ -114,7 +119,8 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// 发送到服务器的参数 data:{user_id:451} or data: function(d){ d.some_name = $('#element').val(); }
         /// or data: function(d) { return $.extend({}, d, {some_name: $('#element').val()}); }
         /// </summary>
-        public string Data
+        [Obsolete("注意：为了与其他特性配合，减少查询等的代码量，我们使用自定义的完全控制ajax request的方式初始化，而不是DataTable的原生方式！", true)]
+        protected string Data
         {
             get { return _data; }
             set
@@ -128,7 +134,8 @@ namespace TongYan.Web.Controls.DataGrid.Options
         /// <summary>
         /// 主体数据的根定义(默认是data)
         /// </summary>
-        public string DataSrc
+        [Obsolete("注意：为了与其他特性配合，减少查询等的代码量，我们使用自定义的完全控制ajax request的方式初始化，而不是DataTable的原生方式！", true)]
+        protected string DataSrc
         {
             get { return _dataSrc; }
             set

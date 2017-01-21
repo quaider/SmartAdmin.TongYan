@@ -137,14 +137,27 @@
     <Compile Include="Areas\Demo\Controllers\TreeController.cs" />
     <Compile Include="Areas\Demo\DemoAreaRegistration.cs" />
     <Compile Include="Areas\Demo\Models\EmployeeDemo.cs" />
+    <Compile Include="Binders\SearchModelBinder.cs" />
     <Compile Include="Controllers\MainController.cs" />
-    <Compile Include="Extensions\CastExtensons.cs" />
+    <Compile Include="Extensions\TempExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EmployeeQueryModel.cs" />
     <Compile Include="Models\GridQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmartSearch\ConditionItem.cs" />
+    <Compile Include="SmartSearch\IQueryableExtensions.cs" />
+    <Compile Include="SmartSearch\ITransformProvider.cs" />
+    <Compile Include="SmartSearch\QueryableSearcher.cs" />
+    <Compile Include="SmartSearch\QueryMethod.cs" />
+    <Compile Include="SmartSearch\QueryMethodExpression.cs" />
+    <Compile Include="SmartSearch\SearchModel.cs" />
+    <Compile Include="SmartSearch\TransformProviders\DateBlockTransformProvider.cs" />
+    <Compile Include="SmartSearch\TransformProviders\InTransformProvider.cs" />
+    <Compile Include="SmartSearch\TransformProviders\LikeTransformProvider.cs" />
+    <Compile Include="SmartSearch\TransformProviders\UnixTimeTransformProvider.cs" />
+    <Compile Include="SmartSearch\UnixTimeUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

@@ -29,6 +29,7 @@ namespace TongYan.Web.Controls.DataGrid
 
         /// <summary>
         /// https://www.datatables.net/reference/option/  Chapter 'DataTables - Data'
+        /// 注意：为了与其他特性配合，减少查询等的代码量，我们使用自定义控制ajax request的方式初始化，而不是DataTable的原生方式！
         /// </summary>
         /// <param name="action">配置委托</param>
         /// <returns>IGridApi</returns>

@@ -10,8 +10,17 @@
                 <h3 class="panel-title table-condensed">查询条件</h3>
             </div>
             <div class="panel-body">
-                <input type="text" class="form-control" id="a" />
-                <button class="btn btn-teal" id="query">查 询</button>
+                <form data-search-for="demoTable">
+                    <input type="text" class="form-control" name="UserName" data-search-pattern="Equal" />
+                    <select name="DptName" class="form-control" data-search-pattern="Equal">
+                        <option value="">Please select...</option>
+                        <option value="Windows Presentation Foundation">Windows Presentation Foundation</option>
+                        <option value="TongYan Digital Dev Department">TongYan Digital Dev Department</option>
+                        <option value="Windows Communication Foundation">Windows Communication Foundation</option>
+                    </select>
+                    <button class="btn btn-teal" id="query" type="submit">查 询</button>
+                    <button class="btn btn-inverse" id="query" type="reset">重 置</button>
+                </form>
             </div>
         </div>
     </div>
@@ -37,19 +46,19 @@
         x.Ajax.Url = "DataGrid/GetData";
     })
         .ColumnsProvider(new TongYan.Web.Controls.DataGrid.Providers.JsonGridColumnsProvider(), "Test")
-                      //.Columns(x =>
-                      //{
-                      //    x.Title("用户信息").Colspan(2).Align("center");
-                      //    x.Title("其他信息").Colspan(2).Align("center");
-                      //    x.Title("电话").Rowspan(2).Name("Tel").SetOrderCrossRows(5).UnOrderable();
-                      //}).
-                      //Columns(x =>
-                      //{
-                      //    x.Title("用户名").Name("UserName").SetOrderCrossRows(1);
-                      //    x.Title("姓名").Name("FullName").SetOrderCrossRows(2);
-                      //    x.Title("部门").Name("DptName").SetOrderCrossRows(3);
-                      //    x.Title("性别").Name("Gender").SetOrderCrossRows(4);
-                      //})//.RunScriptForMe()
+                //.Columns(x =>
+                //{
+                //    x.Title("用户信息").Colspan(2).Align("center");
+                //    x.Title("其他信息").Colspan(2).Align("center");
+                //    x.Title("电话").Rowspan(2).Name("Tel").SetOrderCrossRows(5).UnOrderable();
+                //}).
+                //Columns(x =>
+                //{
+                //    x.Title("用户名").Name("UserName").SetOrderCrossRows(1);
+                //    x.Title("姓名").Name("FullName").SetOrderCrossRows(2);
+                //    x.Title("部门").Name("DptName").SetOrderCrossRows(3);
+                //    x.Title("性别").Name("Gender").SetOrderCrossRows(4);
+                //})//.RunScriptForMe()
                 )
             </div>
         </div>
@@ -93,9 +102,9 @@
                 dataApi.rows().check(false);
             });
 
-            $("#query").bind("click", function () {
-                var val = $('#a').val();
-                dataApi.columns(2).search(val).column(1).search('a').draw();
+            $("form").submit(function () {
+                dataApi.draw();
+                return false;
             });
         });
     </script>

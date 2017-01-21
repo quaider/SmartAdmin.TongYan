@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web.Mvc;
 using TongYan.Web.Areas.Demo.Models;
-using TongYan.Web.Extensions;
 using TongYan.Web.Models;
+using TongYan.Web.SmartSearch;
 
 namespace TongYan.Web.Areas.Demo.Controllers
 {
@@ -14,10 +16,8 @@ namespace TongYan.Web.Areas.Demo.Controllers
             return View();
         }
 
-        public JsonResult GetData(GridQuery query)
+        public JsonResult GetData(EmployeeQueryModel query, SearchModel sm)
         {
-            var model = query.CastToQueryModel<EmployeeQueryModel>();
-
             System.Threading.Thread.Sleep(600);
 
             var data = new List<EmployeeDemo>
@@ -34,15 +34,30 @@ namespace TongYan.Web.Areas.Demo.Controllers
                 data.Add(new EmployeeDemo("zkwin", "Quaider Zh", "TongYan Digital Dev Department", "18812345678", "Male", i.ToString()));
             }
 
-            var result = data
-                .OrderBy(f => f.UserName).Skip(query.Start).Take(query.Length);
+            Func<EmployeeDemo, object> d = f => f.UserName;
+
+            if (query.Order == "DptName")
+                d = f => f.DptName;
+            if (query.Order == "Gender")
+                d = f => f.Gender;
+            if (query.Order == "Tel")
+                d = f => f.Tel;
+
+            var result = data.Select(f => new
+            {
+                UserName = f.UserName,
+                DptName = f.DptName,
+                FullName = f.FullName,
+                Gender = f.Gender,
+                Tel = f.Tel
+            }).AsQueryable().Where(sm);
 
             var r = new
             {
-                recordsTotal = data.Count,
-                recordsFiltered = data.Count,
-                data = result
-            };
+                recordsTotal = result.Count(),
+                recordsFiltered = result.Count(),
+                data = result.Skip(query.Page).OrderBy(f => f.UserName).Take(query.PageSize)
+        };
 
             return Json(r, JsonRequestBehavior.AllowGet);
         }

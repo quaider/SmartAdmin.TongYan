@@ -35,24 +35,42 @@
             opt = {},
             t = $(target);
 
-        if (t.attr('data-grid-features')) {
-            opt = $.TongYan.parser.parseOptions(target, 'data-grid-features');
-            options = $.extend({}, options, opt);
-        }
-
-        if (t.attr('data-grid-option')) {
-            opt = $.TongYan.parser.parseOptions(target, 'data-grid-option');
-            options = $.extend({}, options, opt);
-        }
-
-        if (t.attr('data-grid-callbacks')) {
-            opt = $.TongYan.parser.parseOptions(target, 'data-grid-callbacks');
+        var optKeys = ['data-grid-features', 'data-grid-option', 'data-grid-callbacks'];
+        for (var i = 0; i < optKeys.length; i++) {
+            if (t.attr(optKeys[i]) == "" || t.attr(optKeys[i]) == undefined) continue;
+            opt = $.TongYan.parser.parseOptions(target, optKeys[i]);
             options = $.extend({}, options, opt);
         }
 
         if (t.attr('data-grid-data')) {
             opt = $.TongYan.parser.parseOptions(target, 'data-grid-data');
-            options = $.extend({}, options, opt);
+            var s = {
+                ajax: function (data, callback, settings) {
+                    var params = installParameters(data, callback, settings);
+                    //ajax参数组装完成后的自定义操作
+                    if (opt.ajaxParamsReady && typeof opt.ajaxParamsReady == "function") {
+                        params = opt.ajaxParamsReady(data, callback, settings, params);
+                    }
+
+                    //自定义参数
+                    //ajax请求数据
+                    $.ajax({
+                        type: opt.ajax.type,
+                        url: opt.ajax.url,
+                        cache: false,
+                        data: params
+                    }).done(function (result) {
+                        //提供针对ajax数据返回后，对数据的特殊操作
+                        if (opt.ajaxDataReady && typeof opt.ajaxDataReady == "function") {
+                            result = opt.ajaxDataReady(result);
+                        }
+
+                        callback(result);
+                    });
+                }
+            }
+
+            options = $.extend({}, options, s);
         }
 
         options["columns"] = [];
@@ -68,22 +86,6 @@
             domColumns = t.find("thead th[data-grid-column]");
         }
 
-        //复选框列配置
-        if (t.find("thead > tr:eq(0) > th:eq(0) .ckbox").length > 0) {
-            options["columns"].push({
-                orderable: false,
-                className: 'text-center',
-                width: '30px',
-                render: function (data, type, row, meta) {
-                    var id = meta.settings.sTableId + '_check_' + meta.row;
-                    return '<div class="ckbox ckbox-default">' +
-                                '<input id="' + id + '" type="checkbox">' +
-                                '<label for="' + id + '"></label>' +
-                            '</div>';
-                }
-            });
-        }
-
         //parse columns
         domColumns.each(function (i, tr) {
             var columnOpt = $.TongYan.parser.parseOptions($(tr), 'data-grid-column');
@@ -93,6 +95,36 @@
         });
 
         return options;
+    }
+
+    //组装基础查询参数, 如分页信息、排序信息等(限定为单列排序)
+    function installParameters(data, callback, settings) {
+        var p = {
+            page: data.start,
+            draw: data.draw,
+            pageSize: data.length
+        };
+
+        if (data.order && data.order.length) {
+            p.order = data.columns[data.order[0].column].data;
+            p.orderDir = data.order[0].dir;
+        }
+
+        //form[data-form-search] query conditions
+        var form = $('form[data-search-for="' + settings.sTableId + '"]');
+        form.find("[name][data-search-pattern]").each(function (idx, ele) {
+            var pattern = $(ele).attr("data-search-pattern"),
+                name = $(ele).attr("name"),
+                searchName = "[" + pattern + "]" + name,
+                val = $(ele).val();
+
+            //todo checkbox & radio 需特殊处理
+
+            if (val && val.replace(/\s+/g, '').length)
+                p[searchName] = val
+        });
+
+        return p;
     }
 
 })(jQuery)
