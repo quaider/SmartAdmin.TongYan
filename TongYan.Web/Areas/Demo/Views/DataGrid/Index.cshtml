@@ -5,22 +5,12 @@
 }
 <div class="row">
     <div class="col-md-12">
-        <div class="panel panel-default">
+        <div class="panel panel-blank">
             <div class="panel-heading">
                 <h3 class="panel-title table-condensed">查询条件</h3>
             </div>
-            <div class="panel-body">
-                <form data-search-for="demoTable">
-                    <input type="text" class="form-control" name="UserName" data-search-pattern="Equal" />
-                    <select name="DptName" class="form-control" data-search-pattern="Equal">
-                        <option value="">Please select...</option>
-                        <option value="Windows Presentation Foundation">Windows Presentation Foundation</option>
-                        <option value="TongYan Digital Dev Department">TongYan Digital Dev Department</option>
-                        <option value="Windows Communication Foundation">Windows Communication Foundation</option>
-                    </select>
-                    <button class="btn btn-teal" id="query" type="submit">查 询</button>
-                    <button class="btn btn-inverse" id="query" type="reset">重 置</button>
-                </form>
+            <div class="panel-body p-0">
+                @Html.Partial("_SearchUser")
             </div>
         </div>
     </div>
@@ -33,7 +23,7 @@
             </div>
             <div class="panel-body">
                 @(
-    Html.Control().Grid("demoTable").Highlight().ClassName("table-lilac").Features(x =>
+    Html.Control().Grid("demoTable").Highlight().ClassName("table-teal").Features(x =>
     {
         x.Searching = false;
         x.AutoWidth = false;

@@ -266,6 +266,7 @@
     <Content Include="Areas\Demo\Views\web.config" />
     <Content Include="Areas\Demo\Views\Tree\Index.cshtml" />
     <Content Include="Areas\Demo\Views\DataGrid\Index.cshtml" />
+    <Content Include="Areas\Demo\Views\DataGrid\_SearchUser.cshtml" />
     <None Include="bundleconfig.json" />
     <Content Include="test\columns.json" />
     <None Include="wwwroot\lib\jquery\jquery-1.10.2.intellisense.js" />

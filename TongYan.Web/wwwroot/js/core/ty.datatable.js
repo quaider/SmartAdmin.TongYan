@@ -5,7 +5,7 @@
         dom:
             "<'row'<'col-sm-6'l><'col-sm-6 text-right'B>>" +
                 "<'row'<'col-sm-12'tr>>" +
-                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                "<'row'<'col-sm-5 hidden-sm hidden-xs'i><'col-md-7 col-sm-12 col-xs-12'p>>",
         renderer: 'bootstrap',
         //多语言
         language: {
@@ -121,7 +121,7 @@
             //todo checkbox & radio 需特殊处理
 
             if (val && val.replace(/\s+/g, '').length)
-                p[searchName] = val
+                p[searchName] = val;
         });
 
         return p;
