@@ -1,48 +1,49 @@
-﻿<form class="form-horizontal form-table" data-search-for="demoTable">
-    <div class="form-body">
-        <div class="form-row">
-            <div class="row m-0">
-                <div class="col-sm-3 form-cell cell-90">
-                    <div class="form-group">
-                        <label class="control-label">用户名</label>
-                        <div class="form-control-cell">
-                            <input type="text" name="UserName" class="form-control" placeholder="User name" data-search-pattern="Equal">
+﻿<div class="panel panel-blank">
+    <div class="panel-heading">
+        <div class="pull-right panel-toolbar">
+            <button class="btn btn-transparent btn-sm">
+                <i class="fa fa-angle-up"></i>
+            </button>
+        </div>
+        <h3 class="panel-title table-condensed">查询条件</h3>
+    </div>
+    <div class="panel-body p-0">
+        <form class="form-horizontal form-table form-bordered" data-search-for="demoTable">
+            <div class="form-body">
+                <div class="form-row">
+                    <div class="row m-0">
+                        <div class="col-sm-3 form-cell cell-90">
+                            <div class="form-group">
+                                <label class="control-label">用户名</label>
+                                <div class="form-control-cell">
+                                    <input type="text" name="UserName" class="form-control" placeholder="User name" data-search-pattern="Equal">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 form-cell cell-90">
-                    <div class="form-group">
-                        <label class="control-label">所属部门</label>
-                        <div class="form-control-cell">
-                            <select name="DptName" class="form-control" data-search-pattern="Equal">
-                                <option value="">Please select...</option>
-                                <option value="Windows Presentation Foundation">Windows Presentation Foundation</option>
-                                <option value="TongYan Digital Dev Department">TongYan Digital Dev Department</option>
-                                <option value="Windows Communication Foundation">Windows Communication Foundation</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 form-cell cell-90">
-                    <div class="form-group">
-                        <label class="control-label">所属部门</label>
-                        <div class="form-control-cell">
-                            <div class="input-group">
-                                <input type="text" id="example-input1-group1" name="example-input1-group1" class="form-control" placeholder="Username">
-                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <div class="col-sm-3 form-cell cell-90">
+                            <div class="form-group">
+                                <label class="control-label">所属部门</label>
+                                <div class="form-control-cell">
+                                    <select name="DptName" class="form-control" data-search-pattern="Equal">
+                                        <option value="">Please select...</option>
+                                        <option value="Windows Presentation Foundation">Windows Presentation Foundation</option>
+                                        <option value="TongYan Digital Dev Department">TongYan Digital Dev Department</option>
+                                        <option value="Windows Communication Foundation">Windows Communication Foundation</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="form-footer">
-        <div class="form-cell cell-90">
-            <div class="form-control-cell">
-                <button class="btn btn-teal" id="query" type="submit">查 询</button>
-                <button class="btn btn-inverse" id="reset" type="reset">重 置</button>
+            <div class="form-footer">
+                <div class="form-cell cell-90">
+                    <div class="form-control-cell">
+                        <button class="btn btn-teal btn" id="query" type="submit">查 询</button>
+                        <button class="btn btn-inverse btn" id="reset" type="reset">重 置</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
-</form>
+</div>
