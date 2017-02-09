@@ -3,19 +3,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row">
-    <div class="col-md-12">
-        @Html.Partial("_SearchUser")
+@section Search{
+    @Html.Partial("_SearchUser")
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title table-condensed">复杂表头表格</h3>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title table-condensed">复杂表头表格</h3>
-            </div>
-            <div class="panel-body">
-                @(
+    <div class="panel-body">
+        @(
     Html.Control().Grid("demoTable").Highlight().ClassName("table-teal").Features(x =>
     {
         x.Searching = false;
@@ -29,40 +25,35 @@
         x.Ajax.Url = "DataGrid/GetData";
     })
     .ColumnsProvider(new TongYan.Web.Controls.DataGrid.Providers.JsonGridColumnsProvider(), "Test")
-                //.Columns(x =>
-                //{
-                //    x.Title("用户信息").Colspan(2).ClassName("text-center");
-                //    x.Title("其他信息").Colspan(2).ClassName("text-center");
-                //    x.Title("电话").Rowspan(2).Name("Tel").SetOrderCrossRows(5).UnOrderable();
-                //}).
-                //Columns(x =>
-                //{
-                //    x.Title("用户名").ClassName("text-center").Name("UserName").SetOrderCrossRows(1);
-                //    x.Title("姓名").Name("FullName").SetOrderCrossRows(2);
-                //    x.Title("部门").Name("DptName").SetOrderCrossRows(3);
-                //    x.Title("性别").Name("Gender").SetOrderCrossRows(4);
-                //})
-                //.RunScriptForMe()
-                )
-            </div>
-        </div>
+        //.Columns(x =>
+        //{
+        //    x.Title("用户信息").Colspan(2).ClassName("text-center");
+        //    x.Title("其他信息").Colspan(2).ClassName("text-center");
+        //    x.Title("电话").Rowspan(2).Name("Tel").SetOrderCrossRows(5).UnOrderable();
+        //}).
+        //Columns(x =>
+        //{
+        //    x.Title("用户名").ClassName("text-center").Name("UserName").SetOrderCrossRows(1);
+        //    x.Title("姓名").Name("FullName").SetOrderCrossRows(2);
+        //    x.Title("部门").Name("DptName").SetOrderCrossRows(3);
+        //    x.Title("性别").Name("Gender").SetOrderCrossRows(4);
+        //})
+        //.RunScriptForMe()
+        )
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title table-condensed">自定义插件提供的Api方法</h3>
-            </div>
-            <div class="panel-body">
-                <input type="button" id="test" value="获取选中的数据数组" class="btn btn-teal" />
-                <input type="button" id="checkTest" value="勾选第4项" class="btn btn-inverse" />
-                <input type="button" id="checkAllTest" value="全选" class="btn btn-inverse" />
-                <input type="button" id="checkNoneTest" value="全不选" class="btn btn-inverse" />
-            </div>
-        </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title table-condensed">自定义插件提供的Api方法</h3>
+    </div>
+    <div class="panel-body">
+        <input type="button" id="test" value="获取选中的数据数组" class="btn btn-teal" />
+        <input type="button" id="checkTest" value="勾选第4项" class="btn btn-inverse" />
+        <input type="button" id="checkAllTest" value="全选" class="btn btn-inverse" />
+        <input type="button" id="checkNoneTest" value="全不选" class="btn btn-inverse" />
     </div>
 </div>
+
 @section scripts{
     <script>
         var dataApi;

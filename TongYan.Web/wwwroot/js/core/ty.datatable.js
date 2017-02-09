@@ -118,7 +118,8 @@
         }
 
         //form[data-form-search] query conditions
-        var form = $('form[data-search-for="' + settings.sTableId + '"]');
+        //var form = $('form[data-search-for="' + settings.sTableId + '"]');
+        var form = $('form[data-search-for]');
         form.find("[name][data-search-pattern]").each(function (idx, ele) {
             var pattern = $(ele).attr("data-search-pattern"),
                 name = $(ele).attr("name"),
