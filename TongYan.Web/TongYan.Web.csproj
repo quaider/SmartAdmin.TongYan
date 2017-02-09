@@ -183,6 +183,7 @@
     <Content Include="wwwroot\js\core\ty.app.js" />
     <Content Include="wwwroot\js\core\ty.core.js" />
     <Content Include="wwwroot\js\core\ty.datatable.js" />
+    <Content Include="wwwroot\js\core\ty.iframePage.init.js" />
     <Content Include="wwwroot\js\core\ty.menu.js" />
     <Content Include="wwwroot\js\core\ty.parser.js" />
     <Content Include="wwwroot\js\core\ty.tree.js" />
@@ -269,6 +270,7 @@
     <Content Include="Areas\Demo\Views\DataGrid\_SearchUser.cshtml" />
     <None Include="bundleconfig.json" />
     <Content Include="test\columns.json" />
+    <Content Include="wwwroot\js\core\ty.button.js" />
     <None Include="wwwroot\lib\jquery\jquery-1.10.2.intellisense.js" />
     <None Include="wwwroot\lib\jquery-validation\jquery.validate-vsdoc.js" />
     <Content Include="wwwroot\lib\jquery-select2\css\select2.css" />

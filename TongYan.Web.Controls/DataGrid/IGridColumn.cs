@@ -80,12 +80,6 @@ namespace TongYan.Web.Controls.DataGrid
         IGridColumn ClassName(string cls);
 
         /// <summary>
-        /// 默认左对齐(left, center, right)
-        /// </summary>
-        /// <returns>IGridColumn</returns>
-        IGridColumn Align(string align);
-
-        /// <summary>
         /// 设定行合并
         /// </summary>
         /// <param name="rows">要合并的行数</param>

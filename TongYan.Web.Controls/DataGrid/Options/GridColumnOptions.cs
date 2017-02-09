@@ -182,20 +182,6 @@ namespace TongYan.Web.Controls.DataGrid.Options
             }
         }
 
-        private string _align;
-        /// <summary>
-        /// center left right
-        /// </summary>
-        public string Align
-        {
-            get { return _align; }
-            set
-            {
-                _align = value;
-                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Align).ToCamelCaseString(), value);
-            }
-        }
-
         private string _cellType;
         /// <summary>
         /// 列类型(默认td)
@@ -207,6 +193,21 @@ namespace TongYan.Web.Controls.DataGrid.Options
             {
                 _cellType = value;
                 _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.CellType).ToCamelCaseString(), value);
+            }
+        }
+
+        private string _className;
+
+        /// <summary>
+        /// 样式名
+        /// </summary>
+        public string ClassName
+        {
+            get { return _className; }
+            set
+            {
+                _className = value;
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.ClassName).ToCamelCaseString(), value);
             }
         }
 

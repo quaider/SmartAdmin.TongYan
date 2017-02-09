@@ -68,9 +68,9 @@ namespace TongYan.Web.Controls.DataGrid.Providers
                         gridColumn.ClassName(c.ClassName.Trim());
                     }
 
-                    if (!string.IsNullOrWhiteSpace(c.Align))
+                    if (!string.IsNullOrWhiteSpace(c.Render))
                     {
-                        gridColumn.Align(c.Align.Trim());
+                        gridColumn.Render(c.Render);
                     }
 
                     columns.Add(gridColumn);

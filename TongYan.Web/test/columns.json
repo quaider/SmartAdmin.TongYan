@@ -8,8 +8,7 @@
       "Row": 1,
       "Colspan": 2,
       "ShowOrder": 1,
-      "ClassName": "myCls",
-      "Align": "center"
+      "ClassName": "text-center"
       //
       //"CrossRowDataColumnsOrder": 1
     },
@@ -21,7 +20,7 @@
       "Row": 1,
       "Colspan": 2,
       "ShowOrder": 2,
-      "Align": "center"
+      "ClassName": "text-center"
       //"CrossRowDataColumnsOrder": 1
     },
     {
@@ -31,7 +30,21 @@
       "Row": 1,
       "ShowOrder": 3,
       "Rowspan": 2,
-      "CrossRowDataColumnsOrder": 5
+      "CrossRowDataColumnsOrder": 5,
+      "ClassName": "text-center"
+    },
+    {
+      "Key": "Test",
+      "Title": "操作",
+      "Row": 1,
+      "ShowOrder": 4,
+      "Rowspan": 2,
+      "CrossRowDataColumnsOrder": 6,
+      "Orderable": false,
+      "Searchable": false,
+      "Width": "100",
+      "ClassName": "text-center",
+      "Render": "fr:formatOp"
     },
     {
       "Key": "Test",

@@ -45,24 +45,12 @@ namespace TongYan.Web.Controls.DataGrid
 
         #region IGridColumn Members
 
-        IGridColumn IGridColumn.Align(string align)
-        {
-            if (string.Compare(align, "right", true) == 0)
-            {
-                AddClass("text-right");
-            }
-            else if (string.Compare(align, "center", true) == 0)
-            {
-                AddClass("text-center");
-            }
-
-            return this;
-        }
-
         IGridColumn IGridColumn.ClassName(string cls)
         {
+            //设置表头样式(多列时需设置)
             AddClass(cls);
-
+            //设置表内容样式
+            ColumnOptions.ClassName = cls;
             return this;
         }
 
@@ -84,9 +72,14 @@ namespace TongYan.Web.Controls.DataGrid
             return this;
         }
 
+        /// <summary>
+        /// 列呈现器
+        /// </summary>
+        /// <param name="render">呈现器函数(自动以fr:打头)</param>
+        /// <returns>IGridColumn</returns>
         IGridColumn IGridColumn.Render(string render)
         {
-            ColumnOptions.Render = render;
+            ColumnOptions.Render = render.StartsWith("fr:") ? render : ("fr:" + render);
             return this;
         }
 

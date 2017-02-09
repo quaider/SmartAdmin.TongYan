@@ -39,6 +39,7 @@
         for (var i = 0; i < optKeys.length; i++) {
             if (t.attr(optKeys[i]) == "" || t.attr(optKeys[i]) == undefined) continue;
             opt = $.TongYan.parser.parseOptions(target, optKeys[i]);
+
             options = $.extend({}, options, opt);
         }
 
@@ -89,7 +90,13 @@
         //parse columns
         domColumns.each(function (i, tr) {
             var columnOpt = $.TongYan.parser.parseOptions($(tr), 'data-grid-column');
+            /*
+             * 并非所有列都是数据列
             if (columnOpt && columnOpt.data && columnOpt.name) {
+                options["columns"].push(columnOpt);
+            }
+            */
+            if (columnOpt) {
                 options["columns"].push(columnOpt);
             }
         });
