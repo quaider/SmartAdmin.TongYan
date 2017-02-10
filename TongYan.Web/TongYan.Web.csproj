@@ -134,12 +134,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Demo\Controllers\DataGridController.cs" />
+    <Compile Include="Areas\Demo\Controllers\SelectController.cs" />
     <Compile Include="Areas\Demo\Controllers\TreeController.cs" />
     <Compile Include="Areas\Demo\DemoAreaRegistration.cs" />
     <Compile Include="Areas\Demo\Models\EmployeeDemo.cs" />
     <Compile Include="Binders\SearchModelBinder.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Extensions\TempExtensions.cs" />
+    <Compile Include="Extensions\ViewPageExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -269,6 +271,7 @@
     <Content Include="Areas\Demo\Views\DataGrid\Index.cshtml" />
     <Content Include="Areas\Demo\Views\DataGrid\_SearchUser.cshtml" />
     <Content Include="App_Code\TongYanHelpers.cshtml" />
+    <Content Include="Areas\Demo\Views\Select\Index.cshtml" />
     <None Include="bundleconfig.json" />
     <Content Include="test\columns.json" />
     <Content Include="wwwroot\js\core\ty.button.js" />
