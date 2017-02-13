@@ -1,8 +1,39 @@
-﻿
+﻿@using TongYan.Web.Controls.Extensions
+@using TongYan.Web.Controls.Select
+@{
+    var data = new[]
+    {
+        new SelectModel{id = "1", text = "option 1"},
+        new SelectModel{id = "2", text = "option 2"},
+        new SelectModel{id = "3", text = "option 3"}
+    };
+}
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model TongYan.Web.Models.EmployeeQueryModel
 <h2>Index</h2>
 
+@Html.Control().Select(f => f.DptName).SetOptions(x =>
+    {
+        x.AllowClear = true;
+        x.Placeholder = "请选择一项数据";
+        x.SetData(data);
+        //x.SetDataFromJsObj("jo:[{id:'2', text:'what is your name?'},{id:'4', text:'Jim Green', selected:true}]");
+    })
+
+@section Scripts{
+    <script>
+        $(function () {
+            var select = $('#DptName');
+            var opt = $.TongYan.parser.parseOptions(select, 'data-options');
+            select.select2(opt);
+        });
+
+        function getData() {
+            alert(0);
+            return [{ id: 1, text: 'item one' }, { id: 'ww', text: 'select2 wrapper' }];
+        }
+    </script>
+}

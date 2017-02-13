@@ -100,6 +100,12 @@
     <Compile Include="IWebControlRender.cs" />
     <Compile Include="IWebControlWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Select\ISelectApi.cs" />
+    <Compile Include="Select\Options\SelectControlOptions.cs" />
+    <Compile Include="Select\Options\SelectOptions.cs" />
+    <Compile Include="Select\SelectControl.cs" />
+    <Compile Include="Select\SelectControlRender.cs" />
+    <Compile Include="Select\SelectModel.cs" />
     <Compile Include="Tree\ITreeApi.cs" />
     <Compile Include="Tree\Options\TreeAsyncOptions.cs" />
     <Compile Include="Tree\Options\TreeCallbackOptions.cs" />

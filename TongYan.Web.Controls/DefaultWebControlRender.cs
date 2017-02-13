@@ -168,7 +168,7 @@ namespace TongYan.Web.Controls
                 {
                     builder.AppendFormat("{0}:{1}", option.Key, option.Value.ToString().ToLower());
                 }
-                else if (option.Value is IEnumerable)
+                else if (option.Value is IEnumerable || option.Value.GetType().IsClass)
                 {
                     builder.AppendFormat("{0}:{1}", option.Key, JsonConvert.SerializeObject(option.Value).Replace("\"","\'"));
                 }

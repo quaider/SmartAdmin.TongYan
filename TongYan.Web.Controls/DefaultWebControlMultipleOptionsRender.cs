@@ -14,7 +14,7 @@ namespace TongYan.Web.Controls
     /// <typeparam name="T"></typeparam>
     public class DefaultWebControlMultipleOptionsRender<T> : DefaultWebControlRender<T>
     {
-        protected DefaultWebControlMultipleOptions<T> multipleOptions
+        protected DefaultWebControlMultipleOptions<T> MultipleOptions
         {
             get { return Options as DefaultWebControlMultipleOptions<T>; }
         }
@@ -26,7 +26,7 @@ namespace TongYan.Web.Controls
         /// <returns>StringBuilder</returns>
         protected override StringBuilder GetOptions(string key)
         {
-            var builder = ParseNestedOptions(multipleOptions[key]);
+            var builder = ParseNestedOptions(MultipleOptions[key]);
 
             return builder;
         }
@@ -35,7 +35,7 @@ namespace TongYan.Web.Controls
         {
             RenderTextLine(EndTag);
 
-            if (multipleOptions.RunScript)
+            if (MultipleOptions.RunScript)
                 RenderScript();
         }
 
