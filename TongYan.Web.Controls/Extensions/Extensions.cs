@@ -90,7 +90,7 @@ namespace TongYan.Web.Controls.Extensions
         /// </summary>
         /// <param name="htmlHelper">HtmlHelper</param>
         /// <returns>IWebControlWrapper</returns>
-        public static IWebControlWrapper<T> Control<T>(this HtmlHelper<T> htmlHelper)
+        public static IWebControlWrapper<T> Control<T>(this HtmlHelper<T> htmlHelper) where T : class
         {
             return new WebControlWrapper<T>(htmlHelper);
         }

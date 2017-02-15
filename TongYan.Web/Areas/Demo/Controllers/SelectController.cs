@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TongYan.Web.Models;
 
 namespace TongYan.Web.Areas.Demo.Controllers
 {
@@ -11,7 +12,8 @@ namespace TongYan.Web.Areas.Demo.Controllers
         // GET: Demo/Select
         public ActionResult Index()
         {
-            return View();
+            var model = new EmployeeQueryModel { DptName = "3,5" };
+            return View(model);
         }
     }
 }

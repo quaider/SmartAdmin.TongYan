@@ -5,7 +5,9 @@
     {
         new SelectModel{id = "1", text = "option 1"},
         new SelectModel{id = "2", text = "option 2"},
-        new SelectModel{id = "3", text = "option 3"}
+        new SelectModel{id = "3", text = "option 3"},
+        new SelectModel{id = "4", text = "option 4"},
+        new SelectModel{id = "5", text = "option 5"}
     };
 }
 @{
@@ -18,6 +20,7 @@
 @Html.Control().Select(f => f.DptName).SetOptions(x =>
     {
         x.AllowClear = true;
+        x.Multiple = true;
         x.Placeholder = "请选择一项数据";
         x.SetData(data);
         //x.SetDataFromJsObj("jo:[{id:'2', text:'what is your name?'},{id:'4', text:'Jim Green', selected:true}]");

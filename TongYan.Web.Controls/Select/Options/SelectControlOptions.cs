@@ -10,5 +10,10 @@ namespace TongYan.Web.Controls.Select.Options
             ItemOptions = new List<IOptionKey>();
             Render = new SelectControlRender<TEntity>();
         }
+
+        /// <summary>
+        /// 控件选中项的值
+        /// </summary>
+        internal object SelectedValues { get; set; }
     }
 }

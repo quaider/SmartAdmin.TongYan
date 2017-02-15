@@ -135,7 +135,7 @@ namespace TongYan.Web.Controls.Select.Options
             set
             {
                 _multiple = value;
-                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Multiple).ToCamelCaseString(), value);
+                //_hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Multiple).ToCamelCaseString(), value);
             }
         }
 

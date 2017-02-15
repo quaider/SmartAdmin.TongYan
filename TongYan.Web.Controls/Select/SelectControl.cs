@@ -10,7 +10,7 @@ namespace TongYan.Web.Controls.Select
     {
         private readonly HtmlHelper<TEntity> _helper;
 
-        public SelectControl(string name, HtmlHelper<TEntity> helper) : base(new SelectControlOptions<TEntity>())
+        public SelectControl(string name, object value, HtmlHelper<TEntity> helper) : base(new SelectControlOptions<TEntity>())
         {
             SelectCtrlOptions.Attributes.SetKeyValue("name", name);
 
@@ -18,6 +18,7 @@ namespace TongYan.Web.Controls.Select
             SelectCtrlOptions.Attributes.SetKeyValue("id", id);
 
             _helper = helper;
+            SelectCtrlOptions.SelectedValues = value;
         }
 
         protected SelectControlOptions<TEntity> SelectCtrlOptions

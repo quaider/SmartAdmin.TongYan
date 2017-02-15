@@ -11,7 +11,7 @@ using TongYan.Web.Controls.Tree;
 
 namespace TongYan.Web.Controls
 {
-    public class WebControlWrapper<TEntity> : IWebControlWrapper<TEntity>
+    public class WebControlWrapper<TEntity> : IWebControlWrapper<TEntity> where TEntity : class
     {
         private readonly HtmlHelper<TEntity> _helper;
 
@@ -33,15 +33,19 @@ namespace TongYan.Web.Controls
         public ISelectApi Select<TProperty>(Expression<Func<TEntity, TProperty>> expression)
         {
             var name = _helper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldName(ExpressionHelper.GetExpressionText(expression));
-            
+            TProperty value = default(TProperty);
+            if (_helper.ViewContext.ViewData.Model != null)
+            {
+                value = expression.Compile().Invoke(_helper.ViewContext.ViewData.Model as TEntity);
+            }
 
-            var select = new SelectControl<TEntity>(name, _helper);
+            var select = new SelectControl<TEntity>(name, value, _helper);
             return select;
         }
 
         public ISelectApi Select(string name)
         {
-            var select = new SelectControl<TEntity>(name, _helper);
+            var select = new SelectControl<TEntity>(name, "", _helper);
             return select;
         }
     }
