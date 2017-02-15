@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TongYan.Web.Controls.Extensions;
 
 namespace TongYan.Web.Controls.Tree.Options
@@ -89,7 +90,9 @@ namespace TongYan.Web.Controls.Tree.Options
 
         IDictionary<string, object> IOptionKey.ConvertToDic()
         {
-            _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Drag).ToCamelCaseString(), Drag.ConvertToDic());
+            var dragDic = Drag.ConvertToDic();
+            if (dragDic.Keys.Any())
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Drag).ToCamelCaseString(), dragDic);
 
             return _hasSetOptionsProperties;
         }

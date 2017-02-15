@@ -3,11 +3,11 @@
 @{
     var data = new[]
     {
-        new SelectModel{id = "1", text = "option 1"},
-        new SelectModel{id = "2", text = "option 2"},
-        new SelectModel{id = "3", text = "option 3"},
-        new SelectModel{id = "4", text = "option 4"},
-        new SelectModel{id = "5", text = "option 5"}
+        new SelectModel("1", "option 1"),
+        new SelectModel("2", "option 2"),
+        new SelectModel("3", "option 3"),
+        new SelectModel("4", "option 4"),
+        new SelectModel("5", "option 5")
     };
 }
 @{
@@ -23,8 +23,14 @@
         x.Multiple = true;
         x.Placeholder = "请选择一项数据";
         x.SetData(data);
-        //x.SetDataFromJsObj("jo:[{id:'2', text:'what is your name?'},{id:'4', text:'Jim Green', selected:true}]");
     })
+<br /><br />
+@*@Html.Control().Select(f => f.FullName).SetOptions(x =>
+    {
+        x.Ajax.Url = Url.Action("GetFirst", "Select");
+        x.Ajax.
+    })*@
+<select id="FullName"></select>
 
 @section Scripts{
     <script>
@@ -32,11 +38,7 @@
             var select = $('#DptName');
             var opt = $.TongYan.parser.parseOptions(select, 'data-options');
             select.select2(opt);
-        });
 
-        function getData() {
-            alert(0);
-            return [{ id: 1, text: 'item one' }, { id: 'ww', text: 'select2 wrapper' }];
-        }
+        });
     </script>
 }

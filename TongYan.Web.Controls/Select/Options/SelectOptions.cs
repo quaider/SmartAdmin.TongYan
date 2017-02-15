@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using TongYan.Web.Controls.Extensions;
 
@@ -650,6 +651,11 @@ namespace TongYan.Web.Controls.Select.Options
 
         public IDictionary<string, object> ConvertToDic()
         {
+            var ajaxDic = Ajax.ConvertToDic();
+            if (ajaxDic.Keys.Any())
+            {
+                _hasSetOptionsProperties.SetKeyValue("ajax", Ajax.ConvertToDic());
+            }
             return _hasSetOptionsProperties;
         }
     }
