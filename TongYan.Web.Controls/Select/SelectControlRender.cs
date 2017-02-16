@@ -32,6 +32,13 @@ namespace TongYan.Web.Controls.Select
                 SelectOptions.Attributes.SetKeyValue("multiple", "multiple");
             }
 
+            //处理联动设置
+            var lkOpt = SelectOptions.ItemOptions.SingleOrDefault(f => f.OptionKey == "data-select-linkage") as SelectLinkageOptions;
+            if (lkOpt != null && !string.IsNullOrWhiteSpace(lkOpt.Parent))
+            {
+                SelectOptions.Attributes.SetKeyValue("data-select-parent", lkOpt.Parent.Trim());
+            }
+
             base.RenderBody();
 
             //基于建模复杂度考虑， 这里直接输出options

@@ -44,5 +44,17 @@ namespace TongYan.Web.Controls.Select
             SelectCtrlOptions.SetItemOptions(opt);
             return this;
         }
+
+        public ISelectApi Linkage(Action<SelectLinkageOptions> options)
+        {
+            var opt = new SelectLinkageOptions();
+            if (options != null)
+            {
+                options(opt);
+            }
+
+            SelectCtrlOptions.SetItemOptions(opt);
+            return this;
+        }
     }
 }

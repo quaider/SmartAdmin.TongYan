@@ -188,6 +188,7 @@
     <Content Include="wwwroot\js\core\ty.iframePage.init.js" />
     <Content Include="wwwroot\js\core\ty.menu.js" />
     <Content Include="wwwroot\js\core\ty.parser.js" />
+    <Content Include="wwwroot\js\core\ty.select.js" />
     <Content Include="wwwroot\js\core\ty.tree.js" />
     <Content Include="wwwroot\lib\bootstrap\css\bootstrap-theme.css" />
     <Content Include="wwwroot\lib\bootstrap\css\bootstrap-theme.min.css" />

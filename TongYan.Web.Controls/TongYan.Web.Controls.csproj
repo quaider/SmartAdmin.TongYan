@@ -102,6 +102,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Select\ISelectApi.cs" />
     <Compile Include="Select\Options\SelectControlOptions.cs" />
+    <Compile Include="Select\Options\SelectLinkageOptions.cs" />
     <Compile Include="Select\Options\SelectOptions.cs" />
     <Compile Include="Select\SelectControl.cs" />
     <Compile Include="Select\SelectControlRender.cs" />

@@ -18,27 +18,57 @@
 <h2>Index</h2>
 
 @Html.Control().Select(f => f.DptName).SetOptions(x =>
-    {
-        x.AllowClear = true;
-        x.Multiple = true;
-        x.Placeholder = "请选择一项数据";
-        x.SetData(data);
-    })
+{
+    x.AllowClear = true;
+    x.Multiple = true;
+    x.Placeholder = "请选择一项数据";
+    x.SetData(data);
+})
 <br /><br />
-@*@Html.Control().Select(f => f.FullName).SetOptions(x =>
-    {
-        x.Ajax.Url = Url.Action("GetFirst", "Select");
-        x.Ajax.
-    })*@
-<select id="FullName"></select>
+
+<div class="row">
+    <div class="col-sm-4">
+        @Html.Control().Select(f => f.FullName).SetOptions(x =>
+        {
+            x.AllowClear = true;
+            x.Placeholder = "请选择省份";
+        }).Linkage(x =>
+        {
+            x.Url = Url.Action("GetFirst", "Select");
+        })
+    </div>
+    <div class="col-sm-4">
+        @Html.Control().Select(f => f.UserName).SetOptions(x =>
+        {
+            x.AllowClear = true;
+            x.Placeholder = "请选择城市";
+        }).Linkage(x =>
+        {
+            x.Parent = "FullName";
+            x.Url = Url.Action("GetSecond", "Select");
+        })
+    </div>
+    <div class="col-sm-4">
+        @Html.Control().Select(f => f.Order).SetOptions(x =>
+        {
+            x.AllowClear = true;
+            x.Placeholder = "请选择地区";
+        }).Linkage(x =>
+        {
+            x.Parent = "UserName";
+            x.Url = Url.Action("GetThird", "Select");
+        })
+</div>
+</div>
+
 
 @section Scripts{
     <script>
         $(function () {
-            var select = $('#DptName');
-            var opt = $.TongYan.parser.parseOptions(select, 'data-options');
-            select.select2(opt);
-
+            $('#DptName').tySelect();
+            $('#FullName').tySelect();
+            $('#UserName').tySelect();
+            $('#Order').tySelect();
         });
     </script>
 }
