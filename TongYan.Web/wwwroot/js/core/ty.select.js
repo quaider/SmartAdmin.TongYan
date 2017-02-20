@@ -24,14 +24,29 @@
 
     function linkage(target, opt) {
         target.select2(opt[0]);
-
-        //ajax提取下拉项
-        if (opt[1].url && opt[1].url.length && (!opt[1].parent || opt[1].parent.length < 1)) {
+        var parent = target.attr('data-select-parent');
+        //ajax提取下拉项(一级)
+        if (opt[1].url && opt[1].url.length && (!parent || parent.length < 1)) {
             $.ajax({
                 url: opt[1].url,
                 type: 'post'
             }).done(function (data) {
                 setOptionItems(target, data);
+            });
+        }
+        else if (parent) {
+            parent = $("#" + parent);
+            //初始化子级下拉
+            if (!opt[1].url || opt[1].url.length < 0) return;
+
+            parent.bind('change', function () {
+                $.ajax({
+                    url: opt[1].url,
+                    type: 'post',
+                    data: { q: parent.val() }
+                }).done(function (data) {
+                    setOptionItems(target, data);
+                });
             });
         }
     }

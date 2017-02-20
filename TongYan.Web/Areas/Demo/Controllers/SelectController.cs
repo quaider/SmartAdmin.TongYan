@@ -23,14 +23,14 @@ namespace TongYan.Web.Areas.Demo.Controllers
             return Json(First(), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetSecond(string first)
+        public ActionResult GetSecond(string q)
         {
-            return Json(Second(first), JsonRequestBehavior.AllowGet);
+            return Json(Second(q), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetThird(string second)
+        public ActionResult GetThird(string q)
         {
-            return Json(Third(second), JsonRequestBehavior.AllowGet);
+            return Json(Third(q), JsonRequestBehavior.AllowGet);
         }
 
         #region 测试代码
