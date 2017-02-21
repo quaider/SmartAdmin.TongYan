@@ -13,6 +13,8 @@ namespace TongYan.Web.Controls.Select.Options
         {
             _hasSetOptionsProperties = new Dictionary<string, object>();
             _ajax = new SelectWithAjax();
+
+            //Language = "zh-CN";
         }
 
         #region Select2 配置 http://select2.github.io/select2/#documentation
@@ -623,6 +625,17 @@ namespace TongYan.Web.Controls.Select.Options
             {
                 _nextSearchTerm = value.StartsWith("fn:") ? value : ("fn:" + value);
                 _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.NextSearchTerm).ToCamelCaseString(), value);
+            }
+        }
+
+        private string _language = "zh-CN";
+        public string Language
+        {
+            get { return _language; }
+            set
+            {
+                _language = value;
+                _hasSetOptionsProperties.SetKeyValue(this.NameOf(f => f.Language).ToCamelCaseString(), value);
             }
         }
 

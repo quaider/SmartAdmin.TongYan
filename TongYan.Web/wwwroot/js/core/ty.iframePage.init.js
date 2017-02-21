@@ -6,4 +6,6 @@
         trigger: 'hover'
     });
 
+    $.fn.select2.defaults.language = "zh-CN";
+
 })(jQuery)

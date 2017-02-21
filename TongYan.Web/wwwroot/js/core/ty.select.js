@@ -14,7 +14,10 @@
         var options = [],
             t = $(target);
 
-        options.push($.TongYan.parser.parseOptions(target, 'data-options'));
+        var optTmp = $.TongYan.parser.parseOptions(target, 'data-options');
+        !optTmp.language && (optTmp.language = "zh-CN");
+        options.push(optTmp);
+
         if (t.attr('data-select-linkage')) {
             options.push($.TongYan.parser.parseOptions(target, 'data-select-linkage'));
         }
@@ -54,7 +57,7 @@
                     data: { q: parent.val() }
                 }).done(function (data) {
                     setOptionItems(target, data);
-                    //设置选择项后，重新触发其change事件， 用来清空自己下拉项
+                    //设置选择项后，重新触发其change事件， 用来清空子级下拉项
                     target.trigger('change');
                 });
             });

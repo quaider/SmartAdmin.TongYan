@@ -38,6 +38,7 @@ namespace TongYan.Web
             bundles.Add(new ScriptBundle("~/bundles/components").Include(
                       "~/wwwroot/lib/jquery-slimscroll/jquery.slimscroll.js",
                       "~/wwwroot/lib/jquery-select2/select2.js",
+                      "~/wwwroot/lib/jquery-select2/i18n/zh-CN.js",
                       "~/wwwroot/lib/layer/layer.js",
 
                       "~/wwwroot/lib/star-rating/js/star-rating.js",
