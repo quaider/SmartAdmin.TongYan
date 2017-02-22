@@ -78,19 +78,21 @@
 
     // Register a plugin to integrate jquery.treeTable
     $.fn.dataTableExt.aoFeatures.push({
-        "fnInit": function (oDTSettings) {
-            var oTable = oDTSettings.oInstance,
-				opts = getInitOpts(oDTSettings);
+        "fnInit": function (settings) {
+            var oTable = settings.oInstance,
+				opts = getInitOpts(settings);
+            /*
             if (typeof opts.fnPreInit === 'function') {
-                oTable.oApi._fnCallbackReg(oDTSettings, "aoRowCreatedCallback", opts.fnPreInit, "preInitTreeTable");
+                //这样无效，因为注册发生在DataTable aoRowCreatedCallback事件触发后
+                oTable.oApi._fnCallbackReg(settings, "aoRowCreatedCallback", opts.fnPreInit, "preInitTreeTable");
             }
-            oTable.oApi._fnCallbackReg(oDTSettings, "aoDrawCallback", function () {
+            */
+            oTable.oApi._fnCallbackReg(settings, "aoDrawCallback", function () {
                 oTable.fnInitTreeTable(opts);
             }, "initTreeTable");
 
             return null; /* No node to insert */
         },
-        "cFeature": "T",
-        "sFeature": "Integrate jquery.treetable"
+        "cFeature": "T"
     });
 }(jQuery));

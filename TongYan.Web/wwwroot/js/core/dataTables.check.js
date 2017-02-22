@@ -40,6 +40,7 @@
         if (config === true) {
             config = {};
         }
+        debugger
 
         dt = new DataTable.Api(dt);
 

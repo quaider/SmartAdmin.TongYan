@@ -32,7 +32,71 @@
                 <td>2011/07/25</td>
                 <td>$5,300</td>
             </tr>
+            <tr data-tt-id="5" data-tt-parent-id="1">
+                <td>Tiger B</td>
+                <td>Director</td>
+                <td>Edinburgh</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$5,300</td>
+            </tr>
+            <tr data-tt-id="6" data-tt-parent-id="1">
+                <td>Tiger B</td>
+                <td>Director</td>
+                <td>Edinburgh</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$5,300</td>
+            </tr>
             <tr data-tt-id="3" data-tt-parent-id="2">
+                <td>Tiger C</td>
+                <td>Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$4,800</td>
+            </tr>
+            <tr data-tt-id="11">
+                <td>Tiger A</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$3,120</td>
+            </tr>
+            <tr data-tt-id="21" data-tt-parent-id="11">
+                <td>Tiger B</td>
+                <td>Director</td>
+                <td>Edinburgh</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$5,300</td>
+            </tr>
+            <tr data-tt-id="31" data-tt-parent-id="21">
+                <td>Tiger C</td>
+                <td>Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$4,800</td>
+            </tr>
+            <tr data-tt-id="41" data-tt-parent-id="21">
+                <td>Tiger C</td>
+                <td>Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$4,800</td>
+            </tr>
+            <tr data-tt-id="51" data-tt-parent-id="21">
+                <td>Tiger C</td>
+                <td>Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$4,800</td>
+            </tr>
+            <tr data-tt-id="61" data-tt-parent-id="21">
                 <td>Tiger C</td>
                 <td>Technical Author</td>
                 <td>San Francisco</td>
@@ -49,23 +113,12 @@
     <script>
         $(function () {
             var table = $('#example').DataTable({
-
                 "oTreeTable": {
-                    "fnPreInit": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-                        // This function will be registerd as "aoRowCallback" of jquery.dataTables,
-                        //  thus it has the same signature as "fnRowCallback".
-                        // Specify "id" & "class" attributes for each row (TR) required by jquery.treeTable:
-                        //   for parent rows, add class 'parent';
-                        //   for children rows, add a class with name of prefix - 'child-of-' and parent id
-
-                    },
                     "showExpander": true,
                     "expandable": true,
                     "clickableNodeNames": true,
                     "initialState": "expanded"
-                    // The other settings to override the default options of jquery.treeTable, e.g. childPrefix, etc.
                 }
-                // The other settings of jquery.dataTables here...
             });
         })
     </script>
