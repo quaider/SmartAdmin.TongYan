@@ -9,6 +9,7 @@
     <mvcSiteMapNode title="应用示例" clickable="false">
       <mvcSiteMapNode title="树控件" controller="Tree" action="Index" area="Demo" />
       <mvcSiteMapNode title="数据表格" controller="DataGrid" action="Index" area="Demo" />
+      <mvcSiteMapNode title="树形表格" controller="DataGrid" action="TreeTable" area="Demo" />
       <mvcSiteMapNode title="下拉框" controller="Select" action="Index" area="Demo" />
     </mvcSiteMapNode>
 

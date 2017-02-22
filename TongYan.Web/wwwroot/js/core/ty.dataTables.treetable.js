@@ -7,9 +7,9 @@
 		    return oDTSettings.oInit.oTreeTable || {};
 		},
 		initTreeTable = function (dataTable, options) {
-		    dataTable.treeTable(options).addClass('initialized-treeTable');
+		    dataTable.treetable(options).addClass('initialized-treeTable');
 		    // remove expander
-		    if (options !== null && options.showExpander === false) {
+		    if (options && options.showExpander === false) {
 		        dataTable.$('td a.expander').remove();
 		    }
 		};
@@ -19,11 +19,11 @@
 	 * Returns whether the current dataTable is also a treeTable or not.
 	 */
     $.fn.dataTableExt.oApi.isTreeTable = function (oSettings) {
-        return $('#' + oSettings.sTableId).hasClass('treeTable');
+        return $('#' + oSettings.sTableId).hasClass('treetable');
     };
 
     function isTreeTableInitialized(oSettings) {
-        return $('#' + oSettings.sTableId).hasClass('treeTable initialized-treeTable');
+        return $('#' + oSettings.sTableId).hasClass('treetable initialized-treeTable');
     }
 
     /**
@@ -91,6 +91,6 @@
             return null; /* No node to insert */
         },
         "cFeature": "T",
-        "sFeature": "Integrate jquery.treeTable"
+        "sFeature": "Integrate jquery.treetable"
     });
 }(jQuery));

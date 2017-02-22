@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    <link href="~/wwwroot/lib/jquery-treetable/css/jquery.treetable.theme.default.css" rel="stylesheet" />
+    <link href="~/wwwroot/lib/jquery-treetable/css/jquery.treetable.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container" id="contentLayout">
@@ -39,12 +41,16 @@
     <script src="~/wwwroot/js/core/ty.core.js"></script>
     <script src="~/wwwroot/js/core/ty.parser.js"></script>
     @Scripts.Render("~/bundles/components")
+
     <script src="~/wwwroot/js/core/ty.tree.js"></script>
     <script src="~/wwwroot/js/core/dataTables.check.js"></script>
     <script src="~/wwwroot/js/core/ty.datatable.js"></script>
     <script src="~/wwwroot/js/core/ty.iframePage.init.js"></script>
     <script src="~/wwwroot/js/core/ty.button.js"></script>
     <script src="~/wwwroot/js/core/ty.select.js"></script>
+
+    <script src="~/wwwroot/lib/jquery-treetable/jquery.treetable.js"></script>
+    <script src="~/wwwroot/js/core/ty.dataTables.treetable.js"></script>
     @RenderSection("scripts", required: false)
     @Html.RenderControlScript()
 </body>

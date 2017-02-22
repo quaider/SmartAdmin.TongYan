@@ -61,5 +61,10 @@ namespace TongYan.Web.Areas.Demo.Controllers
 
             return Json(r, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult TreeTable()
+        {
+            return View();
+        }
     }
 }

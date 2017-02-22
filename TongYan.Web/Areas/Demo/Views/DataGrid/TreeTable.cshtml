@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "TreeTable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <table id="example" class="table table-lilac table-bordered" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-tt-id="1">
+                <td>Tiger A</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$3,120</td>
+            </tr>
+            <tr data-tt-id="2" data-tt-parent-id="1">
+                <td>Tiger B</td>
+                <td>Director</td>
+                <td>Edinburgh</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$5,300</td>
+            </tr>
+            <tr data-tt-id="3" data-tt-parent-id="2">
+                <td>Tiger C</td>
+                <td>Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$4,800</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script>
+        $(function () {
+            var table = $('#example').DataTable({
+
+                "oTreeTable": {
+                    "fnPreInit": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                        // This function will be registerd as "aoRowCallback" of jquery.dataTables,
+                        //  thus it has the same signature as "fnRowCallback".
+                        // Specify "id" & "class" attributes for each row (TR) required by jquery.treeTable:
+                        //   for parent rows, add class 'parent';
+                        //   for children rows, add a class with name of prefix - 'child-of-' and parent id
+
+                    },
+                    "showExpander": true,
+                    "expandable": true,
+                    "clickableNodeNames": true,
+                    "initialState": "expanded"
+                    // The other settings to override the default options of jquery.treeTable, e.g. childPrefix, etc.
+                }
+                // The other settings of jquery.dataTables here...
+            });
+        })
+    </script>
+}
+
